@@ -61,10 +61,10 @@ The config file is git-ignored for security.
 
 ```bash
 # Monitor Deribit documentation
-python deribit_doc_monitor_telegram.py
+python deribit_doc_monitor.py
 
 # Monitor Bybit documentation
-python bybit_doc_monitor_telegram.py
+python bybit_doc_monitor.py
 ```
 
 That's it! The scripts automatically read from `config.json`.
@@ -116,21 +116,21 @@ Both monitors support these options:
 
 ```bash
 # Use custom storage file
-python deribit_doc_monitor_telegram.py --storage-file my_state.json
+python deribit_doc_monitor.py --storage-file my_state.json
 
 # Use different config file
-python deribit_doc_monitor_telegram.py --config my_config.json
+python deribit_doc_monitor.py --config my_config.json
 
 # Override config with command-line args
-python deribit_doc_monitor_telegram.py \
+python deribit_doc_monitor.py \
   --telegram-token "different_token" \
   --telegram-chat-id "different_chat_id"
 
 # Disable notifications for testing
-python deribit_doc_monitor_telegram.py --no-telegram
+python deribit_doc_monitor.py --no-telegram
 
 # Bybit: adjust page discovery limit
-python bybit_doc_monitor_telegram.py --max-pages 1000
+python bybit_doc_monitor.py --max-pages 1000
 ```
 
 ## Automation
@@ -147,10 +147,10 @@ Add these lines:
 
 ```bash
 # Deribit monitor
-0 */6 * * * cd /path/to/monitors && python deribit_doc_monitor_telegram.py >> deribit.log 2>&1
+0 */6 * * * cd /path/to/monitors && python deribit_doc_monitor.py >> deribit.log 2>&1
 
 # Bybit monitor (30 min offset)
-30 */6 * * * cd /path/to/monitors && python bybit_doc_monitor_telegram.py >> bybit.log 2>&1
+30 */6 * * * cd /path/to/monitors && python bybit_doc_monitor.py >> bybit.log 2>&1
 ```
 
 ### Shell Script
@@ -161,8 +161,8 @@ Create `run_monitors.sh`:
 #!/bin/bash
 cd "$(dirname "$0")"
 echo "=== $(date) ==="
-python deribit_doc_monitor_telegram.py
-python bybit_doc_monitor_telegram.py
+python deribit_doc_monitor.py
+python bybit_doc_monitor.py
 echo "Done!"
 ```
 
@@ -189,7 +189,7 @@ services:
     command: >
       bash -c "
         while true; do
-          python deribit_doc_monitor_telegram.py \
+          python deribit_doc_monitor.py \
             --storage-file /app/data/deribit_docs_state.json
           sleep 21600
         done
@@ -203,7 +203,7 @@ services:
     command: >
       bash -c "
         while true; do
-          python bybit_doc_monitor_telegram.py \
+          python bybit_doc_monitor.py \
             --storage-file /app/data/bybit_docs_state.json
           sleep 21600
         done
@@ -244,8 +244,8 @@ To verify everything works:
 rm deribit_docs_state.json bybit_docs_state.json
 
 # Run the monitors
-python deribit_doc_monitor_telegram.py
-python bybit_doc_monitor_telegram.py
+python deribit_doc_monitor.py
+python bybit_doc_monitor.py
 
 # You should receive Telegram messages!
 ```
