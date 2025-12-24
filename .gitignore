@@ -1,9 +1,6 @@
 # Configuration files with credentials
 config.json
 
-# State files
-*_docs_state.json
-
 # Log files
 *.log
 

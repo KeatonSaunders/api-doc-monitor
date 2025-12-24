@@ -1,6 +1,6 @@
 # Crypto Exchange API Documentation Monitors
 
-Monitor Deribit and Bybit API documentation for changes and receive instant Telegram notifications when updates occur.
+Monitor Deribit, Bybit, and Binance API documentation for changes and receive instant Telegram notifications when updates occur.
 
 ## Overview
 
@@ -9,6 +9,7 @@ This tool tracks changes to cryptocurrency exchange API documentation by monitor
 **Supported Exchanges:**
 - **Deribit**: Section-based tracking of single-page documentation
 - **Bybit**: Page-based tracking across multi-page documentation
+- **Binance**: Dual changelog tracking for Spot and Derivatives APIs
 
 ## Features
 
@@ -65,6 +66,15 @@ python deribit_doc_monitor.py
 
 # Monitor Bybit documentation
 python bybit_doc_monitor.py
+
+# Monitor Binance documentation (both Spot and Derivatives)
+python binance_doc_monitor.py
+
+# Monitor only Binance Spot API
+python binance_doc_monitor.py --spot-only
+
+# Monitor only Binance Derivatives
+python binance_doc_monitor.py --derivatives-only
 ```
 
 That's it! The scripts automatically read from `config.json`.
@@ -86,6 +96,14 @@ Bybit uses multi-page documentation. The script:
 3. Tracks each page separately
 4. Compares content hashes to detect changes
 5. Sends Telegram notification with changed pages
+
+### Binance Monitor
+Binance maintains separate changelogs for Spot and Derivatives APIs. The script:
+1. Fetches both changelog pages (Spot and Derivatives)
+2. Extracts date-based sections from each changelog
+3. Tracks each changelog entry separately
+4. Compares content hashes to detect changes
+5. Sends Telegram notification with API type labels
 
 ## Telegram Notifications
 
@@ -112,7 +130,7 @@ View Full Documentation
 
 ## Command-Line Options
 
-Both monitors support these options:
+All monitors support these common options:
 
 ```bash
 # Use custom storage file
@@ -129,8 +147,23 @@ python deribit_doc_monitor.py \
 # Disable notifications for testing
 python deribit_doc_monitor.py --no-telegram
 
-# Bybit: adjust page discovery limit
+# Save full content for detailed analysis
+python deribit_doc_monitor.py --save-content
+```
+
+**Bybit-specific:**
+```bash
+# Adjust page discovery limit
 python bybit_doc_monitor.py --max-pages 1000
+```
+
+**Binance-specific:**
+```bash
+# Monitor only Spot API
+python binance_doc_monitor.py --spot-only
+
+# Monitor only Derivatives
+python binance_doc_monitor.py --derivatives-only
 ```
 
 ## Automation
@@ -151,6 +184,9 @@ Add these lines:
 
 # Bybit monitor (30 min offset)
 30 */6 * * * cd /path/to/monitors && python bybit_doc_monitor.py >> bybit.log 2>&1
+
+# Binance monitor (1 hour offset)
+0 1-23/6 * * * cd /path/to/monitors && python binance_doc_monitor.py >> binance.log 2>&1
 ```
 
 ### Shell Script
@@ -163,6 +199,7 @@ cd "$(dirname "$0")"
 echo "=== $(date) ==="
 python deribit_doc_monitor.py
 python bybit_doc_monitor.py
+python binance_doc_monitor.py
 echo "Done!"
 ```
 
@@ -208,6 +245,20 @@ services:
           sleep 21600
         done
       "
+
+  binance-monitor:
+    build: .
+    volumes:
+      - ./config.json:/app/config.json:ro
+      - ./data:/app/data
+    command: >
+      bash -c "
+        while true; do
+          python binance_doc_monitor.py \
+            --storage-file /app/data/binance_docs_state.json
+          sleep 21600
+        done
+      "
 ```
 
 Run with:
@@ -241,11 +292,12 @@ To verify everything works:
 
 ```bash
 # Delete state files to trigger "new" changes
-rm deribit_docs_state.json bybit_docs_state.json
+rm deribit_docs_state.json bybit_docs_state.json binance_docs_state.json
 
 # Run the monitors
 python deribit_doc_monitor.py
 python bybit_doc_monitor.py
+python binance_doc_monitor.py
 
 # You should receive Telegram messages!
 ```
@@ -310,6 +362,21 @@ Everyone in the group will receive notifications!
 - Account endpoints
 - WebSocket documentation
 - Rate limits and best practices
+
+### Binance
+**Spot API Changelog:**
+- REST API updates
+- WebSocket stream changes
+- New endpoint announcements
+- Parameter modifications
+- Deprecation notices
+
+**Derivatives Changelog:**
+- USDⓈ-M Futures updates
+- COIN-M Futures changes
+- Portfolio Margin features
+- Options trading updates
+- WebSocket modifications
 
 ## Why Telegram Over Email?
 
