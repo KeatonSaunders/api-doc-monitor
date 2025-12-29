@@ -12,13 +12,13 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 import time
 from typing import Dict, Set, Tuple
-from base_monitor import BaseDocMonitor
+from .base_monitor import BaseDocMonitor
 
 
 class BybitDocMonitor(BaseDocMonitor):
     def __init__(
         self,
-        storage_file: str = "bybit_docs_state.json",
+        storage_file: str = "state/bybit_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
         max_pages: int = 500,
@@ -174,7 +174,7 @@ def main():
     import argparse
 
     parser = BaseDocMonitor.create_argument_parser(
-        exchange_name="Bybit", default_storage_file="bybit_docs_state.json"
+        exchange_name="Bybit", default_storage_file="state/bybit_docs_state.json"
     )
     parser.add_argument(
         "--max-pages",

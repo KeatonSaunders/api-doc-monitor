@@ -12,7 +12,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 from typing import Dict, Tuple
-from base_monitor import BaseDocMonitor
+from .base_monitor import BaseDocMonitor
 
 
 class OKXDocMonitor(BaseDocMonitor):
@@ -20,7 +20,7 @@ class OKXDocMonitor(BaseDocMonitor):
 
     def __init__(
         self,
-        storage_file: str = "okx_docs_state.json",
+        storage_file: str = "state/okx_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
         base_url: str = "https://www.okx.com/docs-v5/log_en/",
@@ -180,7 +180,7 @@ def main():
     # Create argument parser using base class helper
     parser = BaseDocMonitor.create_argument_parser(
         exchange_name="OKX",
-        default_storage_file="okx_docs_state.json"
+        default_storage_file="state/okx_docs_state.json"
     )
 
     args = parser.parse_args()

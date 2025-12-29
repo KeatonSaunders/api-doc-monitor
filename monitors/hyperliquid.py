@@ -12,7 +12,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 from typing import Dict, Tuple
-from base_monitor import BaseDocMonitor
+from .base_monitor import BaseDocMonitor
 
 
 class HyperliquidDocMonitor(BaseDocMonitor):
@@ -27,7 +27,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
 
     def __init__(
         self,
-        storage_file: str = "hyperliquid_docs_state.json",
+        storage_file: str = "state/hyperliquid_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
         base_url: str = "https://hyperliquid.gitbook.io/hyperliquid-docs",
@@ -363,7 +363,7 @@ def main():
     # Create argument parser using base class helper
     parser = BaseDocMonitor.create_argument_parser(
         exchange_name="Hyperliquid",
-        default_storage_file="hyperliquid_docs_state.json"
+        default_storage_file="state/hyperliquid_docs_state.json"
     )
 
     args = parser.parse_args()

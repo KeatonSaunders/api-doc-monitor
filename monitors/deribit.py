@@ -10,13 +10,13 @@ Automatically sends Telegram notifications when changes are detected.
 
 from bs4 import BeautifulSoup
 from typing import Dict, Tuple
-from base_monitor import BaseDocMonitor
+from .base_monitor import BaseDocMonitor
 
 
 class DeribitDocMonitor(BaseDocMonitor):
     def __init__(
         self,
-        storage_file: str = "deribit_docs_state.json",
+        storage_file: str = "state/deribit_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
     ):
@@ -139,7 +139,7 @@ class DeribitDocMonitor(BaseDocMonitor):
 def main():
     """Main execution function."""
     parser = BaseDocMonitor.create_argument_parser(
-        exchange_name="Deribit", default_storage_file="deribit_docs_state.json"
+        exchange_name="Deribit", default_storage_file="state/deribit_docs_state.json"
     )
     args = parser.parse_args()
 

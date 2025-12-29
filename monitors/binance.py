@@ -12,13 +12,13 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 from typing import Dict, Tuple
-from base_monitor import BaseDocMonitor
+from .base_monitor import BaseDocMonitor
 
 
 class BinanceDocMonitor(BaseDocMonitor):
     def __init__(
         self,
-        storage_file: str = "binance_docs_state.json",
+        storage_file: str = "state/binance_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
         monitor_spot: bool = True,
@@ -319,7 +319,7 @@ def main():
     """Main execution function."""
     # Create argument parser using base class helper
     parser = BaseDocMonitor.create_argument_parser(
-        exchange_name="Binance", default_storage_file="binance_docs_state.json"
+        exchange_name="Binance", default_storage_file="state/binance_docs_state.json"
     )
 
     # Add Binance-specific arguments
