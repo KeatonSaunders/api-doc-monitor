@@ -10,6 +10,8 @@ Automatically sends Telegram notifications when changes are detected.
 
 from bs4 import BeautifulSoup
 from typing import Dict, Tuple
+from datetime import datetime
+import time
 from .base_monitor import BaseDocMonitor
 
 
@@ -35,6 +37,15 @@ class DeribitDocMonitor(BaseDocMonitor):
             telegram_chat_id=telegram_chat_id,
         )
         self.base_url = "https://docs.deribit.com/"
+        self._cached_soup = None  # Cache the parsed page
+
+    def _fetch_and_cache_page(self):
+        """Fetch the documentation page once and cache it."""
+        if self._cached_soup is None:
+            print(f"Fetching documentation from {self.base_url}...")
+            response = self.session.get(self.base_url, timeout=10)
+            response.raise_for_status()
+            self._cached_soup = BeautifulSoup(response.text, "html.parser")
 
     def discover_sections(self) -> Dict[str, str]:
         """
@@ -46,17 +57,13 @@ class DeribitDocMonitor(BaseDocMonitor):
         Returns:
             Dict of section_id -> section_title
         """
-        print(f"Fetching documentation from {self.base_url}...")
-
         sections = {}
 
         try:
-            response = self.session.get(self.base_url, timeout=10)
-            response.raise_for_status()
-            soup = BeautifulSoup(response.text, "html.parser")
+            self._fetch_and_cache_page()
 
             # Find all major headings (h1, h2) which represent different sections
-            for heading in soup.find_all(["h1", "h2"]):
+            for heading in self._cached_soup.find_all(["h1", "h2"]):
                 # Get the id attribute for the section
                 section_id = heading.get("id")
                 if section_id:
@@ -74,6 +81,7 @@ class DeribitDocMonitor(BaseDocMonitor):
     def fetch_section_content(self, section_id: str) -> Tuple[str, str]:
         """
         Fetch a specific section's content and return its content and hash.
+        Uses cached page to avoid redundant HTTP requests.
 
         Args:
             section_id: The section ID
@@ -82,13 +90,11 @@ class DeribitDocMonitor(BaseDocMonitor):
             Tuple of (content, hash)
         """
         try:
-            response = self.session.get(self.base_url, timeout=10)
-            response.raise_for_status()
+            # Ensure page is cached (will only fetch if not already cached)
+            self._fetch_and_cache_page()
 
-            soup = BeautifulSoup(response.text, "html.parser")
-
-            # Find the section by ID
-            section = soup.find(id=section_id)
+            # Find the section by ID from cached soup
+            section = self._cached_soup.find(id=section_id)
 
             if not section:
                 print(f"Section {section_id} not found")
@@ -126,6 +132,24 @@ class DeribitDocMonitor(BaseDocMonitor):
             Full URL to the section
         """
         return f"{self.base_url}#{section_id}"
+
+    def check_for_changes(self, save_content: bool = False) -> Dict:
+        """
+        Override to clear cache after checking.
+
+        Args:
+            save_content: Whether to save full content
+
+        Returns:
+            Dictionary with change information
+        """
+        try:
+            # Run the base class check
+            changes = super().check_for_changes(save_content)
+            return changes
+        finally:
+            # Clear the cache after checking
+            self._cached_soup = None
 
     def get_telegram_footer(self) -> str:
         """Get the footer for Telegram messages."""
