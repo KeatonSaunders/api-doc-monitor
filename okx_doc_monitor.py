@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+"""
+OKX API Changelog Monitor with Telegram Notifications
+
+This script monitors OKX API changelog and tracks changes by storing
+section hashes for comparison.
+
+Automatically sends Telegram notifications when changes are detected.
+"""
+
+import requests
+from bs4 import BeautifulSoup
+from datetime import datetime
+from typing import Dict, Tuple
+from base_monitor import BaseDocMonitor
+
+
+class OKXDocMonitor(BaseDocMonitor):
+    """Monitor for OKX API changelog."""
+
+    def __init__(
+        self,
+        storage_file: str = "okx_docs_state.json",
+        telegram_bot_token: str = None,
+        telegram_chat_id: str = None,
+        base_url: str = "https://www.okx.com/docs-v5/log_en/",
+    ):
+        """
+        Initialize the changelog monitor.
+
+        Args:
+            storage_file: Path to JSON file storing previous state
+            telegram_bot_token: Telegram bot token from @BotFather
+            telegram_chat_id: Telegram chat ID to send messages to
+            base_url: Base URL for the API changelog
+        """
+        super().__init__(
+            exchange_name="OKX",
+            storage_file=storage_file,
+            telegram_bot_token=telegram_bot_token,
+            telegram_chat_id=telegram_chat_id,
+        )
+
+        self.base_url = base_url.rstrip("/")
+
+    def discover_sections(self) -> Dict[str, str]:
+        """
+        Discover subsections under "Upcoming Changes" only.
+
+        Returns:
+            Dict of section_id -> section_title
+        """
+        print(f"\nDiscovering upcoming changes from {self.base_url}...")
+
+        sections = {}
+
+        try:
+            response = self.session.get(self.base_url, timeout=15)
+            response.raise_for_status()
+
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            # Find the "Upcoming Changes" section
+            upcoming_section = soup.find(id="upcoming-changes")
+
+            if not upcoming_section:
+                print("  Warning: Could not find 'upcoming-changes' section")
+                return sections
+
+            # Get the heading level of "Upcoming Changes"
+            upcoming_level = int(upcoming_section.name[1]) if upcoming_section.name.startswith('h') else 2
+
+            # Find all subsequent headings that are subsections of "Upcoming Changes"
+            # Stop when we hit a heading of the same or higher level (e.g., a date section)
+            for sibling in upcoming_section.find_next_siblings():
+                # If it's a heading
+                if sibling.name and sibling.name.startswith('h'):
+                    sibling_level = int(sibling.name[1])
+
+                    # Stop if we've reached the next top-level section (same or higher level)
+                    if sibling_level <= upcoming_level:
+                        break
+
+                    # This is a subsection under "Upcoming Changes"
+                    section_id = sibling.get("id")
+                    if section_id:
+                        section_title = sibling.get_text(strip=True)
+                        sections[section_id] = section_title
+                        print(f"  Found: {section_title} (#{section_id})")
+
+            print(f"\nDiscovered {len(sections)} upcoming changes to monitor")
+
+        except Exception as e:
+            print(f"  Error discovering sections: {e}")
+            print("  Falling back to empty section list")
+
+        return sections
+
+    def fetch_section_content(self, section_id: str) -> Tuple[str, str]:
+        """
+        Fetch a specific section's content and return its content and hash.
+
+        Args:
+            section_id: The section identifier (e.g., "trading-account-rest-api-get-balance")
+
+        Returns:
+            Tuple of (content, hash)
+        """
+        try:
+            response = self.session.get(self.base_url, timeout=15)
+            response.raise_for_status()
+
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            # Find the section by ID
+            section = soup.find(id=section_id)
+
+            if not section:
+                return "", ""
+
+            # Get all content until the next heading of same or higher level
+            content_parts = [section.get_text(strip=True)]
+            current_level = section.name  # h1, h2, h3, etc.
+
+            # Traverse siblings to get content until next heading of same/higher level
+            for sibling in section.find_next_siblings():
+                # Stop at the next heading of same or higher level
+                if sibling.name in ["h1", "h2", "h3", "h4", "h5"]:
+                    # Extract heading level number (h1 -> 1, h2 -> 2, etc.)
+                    sibling_level = int(sibling.name[1])
+                    current_level_num = int(current_level[1])
+
+                    if sibling_level <= current_level_num:
+                        break
+
+                # Get text from this element
+                if sibling.name not in ["script", "style", "nav", "footer", "header"]:
+                    text = sibling.get_text(separator=" ", strip=True)
+                    if text:
+                        content_parts.append(text)
+
+            content = "\n".join(content_parts)
+            content_hash = self.get_page_hash(content)
+
+            return content, content_hash
+
+        except Exception as e:
+            print(f"  Error fetching section {section_id}: {e}")
+            return "", ""
+
+    def get_section_url(self, section_id: str) -> str:
+        """
+        Get the URL for a specific section.
+
+        Args:
+            section_id: The section identifier
+
+        Returns:
+            Full URL to the section
+        """
+        return f"{self.base_url}#{section_id}"
+
+    def get_telegram_footer(self) -> str:
+        """
+        Get the footer for Telegram messages with changelog links.
+
+        Returns:
+            Footer string with changelog links
+        """
+        return f"\n📚 Changelog: [OKX API Changelog]({self.base_url})"
+
+    def print_summary_footer(self):
+        """Print footer for summary with changelog URLs."""
+        print(f"\nView changelog at:")
+        print(f"  OKX: {self.base_url}")
+
+
+def main():
+    """Main execution function."""
+    # Create argument parser using base class helper
+    parser = BaseDocMonitor.create_argument_parser(
+        exchange_name="OKX",
+        default_storage_file="okx_docs_state.json"
+    )
+
+    args = parser.parse_args()
+
+    # Get Telegram credentials using base class helper
+    telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(args)
+
+    # Create monitor instance
+    monitor = OKXDocMonitor(
+        storage_file=args.storage_file,
+        telegram_bot_token=telegram_token,
+        telegram_chat_id=telegram_chat_id,
+    )
+
+    # Check for changes
+    changes = monitor.check_for_changes(save_content=args.save_content)
+
+    # Print summary
+    monitor.print_summary(changes)
+
+    # Send Telegram notification if changes detected
+    monitor.send_telegram(changes)
+
+
+if __name__ == "__main__":
+    main()
