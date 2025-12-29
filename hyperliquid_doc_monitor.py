@@ -18,42 +18,12 @@ from base_monitor import BaseDocMonitor
 class HyperliquidDocMonitor(BaseDocMonitor):
     """Monitor for Hyperliquid GitBook documentation."""
 
-    # Define the documentation sections to monitor
-    DOCUMENTATION_PAGES = {
-        # API Documentation
-        "api:notation": ("for-developers/api/notation", "API - Notation"),
-        "api:asset-ids": ("for-developers/api/asset-ids", "API - Asset IDs"),
-        "api:tick-and-lot-size": ("for-developers/api/tick-and-lot-size", "API - Tick and lot size"),
-        "api:nonces-and-api-wallets": ("for-developers/api/nonces-and-api-wallets", "API - Nonces and API wallets"),
-        "api:info-endpoint": ("for-developers/api/info-endpoint", "API - Info endpoint"),
-        "api:info-endpoint-perpetuals": ("for-developers/api/info-endpoint/perpetuals", "API - Info endpoint (Perpetuals)"),
-        "api:info-endpoint-spot": ("for-developers/api/info-endpoint/spot", "API - Info endpoint (Spot)"),
-        "api:exchange-endpoint": ("for-developers/api/exchange-endpoint", "API - Exchange endpoint"),
-        "api:websocket": ("for-developers/api/websocket", "API - Websocket"),
-        "api:websocket-subscriptions": ("for-developers/api/websocket/subscriptions", "API - Websocket Subscriptions"),
-        "api:websocket-post-requests": ("for-developers/api/websocket/post-requests", "API - Websocket Post requests"),
-        "api:websocket-timeouts": ("for-developers/api/websocket/timeouts-and-heartbeats", "API - Websocket Timeouts"),
-        "api:error-responses": ("for-developers/api/error-responses", "API - Error responses"),
-        "api:signing": ("for-developers/api/signing", "API - Signing"),
-        "api:rate-limits": ("for-developers/api/rate-limits-and-user-limits", "API - Rate limits"),
-        "api:activation-gas-fee": ("for-developers/api/activation-gas-fee", "API - Activation gas fee"),
-        "api:optimizing-latency": ("for-developers/api/optimizing-latency", "API - Optimizing latency"),
-        "api:bridge2": ("for-developers/api/bridge2", "API - Bridge2"),
-        "api:deploying-hip-assets": ("for-developers/api/deploying-hip-1-and-hip-2-assets", "API - Deploying HIP-1/HIP-2"),
-        "api:hip3-deployer": ("for-developers/api/hip-3-deployer-actions", "API - HIP-3 deployer actions"),
-
-        # Trading Documentation
-        "trading:fees": ("trading/fees", "Trading - Fees"),
-        "trading:assets": ("trading/assets", "Trading - Assets"),
-        "trading:margin": ("trading/margin", "Trading - Margin"),
-        "trading:liquidations": ("trading/liquidations", "Trading - Liquidations"),
-        "trading:order-types": ("trading/order-types", "Trading - Order types"),
-
-        # HyperCore
-        "hypercore:bridge": ("hypercore/bridge", "HyperCore - Bridge"),
-        "hypercore:oracle": ("hypercore/oracle", "HyperCore - Oracle"),
-        "hypercore:staking": ("hypercore/staking", "HyperCore - Staking"),
-    }
+    # Define sections to monitor (parent paths)
+    SECTIONS_TO_MONITOR = [
+        "for-developers/api",      # API Documentation
+        "trading",                 # Trading Documentation
+        "hypercore",               # HyperCore Documentation
+    ]
 
     def __init__(
         self,
@@ -80,33 +50,109 @@ class HyperliquidDocMonitor(BaseDocMonitor):
 
         self.base_url = base_url
 
+    def _discover_links_from_page(self, url: str, sections: Dict[str, str], visited: set):
+        """
+        Recursively discover links from a page.
+
+        Args:
+            url: URL to fetch
+            sections: Dictionary to populate with discovered sections
+            visited: Set of already visited URLs to avoid loops
+        """
+        if url in visited:
+            return
+
+        visited.add(url)
+
+        try:
+            response = self.session.get(url, timeout=15)
+            response.raise_for_status()
+
+            soup = BeautifulSoup(response.text, "html.parser")
+            all_links = soup.find_all("a", href=True)
+
+            for link in all_links:
+                href = link.get("href", "")
+
+                # Skip external links, anchors, and empty hrefs
+                if not href or href.startswith("http") or href.startswith("#"):
+                    continue
+
+                # Normalize the path
+                path = href.lstrip("/")
+
+                # Remove the base "hyperliquid-docs/" prefix if present
+                if path.startswith("hyperliquid-docs/"):
+                    path = path[len("hyperliquid-docs/"):]
+
+                # Check if this path is under one of our monitored sections
+                is_monitored = False
+                for section in self.SECTIONS_TO_MONITOR:
+                    if path.startswith(section):
+                        is_monitored = True
+                        break
+
+                if not is_monitored:
+                    continue
+
+                # Skip if already added
+                if path in sections:
+                    continue
+
+                # Get the link text as the title
+                title = link.get_text(strip=True)
+
+                # Skip empty titles or overly long ones
+                if not title or len(title) > 100:
+                    continue
+
+                sections[path] = title
+                print(f"  Found: {title} ({path})")
+
+        except Exception as e:
+            print(f"  Error fetching {url}: {e}")
+
     def discover_sections(self) -> Dict[str, str]:
         """
-        Discover documentation pages to monitor.
+        Discover documentation pages to monitor by scraping the GitBook navigation.
 
         Returns:
-            Dict of page_id -> page_title
+            Dict of page_path -> page_title
         """
-        print(f"\nMonitoring {len(self.DOCUMENTATION_PAGES)} documentation pages...")
+        print(f"\nDiscovering documentation pages from {self.base_url}...")
 
         sections = {}
-        for page_id, (page_path, page_title) in self.DOCUMENTATION_PAGES.items():
-            sections[page_id] = page_title
-            print(f"  Will monitor: {page_title}")
+        visited = set()
+
+        try:
+            # Start by discovering from the main page
+            self._discover_links_from_page(self.base_url, sections, visited)
+
+            # Then visit each monitored section to find child pages
+            for section_path in self.SECTIONS_TO_MONITOR:
+                section_url = f"{self.base_url}/{section_path}"
+                print(f"\nCrawling section: {section_path}")
+                self._discover_links_from_page(section_url, sections, visited)
+
+            print(f"\nDiscovered {len(sections)} total pages to monitor")
+
+        except Exception as e:
+            print(f"  Error discovering sections: {e}")
+            print("  Falling back to empty section list")
 
         return sections
 
-    def fetch_section_content(self, page_id: str) -> Tuple[str, str]:
+    def fetch_section_content(self, page_path: str) -> Tuple[str, str]:
         """
         Fetch a specific page's content and return its content and hash.
 
         Args:
-            page_id: The page identifier (e.g., "api:notation", "trading:fees")
+            page_path: The page path (e.g., "for-developers/api/notation")
 
         Returns:
             Tuple of (content, hash)
         """
-        url = self.get_section_url(page_id)
+        url = self.get_section_url(page_path)
 
         try:
             response = self.session.get(url, timeout=15)
@@ -139,22 +185,19 @@ class HyperliquidDocMonitor(BaseDocMonitor):
             return content, content_hash
 
         except Exception as e:
-            print(f"  Error fetching page {page_id}: {e}")
+            print(f"  Error fetching page {page_path}: {e}")
             return "", ""
 
-    def get_section_url(self, page_id: str) -> str:
+    def get_section_url(self, page_path: str) -> str:
         """
         Get the URL for a specific page.
 
         Args:
-            page_id: The page identifier (e.g., "api:notation")
+            page_path: The page path (e.g., "for-developers/api/notation")
 
         Returns:
             Full URL to the page
         """
-        page_path, _ = self.DOCUMENTATION_PAGES.get(page_id, ("", ""))
-        if not page_path:
-            return ""
         return f"{self.base_url}/{page_path}"
 
     def get_telegram_footer(self) -> str:
@@ -170,6 +213,25 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         """Print footer for summary with documentation URLs."""
         print(f"\nView documentation at:")
         print(f"  Hyperliquid: {self.base_url}")
+
+    def _get_category_label(self, page_path: str) -> str:
+        """
+        Extract category label from page path.
+
+        Args:
+            page_path: The page path (e.g., "for-developers/api/notation")
+
+        Returns:
+            Category label (e.g., "API", "TRADING", "HYPERCORE")
+        """
+        if page_path.startswith("for-developers/api"):
+            return "API"
+        elif page_path.startswith("trading"):
+            return "TRADING"
+        elif page_path.startswith("hypercore"):
+            return "HYPERCORE"
+        else:
+            return "OTHER"
 
     def send_telegram(self, changes: Dict):
         """
@@ -201,8 +263,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         if changes["new_sections"]:
             message += f"📄 *NEW PAGES ({len(changes['new_sections'])})*:\n"
             for section in changes["new_sections"][:10]:  # Limit to 10
-                # Parse category from page ID (format: "category:page-name")
-                category = section["id"].split(":", 1)[0].upper()
+                category = self._get_category_label(section["id"])
                 message += f"  • [{category}] {section['title']}\n"
                 section_url = self.get_section_url(section["id"])
                 message += f"    [View]({section_url})\n"
@@ -213,8 +274,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         if changes["modified_sections"]:
             message += f"✏️ *MODIFIED PAGES ({len(changes['modified_sections'])})*:\n"
             for section in changes["modified_sections"][:10]:  # Limit to 10
-                # Parse category from page ID (format: "category:page-name")
-                category = section["id"].split(":", 1)[0].upper()
+                category = self._get_category_label(section["id"])
                 message += f"  • [{category}] {section['title']}\n"
                 section_url = self.get_section_url(section["id"])
                 message += f"    [View]({section_url})\n"
@@ -225,8 +285,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         if changes["deleted_sections"]:
             message += f"🗑️ *DELETED PAGES ({len(changes['deleted_sections'])})*:\n"
             for section in changes["deleted_sections"][:10]:
-                # Parse category from page ID (format: "category:page-name")
-                category = section["id"].split(":", 1)[0].upper()
+                category = self._get_category_label(section["id"])
                 message += f"  • [{category}] {section['title']}\n"
             if len(changes["deleted_sections"]) > 10:
                 message += f"  ... and {len(changes['deleted_sections']) - 10} more\n"
@@ -262,28 +321,25 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         if changes["new_sections"]:
             print(f"\n📄 NEW PAGES ({len(changes['new_sections'])}):")
             for section in changes["new_sections"]:
-                # Parse category from page ID (format: "category:page-name")
-                category, page_id = section["id"].split(":", 1)
-                category_label = category.upper()
-                print(f"  + [{category_label}] {section['title']} (#{page_id})")
+                category = self._get_category_label(section["id"])
+                print(f"  + [{category}] {section['title']}")
+                print(f"    Path: {section['id']}")
 
         if changes["modified_sections"]:
             print(f"\n✏️  MODIFIED PAGES ({len(changes['modified_sections'])}):")
             for section in changes["modified_sections"]:
-                # Parse category from page ID (format: "category:page-name")
-                category, page_id = section["id"].split(":", 1)
-                category_label = category.upper()
-                print(f"  ~ [{category_label}] {section['title']} (#{page_id})")
+                category = self._get_category_label(section["id"])
+                print(f"  ~ [{category}] {section['title']}")
+                print(f"    Path: {section['id']}")
                 print(f"    Old hash: {section['old_hash'][:16]}...")
                 print(f"    New hash: {section['new_hash'][:16]}...")
 
         if changes["deleted_sections"]:
             print(f"\n🗑️  DELETED PAGES ({len(changes['deleted_sections'])}):")
             for section in changes["deleted_sections"]:
-                # Parse category from page ID (format: "category:page-name")
-                category, page_id = section["id"].split(":", 1)
-                category_label = category.upper()
-                print(f"  - [{category_label}] {section['title']} (#{page_id})")
+                category = self._get_category_label(section["id"])
+                print(f"  - [{category}] {section['title']}")
+                print(f"    Path: {section['id']}")
 
         print(f"\n✓ UNCHANGED PAGES: {len(changes['unchanged_sections'])}")
 
