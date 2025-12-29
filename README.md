@@ -6,7 +6,7 @@ Monitor cryptocurrency exchange API documentation for changes and receive Telegr
 
 ```
 scraper/
-├── monitors/              # Monitor implementations
+├── monitors/             # Monitor implementations
 │   ├── __init__.py       # Package initialization
 │   ├── base_monitor.py   # Base class with common functionality
 │   ├── binance.py        # Binance monitor
