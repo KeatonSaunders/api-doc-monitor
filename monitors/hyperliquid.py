@@ -20,9 +20,10 @@ class HyperliquidDocMonitor(BaseDocMonitor):
 
     # Define sections to monitor (parent paths)
     SECTIONS_TO_MONITOR = [
-        "for-developers/api",      # API Documentation
-        "trading",                 # Trading Documentation
-        "hypercore",               # HyperCore Documentation
+        "for-developers/api",  # API Documentation
+        "trading",  # Trading Documentation
+        "hypercore",  # HyperCore Documentation
+        "hyperliquid-improvement-proposals-hips",  # Hyperliquid Improvement Proposals
     ]
 
     def __init__(
@@ -50,7 +51,9 @@ class HyperliquidDocMonitor(BaseDocMonitor):
 
         self.base_url = base_url
 
-    def _discover_links_from_page(self, url: str, sections: Dict[str, str], visited: set):
+    def _discover_links_from_page(
+        self, url: str, sections: Dict[str, str], visited: set
+    ):
         """
         Recursively discover links from a page.
 
@@ -83,7 +86,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
 
                 # Remove the base "hyperliquid-docs/" prefix if present
                 if path.startswith("hyperliquid-docs/"):
-                    path = path[len("hyperliquid-docs/"):]
+                    path = path[len("hyperliquid-docs/") :]
 
                 # Check if this path is under one of our monitored sections
                 is_monitored = False
@@ -162,10 +165,12 @@ class HyperliquidDocMonitor(BaseDocMonitor):
 
             # GitBook typically uses specific containers for content
             # Look for the main content area
-            content_area = soup.find("div", class_="markdown-body") or \
-                          soup.find("article") or \
-                          soup.find("main") or \
-                          soup.find("div", {"role": "main"})
+            content_area = (
+                soup.find("div", class_="markdown-body")
+                or soup.find("article")
+                or soup.find("main")
+                or soup.find("div", {"role": "main"})
+            )
 
             if not content_area:
                 # Fallback to body if no specific content area found
@@ -363,7 +368,7 @@ def main():
     # Create argument parser using base class helper
     parser = BaseDocMonitor.create_argument_parser(
         exchange_name="Hyperliquid",
-        default_storage_file="state/hyperliquid_docs_state.json"
+        default_storage_file="state/hyperliquid_docs_state.json",
     )
 
     args = parser.parse_args()

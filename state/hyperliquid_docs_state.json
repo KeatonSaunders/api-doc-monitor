@@ -1,255 +1,280 @@
 {
-  "timestamp": "2025-12-29T13:08:53.699984",
+  "timestamp": "2025-12-29T13:34:52.330898",
   "sections": {
     "for-developers/api": {
       "title": "API",
       "hash": "5260f353d58570c39b9c1a704d0624dd2c8a1e3a2eda57814309cfe9475f00bb",
-      "last_checked": "2025-12-29T13:08:53.868240"
+      "last_checked": "2025-12-29T13:34:52.450328"
     },
     "for-developers/api/activation-gas-fee": {
       "title": "Activation gas fee",
       "hash": "59f8b861937ff400d9b086e060fd75b805c5baa9335b92210c70a076b5c5cebb",
-      "last_checked": "2025-12-29T13:08:54.334769"
+      "last_checked": "2025-12-29T13:34:52.911075"
     },
     "for-developers/api/asset-ids": {
       "title": "Asset IDs",
       "hash": "e3569861c0a8254fdb00bfd585716edf1160c4f07822a4b51d316500bb267412",
-      "last_checked": "2025-12-29T13:08:55.186206"
+      "last_checked": "2025-12-29T13:34:53.374506"
     },
     "for-developers/api/bridge2": {
       "title": "Bridge2",
       "hash": "def49001d6074b399668a4d644e9d2289e09430768ae359e1811a25034d8f2ee",
-      "last_checked": "2025-12-29T13:08:55.711221"
+      "last_checked": "2025-12-29T13:34:53.850852"
     },
     "for-developers/api/deploying-hip-1-and-hip-2-assets": {
       "title": "Deploying HIP-1 and HIP-2 assets",
       "hash": "37c1a53cc2486594729d9a7be2bc661fa664af909f1e173725e22d30e110d341",
-      "last_checked": "2025-12-29T13:08:56.173611"
+      "last_checked": "2025-12-29T13:34:54.339500"
     },
     "for-developers/api/error-responses": {
       "title": "Error responses",
       "hash": "10d3d4bd9621c5aa07414d85fdde5b3eb06adaba754b33019373bfee8f62d01a",
-      "last_checked": "2025-12-29T13:08:56.705021"
+      "last_checked": "2025-12-29T13:34:54.843699"
     },
     "for-developers/api/exchange-endpoint": {
       "title": "Exchange endpoint",
       "hash": "90d008bbce07b9b0a54191ec7c45bce1c974bd2a80fb4bd1f49a7eeb09b32b43",
-      "last_checked": "2025-12-29T13:08:57.383204"
+      "last_checked": "2025-12-29T13:34:55.515537"
     },
     "for-developers/api/hip-3-deployer-actions": {
       "title": "HIP-3 deployer actions",
       "hash": "378f599bffae664cc0e5b2f20f871f464d2740b1a761bc6dfb720ea1d327770e",
-      "last_checked": "2025-12-29T13:08:57.844761"
+      "last_checked": "2025-12-29T13:34:56.008317"
     },
     "for-developers/api/info-endpoint": {
       "title": "Info endpoint",
       "hash": "9bd8f1859b8e11145c022b08d7d3d9ac7136a89d0c682c0fc483f99564639764",
-      "last_checked": "2025-12-29T13:08:58.476626"
+      "last_checked": "2025-12-29T13:34:56.592967"
     },
     "for-developers/api/nonces-and-api-wallets": {
       "title": "Nonces and API wallets",
       "hash": "a893cbcd6d899faf24bb8e010888d1149a784ee8b74d54fa31b24cd59bc3004c",
-      "last_checked": "2025-12-29T13:08:58.902997"
+      "last_checked": "2025-12-29T13:34:57.173939"
     },
     "for-developers/api/notation": {
       "title": "Notation",
       "hash": "3c9fff032ece9f0459187a13e24277a4f6180a379bc8fbc2131e32bc9e677cd1",
-      "last_checked": "2025-12-29T13:08:59.446322"
+      "last_checked": "2025-12-29T13:34:57.699849"
     },
     "for-developers/api/optimizing-latency": {
       "title": "Optimizing latency",
       "hash": "475922a584cd0f0ed9ca678a2674aee343a3b1df66d8707ef9277f48d3fe16d5",
-      "last_checked": "2025-12-29T13:08:59.963402"
+      "last_checked": "2025-12-29T13:34:58.214648"
     },
     "for-developers/api/rate-limits-and-user-limits": {
       "title": "Rate limits and user limits",
       "hash": "7419b6f6620c78497b0752e2dff5cc2042010241d6b14b1dfb10f7883817314e",
-      "last_checked": "2025-12-29T13:09:00.489721"
+      "last_checked": "2025-12-29T13:34:58.743327"
     },
     "for-developers/api/signing": {
       "title": "Signing",
       "hash": "20803c132c003616e219cba9453e79078c85d31e5cffc3e566db1ace85055bd3",
-      "last_checked": "2025-12-29T13:09:00.920640"
+      "last_checked": "2025-12-29T13:34:59.210828"
     },
     "for-developers/api/tick-and-lot-size": {
       "title": "Tick and lot size",
       "hash": "2f53842059b1a1661f504f6fb05dbbddfa3db9d2e6eb6624a342ab29ddc57828",
-      "last_checked": "2025-12-29T13:09:01.406418"
+      "last_checked": "2025-12-29T13:34:59.683629"
     },
     "for-developers/api/websocket": {
       "title": "Websocket",
       "hash": "a2ac8b909343a63d4c19efb6d9cb1476a799eebe0aa5663620304ff596391d87",
-      "last_checked": "2025-12-29T13:09:01.846357"
+      "last_checked": "2025-12-29T13:35:00.214382"
     },
     "hypercore": {
       "title": "HyperCore",
       "hash": "d08b6f69d5de50994808e8e6a247a14b8f27f2d6fd02b4ac132ababbbb208132",
-      "last_checked": "2025-12-29T13:09:02.419358"
+      "last_checked": "2025-12-29T13:35:00.677468"
     },
     "hypercore/aligned-quote-assets": {
       "title": "Aligned quote assets",
       "hash": "0feea6deaec237b7eef98ed9f6d60dd4a5c9f056d612cbe2d01240b2fec6261b",
-      "last_checked": "2025-12-29T13:09:02.865289"
+      "last_checked": "2025-12-29T13:35:01.153465"
     },
     "hypercore/api-servers": {
       "title": "API servers",
       "hash": "e5ce3099abaeab6596df51f81b92e7021964ba40ee08859615b86b55a72ba06b",
-      "last_checked": "2025-12-29T13:09:03.313328"
+      "last_checked": "2025-12-29T13:35:01.610913"
     },
     "hypercore/bridge": {
       "title": "Bridge",
       "hash": "230fb93a532d2b40d754a4914e56ea7b74ab6e2a7724b552ffdcf892323490fb",
-      "last_checked": "2025-12-29T13:09:03.743146"
+      "last_checked": "2025-12-29T13:35:02.059655"
     },
     "hypercore/clearinghouse": {
       "title": "Clearinghouse",
       "hash": "57cb25defda1705407e74bc3bd9cbb0ad65654077f8fa8bddd66ad25896b1e85",
-      "last_checked": "2025-12-29T13:09:04.205361"
+      "last_checked": "2025-12-29T13:35:02.551057"
     },
     "hypercore/multi-sig": {
       "title": "Multi-sig",
       "hash": "29570e54c12d474de910965e100cf756cce67741edf6e14ffbb84ac61fd818f7",
-      "last_checked": "2025-12-29T13:09:04.683304"
+      "last_checked": "2025-12-29T13:35:03.033638"
     },
     "hypercore/oracle": {
       "title": "Oracle",
       "hash": "9041146acbbdcecf240d55e818be0c2d02355cc9e1b5d65cb647c924bfad2eb3",
-      "last_checked": "2025-12-29T13:09:05.088486"
+      "last_checked": "2025-12-29T13:35:03.493101"
     },
     "hypercore/order-book": {
       "title": "Order book",
       "hash": "bb819bee0db46267a248f90c541bd0ea7c89bd31a7e130d0030836e1083716e8",
-      "last_checked": "2025-12-29T13:09:05.534234"
+      "last_checked": "2025-12-29T13:35:04.190863"
     },
     "hypercore/overview": {
       "title": "Overview",
       "hash": "46844a374067383d7080ef609a06f56aee24d5bada8b2484b5968485d4e1d3af",
-      "last_checked": "2025-12-29T13:09:06.144169"
+      "last_checked": "2025-12-29T13:35:04.759523"
     },
     "hypercore/permissionless-spot-quote-assets": {
       "title": "Permissionless spot quote assets",
       "hash": "218111359fccdf5ae684e82c1533f7da92729653fe6962cb4ce261618769efec",
-      "last_checked": "2025-12-29T13:09:06.853401"
+      "last_checked": "2025-12-29T13:35:05.248443"
     },
     "hypercore/staking": {
       "title": "Staking",
       "hash": "1245b81ff2d5009a1d788b84d97d4a33faf654f50ec31b910db64c40ae8abb06",
-      "last_checked": "2025-12-29T13:09:07.465542"
+      "last_checked": "2025-12-29T13:35:05.725224"
     },
     "hypercore/vaults": {
       "title": "Vaults",
       "hash": "25014cfb569ebb1f9035688c1cd1e0bb5acadb4b34c639b0fe54af8874057e03",
-      "last_checked": "2025-12-29T13:09:08.005678"
+      "last_checked": "2025-12-29T13:35:06.160711"
+    },
+    "hyperliquid-improvement-proposals-hips": {
+      "title": "Hyperliquid Improvement Proposals (HIPs)",
+      "hash": "977c48c5ea83e001c429693c7ea5e5330492db7de8ec2a6bd53677ef61f57a53",
+      "last_checked": "2025-12-29T13:35:06.570004"
+    },
+    "hyperliquid-improvement-proposals-hips/frontend-checks": {
+      "title": "PreviousFrontend checks",
+      "hash": "ce606b8165760aa8d682e56c1df3a2482307895cd75243818a829a48a8b831da",
+      "last_checked": "2025-12-29T13:35:07.004719"
+    },
+    "hyperliquid-improvement-proposals-hips/hip-1-native-token-standard": {
+      "title": "HIP-1: Native token standard",
+      "hash": "b963c12255eccacc4590060c90c79db3d9dc33497770cb4405b2eeb2c4464a68",
+      "last_checked": "2025-12-29T13:35:07.474726"
+    },
+    "hyperliquid-improvement-proposals-hips/hip-2-hyperliquidity": {
+      "title": "HIP-2: Hyperliquidity",
+      "hash": "005bed6aaa19e6652d7fb664f479123d30bdc6f131c1eb3b783b49a90be6fe47",
+      "last_checked": "2025-12-29T13:35:07.965909"
+    },
+    "hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals": {
+      "title": "HIP-3: Builder-deployed perpetuals",
+      "hash": "3127e604bd36a998f47d93dfad5e1c2d27ffae934b103911284e83b41d3105a3",
+      "last_checked": "2025-12-29T13:35:08.467969"
     },
     "trading": {
       "title": "Trading",
       "hash": "eb472d504ccf6e0e72c3a0a3e38a3a11abeee8d2bbae6905489ce4ba46666302",
-      "last_checked": "2025-12-29T13:09:08.457912"
+      "last_checked": "2025-12-29T13:35:08.899482"
     },
     "trading/auto-deleveraging": {
       "title": "Auto-deleveraging",
       "hash": "f25fe58549df9a54c034271931f6310b89e11a05877760a16b530f5844fe35d3",
-      "last_checked": "2025-12-29T13:09:08.936257"
+      "last_checked": "2025-12-29T13:35:09.400472"
     },
     "trading/builder-codes": {
       "title": "Builder codes",
       "hash": "ed9825748348e7461a40b48467cd49d2b7738294e9f391b95f6278a3b0a8c644",
-      "last_checked": "2025-12-29T13:09:09.448639"
+      "last_checked": "2025-12-29T13:35:09.964999"
     },
     "trading/contract-specifications": {
       "title": "Contract specifications",
       "hash": "d296a2531fd3f6510286dbbaba9589de169ce5a00416988789124ddd3f168c88",
-      "last_checked": "2025-12-29T13:09:09.926870"
+      "last_checked": "2025-12-29T13:35:10.483438"
     },
     "trading/delisting": {
       "title": "Delisting",
       "hash": "baa5f6f205dddbd9434fa215ea9a894b2968cff707cb796b1e2def7e6ec87593",
-      "last_checked": "2025-12-29T13:09:10.403892"
+      "last_checked": "2025-12-29T13:35:10.954312"
     },
     "trading/entry-price-and-pnl": {
       "title": "Entry price and pnl",
       "hash": "25dc51e014f26f80e6fc4658b1da45cef10e385ec2abba4326a49cbb45312000",
-      "last_checked": "2025-12-29T13:09:10.853702"
+      "last_checked": "2025-12-29T13:35:11.448863"
     },
     "trading/fees": {
       "title": "Fees",
       "hash": "2a5775147781bd79cc9d875ffc742c9f3d93e82b324aa744bbc2cdc5bda53e53",
-      "last_checked": "2025-12-29T13:09:11.484638"
+      "last_checked": "2025-12-29T13:35:12.023252"
     },
     "trading/funding": {
       "title": "Funding",
       "hash": "cb408f089b89a1d42894b619c3356052e20e273ab2f8a9fbe28ba8254bc2c631",
-      "last_checked": "2025-12-29T13:09:11.928961"
+      "last_checked": "2025-12-29T13:35:12.477878"
     },
     "trading/hyperps": {
       "title": "Hyperps",
       "hash": "c8618d81dd883c091b3f7dfd2ab3f8eaba7d7b68db63b371b2f100b7df616754",
-      "last_checked": "2025-12-29T13:09:12.411854"
+      "last_checked": "2025-12-29T13:35:12.960068"
     },
     "trading/liquidations": {
       "title": "Liquidations",
       "hash": "e535ce1263a6397d05492f8c6b6e77a2a13bdd5c9bf6a78771c16f15b016b639",
-      "last_checked": "2025-12-29T13:09:12.864281"
+      "last_checked": "2025-12-29T13:35:13.451881"
     },
     "trading/margin-tiers": {
       "title": "Margin tiers",
       "hash": "4e7a65ee09acb99ce64cb7ae1b684dcdc64f85b55a8d7d27bd206dbaf65de0c3",
-      "last_checked": "2025-12-29T13:09:13.353354"
+      "last_checked": "2025-12-29T13:35:13.927032"
     },
     "trading/margining": {
       "title": "Margining",
       "hash": "2b09afb6268280d7a5444da7c74be8e8b0679cbcdc6e1f7b1c5f69c414a1ecf9",
-      "last_checked": "2025-12-29T13:09:13.779818"
+      "last_checked": "2025-12-29T13:35:14.514689"
     },
     "trading/market-making": {
       "title": "Market making",
       "hash": "48c902cf527cc7a61c2d1f1595109e83052156e92017e397656821acccb27726",
-      "last_checked": "2025-12-29T13:09:14.239450"
+      "last_checked": "2025-12-29T13:35:15.089496"
     },
     "trading/miscellaneous-ui": {
       "title": "Miscellaneous UI",
       "hash": "a3ba3dc037ce90182dbe8c19e748f9e3996f3057ff393de9c35acc2bc92d4398",
-      "last_checked": "2025-12-29T13:09:14.682261"
+      "last_checked": "2025-12-29T13:35:15.555836"
     },
     "trading/order-book": {
       "title": "Order book",
       "hash": "c3bbd74f3ba4c43f88d909a9d7b72b9de3860b2e40ccf7cad3c592e2938a2782",
-      "last_checked": "2025-12-29T13:09:15.190914"
+      "last_checked": "2025-12-29T13:35:16.038547"
     },
     "trading/order-types": {
       "title": "Order types",
       "hash": "76ce241eb1f0becadace469611878b2fe456ae00e75421d52a06b59633a178a3",
-      "last_checked": "2025-12-29T13:09:15.686449"
+      "last_checked": "2025-12-29T13:35:16.526489"
     },
     "trading/perpetual-assets": {
       "title": "Perpetual assets",
       "hash": "1a3bcbe406332e9bbf32b9bf459fe6c7727b15ffa2b986c8bbf326a81897d1c7",
-      "last_checked": "2025-12-29T13:09:16.177920"
+      "last_checked": "2025-12-29T13:35:16.948192"
     },
     "trading/portfolio-graphs": {
       "title": "Portfolio graphs",
       "hash": "af632d21a86f87671bb070a4f978d31cd9317a831b08bc683bf51cabc33547a0",
-      "last_checked": "2025-12-29T13:09:16.648193"
+      "last_checked": "2025-12-29T13:35:17.564806"
     },
     "trading/portfolio-margin": {
       "title": "Portfolio margin",
       "hash": "f788c5edfbc51865874fe27aa2e65505a375ce028fdbb7171dea327a8800e1fa",
-      "last_checked": "2025-12-29T13:09:17.110069"
+      "last_checked": "2025-12-29T13:35:18.013175"
     },
     "trading/robust-price-indices": {
       "title": "Robust price indices",
       "hash": "d18e2642a8688f5cfb8127050e29f23383874db7e0079027f1b68249cac84182",
-      "last_checked": "2025-12-29T13:09:17.537100"
+      "last_checked": "2025-12-29T13:35:18.540232"
     },
     "trading/self-trade-prevention": {
       "title": "Self-trade prevention",
       "hash": "eed21431fb3877e5566c0f0beb76af5ae9fe80b30fa9d5dbffcd0d307372e29f",
-      "last_checked": "2025-12-29T13:09:17.987537"
+      "last_checked": "2025-12-29T13:35:19.037758"
     },
     "trading/take-profit-and-stop-loss-orders-tp-sl": {
       "title": "Take profit and stop loss orders (TP/SL)",
       "hash": "dad772818699bc9ceb10f93e2c96719b40f1a7f16300700783b00b07ac24da84",
-      "last_checked": "2025-12-29T13:09:18.457702"
+      "last_checked": "2025-12-29T13:35:19.500715"
     }
   }
 }
