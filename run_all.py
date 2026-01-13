@@ -128,7 +128,15 @@ def main():
     # Determine which exchanges to run
     exchanges_to_run = set(args.exchanges)
     if "all" in exchanges_to_run:
-        exchanges_to_run = {"coinbase", "hyperliquid", "okx"}
+        exchanges_to_run = {
+            "binance",
+            "bybit",
+            "coinbase",
+            "deribit",
+            "hyperliquid",
+            "kraken",
+            "okx",
+        }
 
     # Monitor configuration
     monitors_config = []
