@@ -3,24 +3,35 @@
 Deribit API Documentation Change Monitor with Telegram Notifications
 
 This script scrapes the Deribit API documentation website and tracks changes
-by storing page hashes and optionally full content for comparison.
+by crawling articles, API reference, and subscription pages.
 
 Automatically sends Telegram notifications when changes are detected.
 """
 
 from bs4 import BeautifulSoup
 from typing import Dict, Tuple
+from urllib.parse import urljoin, urlparse
 from datetime import datetime
 import time
 from .base_monitor import BaseDocMonitor
 
 
 class DeribitDocMonitor(BaseDocMonitor):
+    """Monitor for Deribit documentation across articles, API reference, and subscriptions."""
+
+    # URL patterns to monitor
+    SECTIONS_TO_MONITOR = [
+        "articles/",
+        "api-reference/",
+        "subscriptions/",
+    ]
+
     def __init__(
         self,
         storage_file: str = "state/deribit_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
+        max_pages: int = 1000,
     ):
         """
         Initialize the Deribit documentation monitor.
@@ -29,6 +40,7 @@ class DeribitDocMonitor(BaseDocMonitor):
             storage_file: Path to JSON file storing previous state
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
+            max_pages: Maximum number of pages to discover
         """
         super().__init__(
             exchange_name="Deribit",
@@ -36,134 +48,346 @@ class DeribitDocMonitor(BaseDocMonitor):
             telegram_bot_token=telegram_bot_token,
             telegram_chat_id=telegram_chat_id,
         )
-        self.base_url = "https://docs.deribit.com/"
-        self._cached_soup = None  # Cache the parsed page
+        self.base_url = "https://docs.deribit.com"
+        self.max_pages = max_pages
 
-    def _fetch_and_cache_page(self):
-        """Fetch the documentation page once and cache it."""
-        if self._cached_soup is None:
-            self.logger.info(f"Fetching documentation from {self.base_url}...")
-            response = self.session.get(self.base_url, timeout=10)
+    def _is_valid_doc_page(self, url: str) -> bool:
+        """
+        Check if a URL is a valid documentation page to monitor.
+
+        Args:
+            url: URL to check
+
+        Returns:
+            True if the URL matches one of our monitoring patterns
+        """
+        parsed = urlparse(url)
+        path = parsed.path
+
+        # Check if the path starts with any of our monitored sections
+        for section in self.SECTIONS_TO_MONITOR:
+            if f"/{section}" in path:
+                return True
+
+        return False
+
+    def _discover_links_from_page(
+        self, url: str, discovered: Dict[str, str], visited: set
+    ):
+        """
+        Recursively discover links from a page.
+
+        Args:
+            url: URL to fetch
+            discovered: Dictionary to populate with discovered pages
+            visited: Set of already visited URLs to avoid loops
+        """
+        if url in visited or len(discovered) >= self.max_pages:
+            return
+
+        visited.add(url)
+
+        try:
+            response = self.session.get(url, timeout=15)
             response.raise_for_status()
-            self._cached_soup = BeautifulSoup(response.text, "html.parser")
+
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            # Get page title
+            title_elem = soup.find("h1")
+            title = (
+                title_elem.get_text(strip=True)
+                if title_elem
+                else url.split("/")[-1]
+            )
+
+            # Add current page if it's a valid doc page
+            if self._is_valid_doc_page(url):
+                # Use the path as the key (remove base URL)
+                page_path = url.replace(self.base_url, "").strip("/")
+                if page_path and page_path not in discovered.values():
+                    discovered[url] = title
+                    self.logger.debug(f"  Found: {title} ({page_path})")
+
+            # Find all links
+            all_links = soup.find_all("a", href=True)
+
+            for link in all_links:
+                href = link.get("href", "")
+
+                # Skip external links, anchors, and empty hrefs
+                if not href or href.startswith("http") and not href.startswith(self.base_url):
+                    continue
+
+                # Convert to absolute URL
+                absolute_url = urljoin(url, href)
+
+                # Remove fragments and query params
+                parsed = urlparse(absolute_url)
+                clean_url = f"{parsed.scheme}://{parsed.netloc}{parsed.path}"
+
+                # Check if this is a valid doc page we should follow
+                if (
+                    clean_url not in visited
+                    and self._is_valid_doc_page(clean_url)
+                    and len(discovered) < self.max_pages
+                ):
+                    self._discover_links_from_page(clean_url, discovered, visited)
+
+            time.sleep(0.3)  # Rate limiting
+
+        except Exception as e:
+            self.logger.error(f"  Error fetching {url}: {e}")
 
     def discover_sections(self) -> Dict[str, str]:
         """
-        Discover documentation sections from the single-page docs.
-
-        Since Deribit docs is a single-page app, we extract major sections
-        as separate trackable items.
+        Discover documentation pages by crawling the documentation site.
 
         Returns:
-            Dict of section_id -> section_title
+            Dict of url -> page_title
         """
-        sections = {}
+        self.logger.info(f"Discovering documentation pages from {self.base_url}...")
 
-        try:
-            self._fetch_and_cache_page()
+        discovered = {}
+        visited = set()
 
-            # Find all major headings (h1, h2) which represent different sections
-            for heading in self._cached_soup.find_all(["h1", "h2"]):
-                # Get the id attribute for the section
-                section_id = heading.get("id")
-                if section_id:
-                    section_title = heading.get_text(strip=True)
-                    sections[section_id] = section_title
-                    self.logger.debug(f"Found section: {section_title} (#{section_id})")
+        # Start by discovering from each main section
+        for section in self.SECTIONS_TO_MONITOR:
+            section_url = f"{self.base_url}/{section}"
+            self.logger.info(f"Crawling section: {section}")
+            self._discover_links_from_page(section_url, discovered, visited)
 
-            self.logger.info(f"Discovered {len(sections)} documentation sections")
+        self.logger.info(f"Discovered {len(discovered)} total pages to monitor")
 
-        except Exception as e:
-            self.logger.error(f"Error fetching documentation: {e}")
+        return discovered
 
-        return sections
-
-    def fetch_section_content(self, section_id: str) -> Tuple[str, str]:
+    def fetch_section_content(self, page_url: str) -> Tuple[str, str]:
         """
-        Fetch a specific section's content and return its content and hash.
-        Uses cached page to avoid redundant HTTP requests.
+        Fetch a specific page's content and return its content and hash.
 
         Args:
-            section_id: The section ID
+            page_url: The page URL
 
         Returns:
             Tuple of (content, hash)
         """
         try:
-            # Ensure page is cached (will only fetch if not already cached)
-            self._fetch_and_cache_page()
+            response = self.session.get(page_url, timeout=15)
+            response.raise_for_status()
 
-            # Find the section by ID from cached soup
-            section = self._cached_soup.find(id=section_id)
+            soup = BeautifulSoup(response.text, "html.parser")
 
-            if not section:
-                self.logger.warning(f"Section {section_id} not found")
-                return "", ""
+            # Remove non-content elements
+            for element in soup(
+                ["script", "style", "nav", "footer", "header", "aside"]
+            ):
+                element.decompose()
 
-            # Get all content until the next major heading
-            content_parts = []
-            for sibling in section.find_all_next():
-                # Stop at the next h1 or h2
-                if sibling.name in ["h1", "h2"] and sibling.get("id") != section_id:
-                    break
+            # Remove navigation menus and sidebars
+            for nav_class in ["navbar", "menu", "sidebar", "toc", "navigation"]:
+                for element in soup.find_all(
+                    class_=lambda x: x and nav_class in x.lower()
+                ):
+                    element.decompose()
 
-                # Get text from this element
-                if sibling.name not in ["script", "style", "nav", "footer", "header"]:
-                    text = sibling.get_text(separator=" ", strip=True)
-                    if text:
-                        content_parts.append(text)
+            # Get main content - try different content containers
+            main_content = (
+                soup.find("main")
+                or soup.find("article")
+                or soup.find("div", class_=lambda x: x and "content" in x.lower())
+                or soup
+            )
 
-            content = "\n".join(content_parts)
+            content = main_content.get_text(separator="\n", strip=True)
             content_hash = self.get_page_hash(content)
 
             return content, content_hash
+
         except Exception as e:
-            self.logger.error(f"Error fetching section {section_id}: {e}")
+            self.logger.error(f"  Error fetching page {page_url}: {e}")
             return "", ""
 
-    def get_section_url(self, section_id: str) -> str:
+    def get_section_url(self, page_url: str) -> str:
         """
-        Get the URL for a specific section.
+        Get the URL for a specific page.
 
         Args:
-            section_id: The section ID
+            page_url: The page URL
 
         Returns:
-            Full URL to the section
+            The URL (same as page_url)
         """
-        return f"{self.base_url}#{section_id}"
+        return page_url
 
-    def check_for_changes(self, save_content: bool = False) -> Dict:
+    def _get_category_label(self, page_url: str) -> str:
         """
-        Override to clear cache after checking.
+        Extract category label from page URL.
 
         Args:
-            save_content: Whether to save full content
+            page_url: The page URL
 
         Returns:
-            Dictionary with change information
+            Category label (e.g., "ARTICLES", "API", "SUBSCRIPTIONS")
         """
+        if "/articles/" in page_url:
+            return "ARTICLES"
+        elif "/api-reference/" in page_url:
+            return "API"
+        elif "/subscriptions/" in page_url:
+            return "SUBSCRIPTIONS"
+        else:
+            return "OTHER"
+
+    def send_telegram(self, changes: Dict):
+        """
+        Send Telegram notification if changes were detected.
+
+        Overrides base class to add category labels to page names.
+
+        Args:
+            changes: Dictionary with change information
+        """
+        total_changes = (
+            len(changes["new_sections"])
+            + len(changes["modified_sections"])
+            + len(changes["deleted_sections"])
+        )
+
+        if (
+            total_changes == 0
+            or not self.telegram_bot_token
+            or not self.telegram_chat_id
+        ):
+            return
+
+        # Build message
+        message = f"🔔 *{self.exchange_name} Documentation Changed*\n\n"
+        message += f"📊 Total Changes: *{total_changes}*\n"
+        message += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M UTC')}\n\n"
+
+        if changes["new_sections"]:
+            message += f"📄 *NEW PAGES ({len(changes['new_sections'])})*:\n"
+            for section in changes["new_sections"][:10]:  # Limit to 10
+                category = self._get_category_label(section["id"])
+                message += f"  • [{category}] {section['title']}\n"
+                section_url = self.get_section_url(section["id"])
+                message += f"    [View]({section_url})\n"
+            if len(changes["new_sections"]) > 10:
+                message += f"  ... and {len(changes['new_sections']) - 10} more\n"
+            message += "\n"
+
+        if changes["modified_sections"]:
+            message += f"✏️ *MODIFIED PAGES ({len(changes['modified_sections'])})*:\n"
+            for section in changes["modified_sections"][:10]:  # Limit to 10
+                category = self._get_category_label(section["id"])
+                message += f"  • [{category}] {section['title']}\n"
+                section_url = self.get_section_url(section["id"])
+                message += f"    [View]({section_url})\n"
+            if len(changes["modified_sections"]) > 10:
+                message += f"  ... and {len(changes['modified_sections']) - 10} more\n"
+            message += "\n"
+
+        if changes["deleted_sections"]:
+            message += f"🗑️ *DELETED PAGES ({len(changes['deleted_sections'])})*:\n"
+            for section in changes["deleted_sections"][:10]:
+                category = self._get_category_label(section["id"])
+                message += f"  • [{category}] {section['title']}\n"
+            if len(changes["deleted_sections"]) > 10:
+                message += f"  ... and {len(changes['deleted_sections']) - 10} more\n"
+
+        # Add footer
+        message += self.get_telegram_footer()
+
+        # Send via Telegram
         try:
-            # Run the base class check
-            changes = super().check_for_changes(save_content)
-            return changes
-        finally:
-            # Clear the cache after checking
-            self._cached_soup = None
+            import requests
+
+            url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
+            payload = {
+                "chat_id": self.telegram_chat_id,
+                "text": message,
+                "parse_mode": "Markdown",
+                "disable_web_page_preview": True,
+            }
+            response = requests.post(url, json=payload, timeout=10)
+            response.raise_for_status()
+            self.logger.info("Telegram notification sent successfully")
+        except Exception as e:
+            self.logger.error(f"Failed to send Telegram notification: {e}")
+
+    def print_summary(self, changes: Dict):
+        """
+        Print a summary of changes.
+
+        Overrides base class to add category labels to page names.
+        """
+        self.logger.info("=" * 70)
+        self.logger.info("CHANGE SUMMARY")
+        self.logger.info("=" * 70)
+
+        if changes["new_sections"]:
+            self.logger.info(f"📄 NEW PAGES ({len(changes['new_sections'])}):")
+            for section in changes["new_sections"]:
+                category = self._get_category_label(section["id"])
+                self.logger.info(f"  + [{category}] {section['title']}")
+                # Show partial URL for readability
+                short_url = section["id"].replace(self.base_url, "")
+                self.logger.info(f"    Path: {short_url}")
+
+        if changes["modified_sections"]:
+            self.logger.info(f"✏️  MODIFIED PAGES ({len(changes['modified_sections'])}):")
+            for section in changes["modified_sections"]:
+                category = self._get_category_label(section["id"])
+                self.logger.info(f"  ~ [{category}] {section['title']}")
+                short_url = section["id"].replace(self.base_url, "")
+                self.logger.info(f"    Path: {short_url}")
+                self.logger.info(f"    Old hash: {section['old_hash'][:16]}...")
+                self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
+
+        if changes["deleted_sections"]:
+            self.logger.info(f"🗑️  DELETED PAGES ({len(changes['deleted_sections'])}):")
+            for section in changes["deleted_sections"]:
+                category = self._get_category_label(section["id"])
+                self.logger.info(f"  - [{category}] {section['title']}")
+                short_url = section["id"].replace(self.base_url, "")
+                self.logger.info(f"    Path: {short_url}")
+
+        self.logger.info(f"✓ UNCHANGED PAGES: {len(changes['unchanged_sections'])}")
+
+        total_changes = (
+            len(changes["new_sections"])
+            + len(changes["modified_sections"])
+            + len(changes["deleted_sections"])
+        )
+
+        if total_changes == 0:
+            self.logger.info("✅ No changes detected!")
+        else:
+            self.logger.warning(f"⚠️  Total changes: {total_changes}")
+
+        # Use the base class's print_summary_footer method
+        self.print_summary_footer()
 
     def get_telegram_footer(self) -> str:
         """Get the footer for Telegram messages."""
-        return f"\n[View Full Documentation]({self.base_url})"
+        return f"\n📚 Documentation: [Deribit Docs]({self.base_url})"
 
     def print_summary_footer(self):
         """Print footer for summary."""
-        self.logger.info(f"View full documentation at: {self.base_url}")
+        self.logger.info("View full documentation at:")
+        self.logger.info(f"  Deribit: {self.base_url}")
 
 
 def main():
     """Main execution function."""
     parser = BaseDocMonitor.create_argument_parser(
         exchange_name="Deribit", default_storage_file="state/deribit_docs_state.json"
+    )
+    parser.add_argument(
+        "--max-pages",
+        type=int,
+        default=1000,
+        help="Maximum number of pages to discover (default: 1000)",
     )
     args = parser.parse_args()
 
@@ -175,6 +399,7 @@ def main():
         storage_file=args.storage_file,
         telegram_bot_token=telegram_token,
         telegram_chat_id=telegram_chat_id,
+        max_pages=args.max_pages,
     )
 
     # Check for changes
