@@ -62,13 +62,14 @@ class CoinbaseDocMonitor(BaseDocMonitor):
         Discover sections to monitor. Returns all configured Coinbase documentation pages.
 
         Returns:
-            Dict of section_id -> section_title (section_id format: "page_type")
+            Dict of url -> section_title
         """
         self.logger.info(f"Setting up monitoring for Coinbase documentation pages...")
 
         sections = {}
         for page_type, page_info in self.urls.items():
-            sections[page_type] = page_info["title"]
+            # Use full URL as the key
+            sections[page_info["url"]] = page_info["title"]
             self.logger.info(f"  Monitoring: {page_info['title']}")
 
         return sections
@@ -78,16 +79,12 @@ class CoinbaseDocMonitor(BaseDocMonitor):
         Fetch the documentation page content and return its content and hash.
 
         Args:
-            section_id: The section ID (page type key)
+            section_id: The section ID (full URL)
 
         Returns:
             Tuple of (content, hash)
         """
-        page_info = self.urls.get(section_id)
-        if not page_info:
-            return "", ""
-
-        url = page_info["url"]
+        url = section_id
 
         try:
             response = self.session.get(url, timeout=15)
@@ -120,7 +117,7 @@ class CoinbaseDocMonitor(BaseDocMonitor):
             return content, content_hash
 
         except Exception as e:
-            self.logger.error(f"  Error fetching {page_info['title']}: {e}")
+            self.logger.error(f"  Error fetching {url}: {e}")
             return "", ""
 
     def get_section_url(self, section_id: str) -> str:
@@ -128,13 +125,12 @@ class CoinbaseDocMonitor(BaseDocMonitor):
         Get the URL for a specific section.
 
         Args:
-            section_id: The section identifier (page type key)
+            section_id: The section identifier (full URL)
 
         Returns:
-            The docs URL
+            The docs URL (same as section_id)
         """
-        page_info = self.urls.get(section_id)
-        return page_info["url"] if page_info else ""
+        return section_id
 
     def get_telegram_footer(self) -> str:
         """
@@ -171,25 +167,22 @@ class CoinbaseDocMonitor(BaseDocMonitor):
         if changes["new_sections"]:
             self.logger.info(f"📄 NEW SECTIONS ({len(changes['new_sections'])}):")
             for section in changes["new_sections"]:
-                page_info = self.urls.get(section["id"])
-                title = page_info["title"] if page_info else section["title"]
-                self.logger.info(f"  + {title}")
+                self.logger.info(f"  + {section['title']}")
+                self.logger.info(f"    URL: {section['id']}")
 
         if changes["modified_sections"]:
             self.logger.info(f"✏️  MODIFIED SECTIONS ({len(changes['modified_sections'])}):")
             for section in changes["modified_sections"]:
-                page_info = self.urls.get(section["id"])
-                title = page_info["title"] if page_info else section["title"]
-                self.logger.info(f"  ~ {title}")
+                self.logger.info(f"  ~ {section['title']}")
+                self.logger.info(f"    URL: {section['id']}")
                 self.logger.info(f"    Old hash: {section['old_hash'][:16]}...")
                 self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
 
         if changes["deleted_sections"]:
             self.logger.info(f"🗑️  DELETED SECTIONS ({len(changes['deleted_sections'])}):")
             for section in changes["deleted_sections"]:
-                page_info = self.urls.get(section["id"])
-                title = page_info["title"] if page_info else section["title"]
-                self.logger.info(f"  - {title}")
+                self.logger.info(f"  - {section['title']}")
+                self.logger.info(f"    URL: {section['id']}")
 
         self.logger.info(f"✓ UNCHANGED SECTIONS: {len(changes['unchanged_sections'])}")
 
@@ -236,12 +229,8 @@ class CoinbaseDocMonitor(BaseDocMonitor):
         if changes["new_sections"]:
             message += f"📄 *NEW SECTIONS ({len(changes['new_sections'])})*:\n"
             for section in changes["new_sections"][:10]:
-                page_info = self.urls.get(section["id"])
-                title = page_info["title"] if page_info else section["title"]
-                message += f"  • {title}\n"
-                section_url = self.get_section_url(section["id"])
-                if section_url:
-                    message += f"    [View]({section_url})\n"
+                message += f"  • {section['title']}\n"
+                message += f"    [View]({section['id']})\n"
             if len(changes["new_sections"]) > 10:
                 message += f"  ... and {len(changes['new_sections']) - 10} more\n"
             message += "\n"
@@ -249,12 +238,8 @@ class CoinbaseDocMonitor(BaseDocMonitor):
         if changes["modified_sections"]:
             message += f"✏️ *MODIFIED SECTIONS ({len(changes['modified_sections'])})*:\n"
             for section in changes["modified_sections"][:10]:
-                page_info = self.urls.get(section["id"])
-                title = page_info["title"] if page_info else section["title"]
-                message += f"  • {title}\n"
-                section_url = self.get_section_url(section["id"])
-                if section_url:
-                    message += f"    [View]({section_url})\n"
+                message += f"  • {section['title']}\n"
+                message += f"    [View]({section['id']})\n"
             if len(changes["modified_sections"]) > 10:
                 message += f"  ... and {len(changes['modified_sections']) - 10} more\n"
             message += "\n"
@@ -262,9 +247,7 @@ class CoinbaseDocMonitor(BaseDocMonitor):
         if changes["deleted_sections"]:
             message += f"🗑️ *DELETED SECTIONS ({len(changes['deleted_sections'])})*:\n"
             for section in changes["deleted_sections"][:10]:
-                page_info = self.urls.get(section["id"])
-                title = page_info["title"] if page_info else section["title"]
-                message += f"  • {title}\n"
+                message += f"  • {section['title']}\n"
             if len(changes["deleted_sections"]) > 10:
                 message += f"  ... and {len(changes['deleted_sections']) - 10} more\n"
 

@@ -1,30 +1,25 @@
 {
-  "timestamp": "2026-01-13T11:09:26.733255",
+  "timestamp": "2026-01-13T15:23:01.001679",
   "sections": {
-    "upcoming-changes-delist-instid-request-parameter-in-ws-order-operation-channels": {
+    "https://www.okx.com/docs-v5/log_en#upcoming-changes-delist-instid-request-parameter-in-ws-order-operation-channels": {
       "title": "Delist instId request parameter in WS order operation channels",
       "hash": "038ed4f147c5863b6eb3c1daedd9cebfcd3ecad52f1465fdb66258c06e439850",
-      "last_checked": "2026-01-13T11:09:28.895041"
+      "last_checked": "2026-01-13T15:23:02.842441"
     },
-    "upcoming-changes-delist-old-attached-stop-profit-and-stop-loss-parameters": {
+    "https://www.okx.com/docs-v5/log_en#upcoming-changes-delist-old-attached-stop-profit-and-stop-loss-parameters": {
       "title": "Delist old attached stop profit and stop loss parameters",
       "hash": "18b5f22048ea9125f18d5ed2ebe87247e21188ca422920524acdcae790e8105a",
-      "last_checked": "2026-01-13T11:09:31.556664"
+      "last_checked": "2026-01-13T15:23:05.264050"
     },
-    "upcoming-changes-manual-borrow-rate-limit-update": {
+    "https://www.okx.com/docs-v5/log_en#upcoming-changes-manual-borrow-rate-limit-update": {
       "title": "Manual borrow rate limit Update",
       "hash": "7d0eded3f46677c48955397702b2d3c5592e9e4e8b0e19c15591fda0c9d5691a",
-      "last_checked": "2026-01-13T11:09:34.532691"
+      "last_checked": "2026-01-13T15:23:07.789770"
     },
-    "upcoming-changes-rename-xaut-perpetual-contract": {
+    "https://www.okx.com/docs-v5/log_en#upcoming-changes-rename-xaut-perpetual-contract": {
       "title": "Rename XAUT Perpetual Contract",
-      "hash": "b34b152ac62e41a9c7883255a1dfb829f6ce6b15fc64835397f197994985ef37",
-      "last_checked": "2026-01-13T11:09:37.479932"
-    },
-    "upcoming-changes-support-api-users-to-take-elp-orders": {
-      "title": "Support API Users to Take ELP Orders",
-      "hash": "190abfe3efe0be3225cd7ed1da59a53f4af3050877dddccba68e3991c973551b",
-      "last_checked": "2026-01-13T11:09:40.710868"
+      "hash": "50e6bb7a920b360858d87ad2f257d6a746f23d5c056685332a6ec9f72a49672e",
+      "last_checked": "2026-01-13T15:23:10.775563"
     }
   }
 }

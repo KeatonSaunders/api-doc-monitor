@@ -98,8 +98,11 @@ class HyperliquidDocMonitor(BaseDocMonitor):
                 if not is_monitored:
                     continue
 
+                # Build full URL
+                full_url = f"{self.base_url}/{path}"
+
                 # Skip if already added
-                if path in sections:
+                if full_url in sections:
                     continue
 
                 # Get the link text as the title
@@ -109,7 +112,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
                 if not title or len(title) > 100:
                     continue
 
-                sections[path] = title
+                sections[full_url] = title
                 self.logger.debug(f"  Found: {title} ({path})")
 
         except Exception as e:
@@ -120,7 +123,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         Discover documentation pages to monitor by scraping the GitBook navigation.
 
         Returns:
-            Dict of page_path -> page_title
+            Dict of page_url -> page_title
         """
         self.logger.info(f"Discovering documentation pages from {self.base_url}...")
 
@@ -145,17 +148,17 @@ class HyperliquidDocMonitor(BaseDocMonitor):
 
         return sections
 
-    def fetch_section_content(self, page_path: str) -> Tuple[str, str]:
+    def fetch_section_content(self, page_url: str) -> Tuple[str, str]:
         """
         Fetch a specific page's content and return its content and hash.
 
         Args:
-            page_path: The page path (e.g., "for-developers/api/notation")
+            page_url: The full page URL
 
         Returns:
             Tuple of (content, hash)
         """
-        url = self.get_section_url(page_path)
+        url = page_url
 
         try:
             response = self.session.get(url, timeout=15)
@@ -190,20 +193,20 @@ class HyperliquidDocMonitor(BaseDocMonitor):
             return content, content_hash
 
         except Exception as e:
-            self.logger.error(f"  Error fetching page {page_path}: {e}")
+            self.logger.error(f"  Error fetching page {url}: {e}")
             return "", ""
 
-    def get_section_url(self, page_path: str) -> str:
+    def get_section_url(self, page_url: str) -> str:
         """
         Get the URL for a specific page.
 
         Args:
-            page_path: The page path (e.g., "for-developers/api/notation")
+            page_url: The full page URL
 
         Returns:
-            Full URL to the page
+            The URL (same as page_url)
         """
-        return f"{self.base_url}/{page_path}"
+        return page_url
 
     def get_telegram_footer(self) -> str:
         """
@@ -219,21 +222,21 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         self.logger.info("View documentation at:")
         self.logger.info(f"  Hyperliquid: {self.base_url}")
 
-    def _get_category_label(self, page_path: str) -> str:
+    def _get_category_label(self, page_url: str) -> str:
         """
-        Extract category label from page path.
+        Extract category label from page URL.
 
         Args:
-            page_path: The page path (e.g., "for-developers/api/notation")
+            page_url: The full page URL
 
         Returns:
             Category label (e.g., "API", "TRADING", "HYPERCORE")
         """
-        if page_path.startswith("for-developers/api"):
+        if "/for-developers/api" in page_url:
             return "API"
-        elif page_path.startswith("trading"):
+        elif "/trading" in page_url:
             return "TRADING"
-        elif page_path.startswith("hypercore"):
+        elif "/hypercore" in page_url:
             return "HYPERCORE"
         else:
             return "OTHER"
@@ -270,8 +273,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
             for section in changes["new_sections"][:10]:  # Limit to 10
                 category = self._get_category_label(section["id"])
                 message += f"  • [{category}] {section['title']}\n"
-                section_url = self.get_section_url(section["id"])
-                message += f"    [View]({section_url})\n"
+                message += f"    [View]({section['id']})\n"
             if len(changes["new_sections"]) > 10:
                 message += f"  ... and {len(changes['new_sections']) - 10} more\n"
             message += "\n"
@@ -281,8 +283,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
             for section in changes["modified_sections"][:10]:  # Limit to 10
                 category = self._get_category_label(section["id"])
                 message += f"  • [{category}] {section['title']}\n"
-                section_url = self.get_section_url(section["id"])
-                message += f"    [View]({section_url})\n"
+                message += f"    [View]({section['id']})\n"
             if len(changes["modified_sections"]) > 10:
                 message += f"  ... and {len(changes['modified_sections']) - 10} more\n"
             message += "\n"
@@ -328,14 +329,14 @@ class HyperliquidDocMonitor(BaseDocMonitor):
             for section in changes["new_sections"]:
                 category = self._get_category_label(section["id"])
                 self.logger.info(f"  + [{category}] {section['title']}")
-                self.logger.info(f"    Path: {section['id']}")
+                self.logger.info(f"    URL: {section['id']}")
 
         if changes["modified_sections"]:
             self.logger.info(f"✏️  MODIFIED PAGES ({len(changes['modified_sections'])}):")
             for section in changes["modified_sections"]:
                 category = self._get_category_label(section["id"])
                 self.logger.info(f"  ~ [{category}] {section['title']}")
-                self.logger.info(f"    Path: {section['id']}")
+                self.logger.info(f"    URL: {section['id']}")
                 self.logger.info(f"    Old hash: {section['old_hash'][:16]}...")
                 self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
 
@@ -344,7 +345,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
             for section in changes["deleted_sections"]:
                 category = self._get_category_label(section["id"])
                 self.logger.info(f"  - [{category}] {section['title']}")
-                self.logger.info(f"    Path: {section['id']}")
+                self.logger.info(f"    URL: {section['id']}")
 
         self.logger.info(f"✓ UNCHANGED PAGES: {len(changes['unchanged_sections'])}")
 

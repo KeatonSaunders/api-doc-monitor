@@ -48,7 +48,7 @@ class OKXDocMonitor(BaseDocMonitor):
         Discover subsections under "Upcoming Changes" only.
 
         Returns:
-            Dict of section_id -> section_title
+            Dict of url -> section_title
         """
         self.logger.info(f"Discovering upcoming changes from {self.base_url}...")
 
@@ -85,7 +85,9 @@ class OKXDocMonitor(BaseDocMonitor):
                     section_id = sibling.get("id")
                     if section_id:
                         section_title = sibling.get_text(strip=True)
-                        sections[section_id] = section_title
+                        # Use full URL with fragment as the key
+                        full_url = f"{self.base_url}#{section_id}"
+                        sections[full_url] = section_title
                         self.logger.debug(f"  Found: {section_title} (#{section_id})")
 
             self.logger.info(f"Discovered {len(sections)} upcoming changes to monitor")
@@ -96,18 +98,26 @@ class OKXDocMonitor(BaseDocMonitor):
 
         return sections
 
-    def fetch_section_content(self, section_id: str) -> Tuple[str, str]:
+    def fetch_section_content(self, section_url: str) -> Tuple[str, str]:
         """
         Fetch a specific section's content and return its content and hash.
 
         Args:
-            section_id: The section identifier (e.g., "trading-account-rest-api-get-balance")
+            section_url: The full section URL with fragment
 
         Returns:
             Tuple of (content, hash)
         """
+        # Extract the section ID from the URL fragment
+        section_id = section_url.split("#")[-1] if "#" in section_url else None
+
+        if not section_id:
+            return "", ""
+
         try:
-            response = self.session.get(self.base_url, timeout=15)
+            # Fetch the base page (without fragment)
+            base_url = section_url.split("#")[0]
+            response = self.session.get(base_url, timeout=15)
             response.raise_for_status()
 
             soup = BeautifulSoup(response.text, "html.parser")
@@ -148,17 +158,17 @@ class OKXDocMonitor(BaseDocMonitor):
             self.logger.error(f"  Error fetching section {section_id}: {e}")
             return "", ""
 
-    def get_section_url(self, section_id: str) -> str:
+    def get_section_url(self, section_url: str) -> str:
         """
         Get the URL for a specific section.
 
         Args:
-            section_id: The section identifier
+            section_url: The full section URL
 
         Returns:
-            Full URL to the section
+            The URL (same as section_url)
         """
-        return f"{self.base_url}#{section_id}"
+        return section_url
 
     def get_telegram_footer(self) -> str:
         """

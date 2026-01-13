@@ -90,7 +90,7 @@ class BinanceDocMonitor(BaseDocMonitor):
         Only includes sections from current and previous year.
 
         Returns:
-            Dict of section_id -> section_title (section_id format: "api_type:section_id")
+            Dict of url -> section_title
         """
         all_sections = {}
         filtered_count = 0
@@ -113,15 +113,15 @@ class BinanceDocMonitor(BaseDocMonitor):
 
                         # Check if this is a recent section
                         if self._is_recent_section(section_id, section_title):
-                            # Create a unique key combining API type and section ID
-                            full_id = f"{api_type}:{section_id}"
-                            all_sections[full_id] = section_title
+                            # Create full URL with fragment
+                            full_url = f"{url}#{section_id}"
+                            all_sections[full_url] = section_title
                             self.logger.debug(f"  Found section: {section_title} (#{section_id})")
                         else:
                             filtered_count += 1
                             self.logger.debug(f"  Filtered old section: {section_title}")
 
-                self.logger.info(f"  Discovered {len([k for k in all_sections if k.startswith(api_type)])} sections for {api_type}")
+                self.logger.info(f"  Discovered {len([k for k in all_sections if k.startswith(url)])} sections for {api_type}")
                 if filtered_count > 0:
                     self.logger.info(f"  Filtered out {filtered_count} older sections")
 
@@ -130,25 +130,27 @@ class BinanceDocMonitor(BaseDocMonitor):
 
         return all_sections
 
-    def fetch_section_content(self, full_section_id: str) -> Tuple[str, str]:
+    def fetch_section_content(self, section_url: str) -> Tuple[str, str]:
         """
         Fetch a specific section's content and return its content and hash.
 
         Args:
-            full_section_id: The section ID in format "api_type:section_id"
+            section_url: The full section URL with fragment
 
         Returns:
             Tuple of (content, hash)
         """
-        # Parse the full_section_id to get api_type and section_id
-        api_type, section_id = full_section_id.split(":", 1)
-        url = self.urls.get(api_type)
+        # Extract the section ID from the URL fragment
+        section_id = section_url.split("#")[-1] if "#" in section_url else None
 
-        if not url:
+        if not section_id:
             return "", ""
 
+        # Get the base URL (without fragment)
+        base_url = section_url.split("#")[0]
+
         try:
-            response = self.session.get(url, timeout=10)
+            response = self.session.get(base_url, timeout=10)
             response.raise_for_status()
 
             soup = BeautifulSoup(response.text, "html.parser")
@@ -184,26 +186,20 @@ class BinanceDocMonitor(BaseDocMonitor):
 
             return content, content_hash
         except Exception as e:
-            self.logger.error(f"  Error fetching section {full_section_id}: {e}")
+            self.logger.error(f"  Error fetching section {section_url}: {e}")
             return "", ""
 
-    def get_section_url(self, full_section_id: str) -> str:
+    def get_section_url(self, section_url: str) -> str:
         """
         Get the URL for a specific section.
 
         Args:
-            full_section_id: The section ID in format "api_type:section_id"
+            section_url: The full section URL
 
         Returns:
-            Full URL to the section
+            The URL (same as section_url)
         """
-        # Parse the full_section_id to get api_type and section_id
-        api_type, section_id = full_section_id.split(":", 1)
-        url = self.urls.get(api_type, "")
-
-        if url:
-            return f"{url}#{section_id}"
-        return ""
+        return section_url
 
     def get_telegram_footer(self) -> str:
         """
@@ -218,6 +214,21 @@ class BinanceDocMonitor(BaseDocMonitor):
         if "derivatives" in self.urls:
             message += f"  • [Derivatives]({self.urls['derivatives']})"
         return message
+
+    def _get_api_label_from_url(self, url: str) -> str:
+        """
+        Get API type label from URL.
+
+        Args:
+            url: The section URL
+
+        Returns:
+            API type label (e.g., "SPOT", "DERIVATIVES")
+        """
+        for api_type, api_url in self.urls.items():
+            if url.startswith(api_url):
+                return api_type.upper()
+        return "UNKNOWN"
 
     def print_summary_footer(self):
         """Print footer for summary with documentation URLs."""
@@ -255,12 +266,10 @@ class BinanceDocMonitor(BaseDocMonitor):
         if changes["new_sections"]:
             message += f"📄 *NEW SECTIONS ({len(changes['new_sections'])})*:\n"
             for section in changes["new_sections"][:10]:  # Limit to 10
-                # Parse api_type from section ID (format: "api_type:section_id")
-                api_type = section["id"].split(":", 1)[0]
-                api_label = api_type.upper()
+                # Determine API type from URL
+                api_label = self._get_api_label_from_url(section["id"])
                 message += f"  • [{api_label}] {section['title']}\n"
-                section_url = self.get_section_url(section["id"])
-                message += f"    [View]({section_url})\n"
+                message += f"    [View]({section['id']})\n"
             if len(changes["new_sections"]) > 10:
                 message += f"  ... and {len(changes['new_sections']) - 10} more\n"
             message += "\n"
@@ -268,12 +277,10 @@ class BinanceDocMonitor(BaseDocMonitor):
         if changes["modified_sections"]:
             message += f"✏️ *MODIFIED SECTIONS ({len(changes['modified_sections'])})*:\n"
             for section in changes["modified_sections"][:10]:  # Limit to 10
-                # Parse api_type from section ID (format: "api_type:section_id")
-                api_type = section["id"].split(":", 1)[0]
-                api_label = api_type.upper()
+                # Determine API type from URL
+                api_label = self._get_api_label_from_url(section["id"])
                 message += f"  • [{api_label}] {section['title']}\n"
-                section_url = self.get_section_url(section["id"])
-                message += f"    [View]({section_url})\n"
+                message += f"    [View]({section['id']})\n"
             if len(changes["modified_sections"]) > 10:
                 message += f"  ... and {len(changes['modified_sections']) - 10} more\n"
             message += "\n"
@@ -281,9 +288,8 @@ class BinanceDocMonitor(BaseDocMonitor):
         if changes["deleted_sections"]:
             message += f"🗑️ *DELETED SECTIONS ({len(changes['deleted_sections'])})*:\n"
             for section in changes["deleted_sections"][:10]:
-                # Parse api_type from section ID (format: "api_type:section_id")
-                api_type = section["id"].split(":", 1)[0]
-                api_label = api_type.upper()
+                # Determine API type from URL
+                api_label = self._get_api_label_from_url(section["id"])
                 message += f"  • [{api_label}] {section['title']}\n"
             if len(changes["deleted_sections"]) > 10:
                 message += f"  ... and {len(changes['deleted_sections']) - 10} more\n"
@@ -319,28 +325,28 @@ class BinanceDocMonitor(BaseDocMonitor):
         if changes["new_sections"]:
             self.logger.info(f"📄 NEW SECTIONS ({len(changes['new_sections'])}):")
             for section in changes["new_sections"]:
-                # Parse api_type from section ID (format: "api_type:section_id")
-                api_type, section_id = section["id"].split(":", 1)
-                api_label = api_type.upper()
-                self.logger.info(f"  + [{api_label}] {section['title']} (#{section_id})")
+                # Determine API type from URL
+                api_label = self._get_api_label_from_url(section["id"])
+                self.logger.info(f"  + [{api_label}] {section['title']}")
+                self.logger.info(f"    URL: {section['id']}")
 
         if changes["modified_sections"]:
             self.logger.info(f"✏️  MODIFIED SECTIONS ({len(changes['modified_sections'])}):")
             for section in changes["modified_sections"]:
-                # Parse api_type from section ID (format: "api_type:section_id")
-                api_type, section_id = section["id"].split(":", 1)
-                api_label = api_type.upper()
-                self.logger.info(f"  ~ [{api_label}] {section['title']} (#{section_id})")
+                # Determine API type from URL
+                api_label = self._get_api_label_from_url(section["id"])
+                self.logger.info(f"  ~ [{api_label}] {section['title']}")
+                self.logger.info(f"    URL: {section['id']}")
                 self.logger.info(f"    Old hash: {section['old_hash'][:16]}...")
                 self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
 
         if changes["deleted_sections"]:
             self.logger.info(f"🗑️  DELETED SECTIONS ({len(changes['deleted_sections'])}):")
             for section in changes["deleted_sections"]:
-                # Parse api_type from section ID (format: "api_type:section_id")
-                api_type, section_id = section["id"].split(":", 1)
-                api_label = api_type.upper()
-                self.logger.info(f"  - [{api_label}] {section['title']} (#{section_id})")
+                # Determine API type from URL
+                api_label = self._get_api_label_from_url(section["id"])
+                self.logger.info(f"  - [{api_label}] {section['title']}")
+                self.logger.info(f"    URL: {section['id']}")
 
         self.logger.info(f"✓ UNCHANGED SECTIONS: {len(changes['unchanged_sections'])}")
 
