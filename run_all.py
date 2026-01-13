@@ -12,6 +12,7 @@ from datetime import datetime
 from monitors import (
     BinanceDocMonitor,
     BybitDocMonitor,
+    CoinbaseDocMonitor,
     DeribitDocMonitor,
     HyperliquidDocMonitor,
     KrakenDocMonitor,
@@ -90,7 +91,7 @@ def main():
     parser.add_argument(
         "--exchanges",
         nargs="+",
-        choices=["binance", "bybit", "deribit", "hyperliquid", "kraken", "okx", "all"],
+        choices=["binance", "bybit", "coinbase", "deribit", "hyperliquid", "kraken", "okx", "all"],
         default=["all"],
         help="Which exchanges to monitor (default: all)",
     )
@@ -118,7 +119,7 @@ def main():
     # Determine which exchanges to run
     exchanges_to_run = set(args.exchanges)
     if "all" in exchanges_to_run:
-        exchanges_to_run = {"binance", "bybit", "deribit", "hyperliquid", "kraken", "okx"}
+        exchanges_to_run = {"binance", "bybit", "coinbase", "deribit", "hyperliquid", "kraken", "okx"}
 
     # Monitor configuration
     monitors_config = []
@@ -140,6 +141,18 @@ def main():
             {
                 "class": BybitDocMonitor,
                 "name": "Bybit",
+                "kwargs": {
+                    "telegram_bot_token": telegram_token,
+                    "telegram_chat_id": telegram_chat_id,
+                },
+            }
+        )
+
+    if "coinbase" in exchanges_to_run:
+        monitors_config.append(
+            {
+                "class": CoinbaseDocMonitor,
+                "name": "Coinbase",
                 "kwargs": {
                     "telegram_bot_token": telegram_token,
                     "telegram_chat_id": telegram_chat_id,

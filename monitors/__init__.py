@@ -7,6 +7,7 @@ This package contains monitors for various cryptocurrency exchange API documenta
 from .base_monitor import BaseDocMonitor
 from .binance import BinanceDocMonitor
 from .bybit import BybitDocMonitor
+from .coinbase import CoinbaseDocMonitor
 from .deribit import DeribitDocMonitor
 from .hyperliquid import HyperliquidDocMonitor
 from .kraken import KrakenDocMonitor
@@ -16,6 +17,7 @@ __all__ = [
     "BaseDocMonitor",
     "BinanceDocMonitor",
     "BybitDocMonitor",
+    "CoinbaseDocMonitor",
     "DeribitDocMonitor",
     "HyperliquidDocMonitor",
     "KrakenDocMonitor",

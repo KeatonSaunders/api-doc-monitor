@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-01-13T15:09:48.071342",
+  "sections": {
+    "derivatives_changelog": {
+      "title": "Derivatives Changelog",
+      "hash": "fec73979d76f6b4c83f1e0b9461b013c35796b6753d44fb715e5d35f69c2e35f",
+      "last_checked": "2026-01-13T15:09:48.568030"
+    },
+    "exchange_upcoming": {
+      "title": "Exchange Upcoming Changes",
+      "hash": "3d1136060e81b9c8a1a5749e464999a976d880dcc10a44d30a5d28c17dbb9f9a",
+      "last_checked": "2026-01-13T15:09:49.070114"
+    },
+    "intl_exchange_upcoming": {
+      "title": "International Exchange Upcoming Changes",
+      "hash": "6e3c9c40f4dd775b7687bc5f054cff9aa4fa7fc448dec1a99849c20867a6642c",
+      "last_checked": "2026-01-13T15:09:50.576005"
+    },
+    "prime_upcoming": {
+      "title": "Prime Upcoming Changes",
+      "hash": "4ce56edb31733e0ea3f2ec3e524348e7e0529c7caf937e5ccce774cf1504530e",
+      "last_checked": "2026-01-13T15:09:51.447375"
+    }
+  }
+}
