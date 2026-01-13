@@ -14,6 +14,7 @@ from monitors import (
     BybitDocMonitor,
     DeribitDocMonitor,
     HyperliquidDocMonitor,
+    KrakenDocMonitor,
     OKXDocMonitor,
     BaseDocMonitor,
 )
@@ -89,7 +90,7 @@ def main():
     parser.add_argument(
         "--exchanges",
         nargs="+",
-        choices=["binance", "bybit", "deribit", "hyperliquid", "okx", "all"],
+        choices=["binance", "bybit", "deribit", "hyperliquid", "kraken", "okx", "all"],
         default=["all"],
         help="Which exchanges to monitor (default: all)",
     )
@@ -117,7 +118,7 @@ def main():
     # Determine which exchanges to run
     exchanges_to_run = set(args.exchanges)
     if "all" in exchanges_to_run:
-        exchanges_to_run = {"binance", "bybit", "deribit", "hyperliquid", "okx"}
+        exchanges_to_run = {"binance", "bybit", "deribit", "hyperliquid", "kraken", "okx"}
 
     # Monitor configuration
     monitors_config = []
@@ -163,6 +164,18 @@ def main():
             {
                 "class": HyperliquidDocMonitor,
                 "name": "Hyperliquid",
+                "kwargs": {
+                    "telegram_bot_token": telegram_token,
+                    "telegram_chat_id": telegram_chat_id,
+                },
+            }
+        )
+
+    if "kraken" in exchanges_to_run:
+        monitors_config.append(
+            {
+                "class": KrakenDocMonitor,
+                "name": "Kraken",
                 "kwargs": {
                     "telegram_bot_token": telegram_token,
                     "telegram_chat_id": telegram_chat_id,

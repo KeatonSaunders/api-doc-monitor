@@ -9,6 +9,7 @@ from .binance import BinanceDocMonitor
 from .bybit import BybitDocMonitor
 from .deribit import DeribitDocMonitor
 from .hyperliquid import HyperliquidDocMonitor
+from .kraken import KrakenDocMonitor
 from .okx import OKXDocMonitor
 
 __all__ = [
@@ -17,5 +18,6 @@ __all__ = [
     "BybitDocMonitor",
     "DeribitDocMonitor",
     "HyperliquidDocMonitor",
+    "KrakenDocMonitor",
     "OKXDocMonitor",
 ]
