@@ -71,7 +71,7 @@ class BinanceDocMonitor(BaseDocMonitor):
         combined_text = f"{section_id} {section_title}"
 
         # Find all 4-digit years in the text
-        years = re.findall(r'\b(20\d{2})\b', combined_text)
+        years = re.findall(r"\b(20\d{2})\b", combined_text)
 
         if years:
             # Check if any found year matches our monitored years
@@ -97,7 +97,9 @@ class BinanceDocMonitor(BaseDocMonitor):
 
         for api_type, url in self.urls.items():
             self.logger.info(f"Fetching {api_type.upper()} documentation from {url}...")
-            self.logger.info(f"  Filtering for years: {', '.join(map(str, self.years_to_monitor))}")
+            self.logger.info(
+                f"  Filtering for years: {', '.join(map(str, self.years_to_monitor))}"
+            )
 
             try:
                 response = self.session.get(url, timeout=10)
@@ -116,12 +118,18 @@ class BinanceDocMonitor(BaseDocMonitor):
                             # Create full URL with fragment
                             full_url = f"{url}#{section_id}"
                             all_sections[full_url] = section_title
-                            self.logger.debug(f"  Found section: {section_title} (#{section_id})")
+                            self.logger.debug(
+                                f"  Found section: {section_title} (#{section_id})"
+                            )
                         else:
                             filtered_count += 1
-                            self.logger.debug(f"  Filtered old section: {section_title}")
+                            self.logger.debug(
+                                f"  Filtered old section: {section_title}"
+                            )
 
-                self.logger.info(f"  Discovered {len([k for k in all_sections if k.startswith(url)])} sections for {api_type}")
+                self.logger.info(
+                    f"  Discovered {len([k for k in all_sections if k.startswith(url)])} sections for {api_type}"
+                )
                 if filtered_count > 0:
                     self.logger.info(f"  Filtered out {filtered_count} older sections")
 
@@ -215,154 +223,18 @@ class BinanceDocMonitor(BaseDocMonitor):
             message += f"  • [Derivatives]({self.urls['derivatives']})"
         return message
 
-    def _get_api_label_from_url(self, url: str) -> str:
-        """
-        Get API type label from URL.
-
-        Args:
-            url: The section URL
-
-        Returns:
-            API type label (e.g., "SPOT", "DERIVATIVES")
-        """
+    def get_section_label(self, section_id: str) -> str:
+        """Get API type label from URL."""
         for api_type, api_url in self.urls.items():
-            if url.startswith(api_url):
+            if section_id.startswith(api_url):
                 return api_type.upper()
-        return "UNKNOWN"
+        return ""
 
     def print_summary_footer(self):
         """Print footer for summary with documentation URLs."""
         self.logger.info("View documentation at:")
         for api_type, url in self.urls.items():
             self.logger.info(f"  {api_type.upper()}: {url}")
-
-    def send_telegram(self, changes: Dict):
-        """
-        Send Telegram notification if changes were detected.
-
-        Overrides base class to add API type labels to section names.
-
-        Args:
-            changes: Dictionary with change information
-        """
-        total_changes = (
-            len(changes["new_sections"])
-            + len(changes["modified_sections"])
-            + len(changes["deleted_sections"])
-        )
-
-        if (
-            total_changes == 0
-            or not self.telegram_bot_token
-            or not self.telegram_chat_id
-        ):
-            return
-
-        # Build message
-        message = f"🔔 *{self.exchange_name} API Documentation Changed*\n\n"
-        message += f"📊 Total Changes: *{total_changes}*\n"
-        message += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M UTC')}\n\n"
-
-        if changes["new_sections"]:
-            message += f"📄 *NEW SECTIONS ({len(changes['new_sections'])})*:\n"
-            for section in changes["new_sections"][:10]:  # Limit to 10
-                # Determine API type from URL
-                api_label = self._get_api_label_from_url(section["id"])
-                message += f"  • [{api_label}] {section['title']}\n"
-                message += f"    [View]({section['id']})\n"
-            if len(changes["new_sections"]) > 10:
-                message += f"  ... and {len(changes['new_sections']) - 10} more\n"
-            message += "\n"
-
-        if changes["modified_sections"]:
-            message += f"✏️ *MODIFIED SECTIONS ({len(changes['modified_sections'])})*:\n"
-            for section in changes["modified_sections"][:10]:  # Limit to 10
-                # Determine API type from URL
-                api_label = self._get_api_label_from_url(section["id"])
-                message += f"  • [{api_label}] {section['title']}\n"
-                message += f"    [View]({section['id']})\n"
-            if len(changes["modified_sections"]) > 10:
-                message += f"  ... and {len(changes['modified_sections']) - 10} more\n"
-            message += "\n"
-
-        if changes["deleted_sections"]:
-            message += f"🗑️ *DELETED SECTIONS ({len(changes['deleted_sections'])})*:\n"
-            for section in changes["deleted_sections"][:10]:
-                # Determine API type from URL
-                api_label = self._get_api_label_from_url(section["id"])
-                message += f"  • [{api_label}] {section['title']}\n"
-            if len(changes["deleted_sections"]) > 10:
-                message += f"  ... and {len(changes['deleted_sections']) - 10} more\n"
-
-        # Add footer
-        message += self.get_telegram_footer()
-
-        # Send via Telegram
-        try:
-            url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
-            payload = {
-                "chat_id": self.telegram_chat_id,
-                "text": message,
-                "parse_mode": "Markdown",
-                "disable_web_page_preview": True,
-            }
-            response = requests.post(url, json=payload, timeout=10)
-            response.raise_for_status()
-            self.logger.info("Telegram notification sent successfully")
-        except Exception as e:
-            self.logger.error(f"Failed to send Telegram notification: {e}")
-
-    def print_summary(self, changes: Dict):
-        """
-        Print a summary of changes.
-
-        Overrides base class to add API type labels to section names.
-        """
-        self.logger.info("=" * 70)
-        self.logger.info("CHANGE SUMMARY")
-        self.logger.info("=" * 70)
-
-        if changes["new_sections"]:
-            self.logger.info(f"📄 NEW SECTIONS ({len(changes['new_sections'])}):")
-            for section in changes["new_sections"]:
-                # Determine API type from URL
-                api_label = self._get_api_label_from_url(section["id"])
-                self.logger.info(f"  + [{api_label}] {section['title']}")
-                self.logger.info(f"    URL: {section['id']}")
-
-        if changes["modified_sections"]:
-            self.logger.info(f"✏️  MODIFIED SECTIONS ({len(changes['modified_sections'])}):")
-            for section in changes["modified_sections"]:
-                # Determine API type from URL
-                api_label = self._get_api_label_from_url(section["id"])
-                self.logger.info(f"  ~ [{api_label}] {section['title']}")
-                self.logger.info(f"    URL: {section['id']}")
-                self.logger.info(f"    Old hash: {section['old_hash'][:16]}...")
-                self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
-
-        if changes["deleted_sections"]:
-            self.logger.info(f"🗑️  DELETED SECTIONS ({len(changes['deleted_sections'])}):")
-            for section in changes["deleted_sections"]:
-                # Determine API type from URL
-                api_label = self._get_api_label_from_url(section["id"])
-                self.logger.info(f"  - [{api_label}] {section['title']}")
-                self.logger.info(f"    URL: {section['id']}")
-
-        self.logger.info(f"✓ UNCHANGED SECTIONS: {len(changes['unchanged_sections'])}")
-
-        total_changes = (
-            len(changes["new_sections"])
-            + len(changes["modified_sections"])
-            + len(changes["deleted_sections"])
-        )
-
-        if total_changes == 0:
-            self.logger.info("✅ No changes detected!")
-        else:
-            self.logger.warning(f"⚠️  Total changes: {total_changes}")
-
-        # Use the base class's print_summary_footer method
-        self.print_summary_footer()
 
 
 def main():

@@ -209,6 +209,35 @@ class BaseDocMonitor(ABC):
 
         return changes
 
+    def get_section_label(self, section_id: str) -> str:
+        """
+        Get a label/prefix for a section (e.g., API type, category).
+
+        Subclasses can override this to add custom labels.
+
+        Args:
+            section_id: The section identifier
+
+        Returns:
+            Label string (empty by default)
+        """
+        return ""
+
+    def format_section_title(self, section: Dict) -> str:
+        """
+        Format a section title with optional label.
+
+        Args:
+            section: Section dictionary with 'id' and 'title'
+
+        Returns:
+            Formatted title string
+        """
+        label = self.get_section_label(section["id"])
+        if label:
+            return f"[{label}] {section['title']}"
+        return section["title"]
+
     def send_telegram(self, changes: Dict):
         """
         Send Telegram notification if changes were detected.
@@ -237,9 +266,9 @@ class BaseDocMonitor(ABC):
         if changes["new_sections"]:
             message += f"📄 *NEW SECTIONS ({len(changes['new_sections'])})*:\n"
             for section in changes["new_sections"][:10]:  # Limit to 10
-                message += f"  • {section['title']}\n"
-                section_url = self.get_section_url(section["id"])
-                message += f"    [View]({section_url})\n"
+                formatted_title = self.format_section_title(section)
+                message += f"  • {formatted_title}\n"
+                message += f"    [View]({section['id']})\n"
             if len(changes["new_sections"]) > 10:
                 message += f"  ... and {len(changes['new_sections']) - 10} more\n"
             message += "\n"
@@ -247,9 +276,9 @@ class BaseDocMonitor(ABC):
         if changes["modified_sections"]:
             message += f"✏️ *MODIFIED SECTIONS ({len(changes['modified_sections'])})*:\n"
             for section in changes["modified_sections"][:10]:  # Limit to 10
-                message += f"  • {section['title']}\n"
-                section_url = self.get_section_url(section["id"])
-                message += f"    [View]({section_url})\n"
+                formatted_title = self.format_section_title(section)
+                message += f"  • {formatted_title}\n"
+                message += f"    [View]({section['id']})\n"
             if len(changes["modified_sections"]) > 10:
                 message += f"  ... and {len(changes['modified_sections']) - 10} more\n"
             message += "\n"
@@ -257,7 +286,8 @@ class BaseDocMonitor(ABC):
         if changes["deleted_sections"]:
             message += f"🗑️ *DELETED SECTIONS ({len(changes['deleted_sections'])})*:\n"
             for section in changes["deleted_sections"][:10]:
-                message += f"  • {section['title']}\n"
+                formatted_title = self.format_section_title(section)
+                message += f"  • {formatted_title}\n"
             if len(changes["deleted_sections"]) > 10:
                 message += f"  ... and {len(changes['deleted_sections']) - 10} more\n"
 
@@ -299,19 +329,25 @@ class BaseDocMonitor(ABC):
         if changes["new_sections"]:
             self.logger.info(f"📄 NEW SECTIONS ({len(changes['new_sections'])}):")
             for section in changes["new_sections"]:
-                self.logger.info(f"  + {section['title']} (#{section['id']})")
+                formatted_title = self.format_section_title(section)
+                self.logger.info(f"  + {formatted_title}")
+                self.logger.info(f"    URL: {section['id']}")
 
         if changes["modified_sections"]:
             self.logger.info(f"✏️  MODIFIED SECTIONS ({len(changes['modified_sections'])}):")
             for section in changes["modified_sections"]:
-                self.logger.info(f"  ~ {section['title']} (#{section['id']})")
+                formatted_title = self.format_section_title(section)
+                self.logger.info(f"  ~ {formatted_title}")
+                self.logger.info(f"    URL: {section['id']}")
                 self.logger.info(f"    Old hash: {section['old_hash'][:16]}...")
                 self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
 
         if changes["deleted_sections"]:
             self.logger.info(f"🗑️  DELETED SECTIONS ({len(changes['deleted_sections'])}):")
             for section in changes["deleted_sections"]:
-                self.logger.info(f"  - {section['title']} (#{section['id']})")
+                formatted_title = self.format_section_title(section)
+                self.logger.info(f"  - {formatted_title}")
+                self.logger.info(f"    URL: {section['id']}")
 
         self.logger.info(f"✓ UNCHANGED SECTIONS: {len(changes['unchanged_sections'])}")
 

@@ -222,146 +222,15 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         self.logger.info("View documentation at:")
         self.logger.info(f"  Hyperliquid: {self.base_url}")
 
-    def _get_category_label(self, page_url: str) -> str:
-        """
-        Extract category label from page URL.
-
-        Args:
-            page_url: The full page URL
-
-        Returns:
-            Category label (e.g., "API", "TRADING", "HYPERCORE")
-        """
-        if "/for-developers/api" in page_url:
+    def get_section_label(self, section_id: str) -> str:
+        """Get category label from page URL."""
+        if "/for-developers/api" in section_id:
             return "API"
-        elif "/trading" in page_url:
+        elif "/trading" in section_id:
             return "TRADING"
-        elif "/hypercore" in page_url:
+        elif "/hypercore" in section_id:
             return "HYPERCORE"
-        else:
-            return "OTHER"
-
-    def send_telegram(self, changes: Dict):
-        """
-        Send Telegram notification if changes were detected.
-
-        Overrides base class to add category labels to page names.
-
-        Args:
-            changes: Dictionary with change information
-        """
-        total_changes = (
-            len(changes["new_sections"])
-            + len(changes["modified_sections"])
-            + len(changes["deleted_sections"])
-        )
-
-        if (
-            total_changes == 0
-            or not self.telegram_bot_token
-            or not self.telegram_chat_id
-        ):
-            return
-
-        # Build message
-        message = f"🔔 *{self.exchange_name} Documentation Changed*\n\n"
-        message += f"📊 Total Changes: *{total_changes}*\n"
-        message += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M UTC')}\n\n"
-
-        if changes["new_sections"]:
-            message += f"📄 *NEW PAGES ({len(changes['new_sections'])})*:\n"
-            for section in changes["new_sections"][:10]:  # Limit to 10
-                category = self._get_category_label(section["id"])
-                message += f"  • [{category}] {section['title']}\n"
-                message += f"    [View]({section['id']})\n"
-            if len(changes["new_sections"]) > 10:
-                message += f"  ... and {len(changes['new_sections']) - 10} more\n"
-            message += "\n"
-
-        if changes["modified_sections"]:
-            message += f"✏️ *MODIFIED PAGES ({len(changes['modified_sections'])})*:\n"
-            for section in changes["modified_sections"][:10]:  # Limit to 10
-                category = self._get_category_label(section["id"])
-                message += f"  • [{category}] {section['title']}\n"
-                message += f"    [View]({section['id']})\n"
-            if len(changes["modified_sections"]) > 10:
-                message += f"  ... and {len(changes['modified_sections']) - 10} more\n"
-            message += "\n"
-
-        if changes["deleted_sections"]:
-            message += f"🗑️ *DELETED PAGES ({len(changes['deleted_sections'])})*:\n"
-            for section in changes["deleted_sections"][:10]:
-                category = self._get_category_label(section["id"])
-                message += f"  • [{category}] {section['title']}\n"
-            if len(changes["deleted_sections"]) > 10:
-                message += f"  ... and {len(changes['deleted_sections']) - 10} more\n"
-
-        # Add footer
-        message += self.get_telegram_footer()
-
-        # Send via Telegram
-        try:
-            url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
-            payload = {
-                "chat_id": self.telegram_chat_id,
-                "text": message,
-                "parse_mode": "Markdown",
-                "disable_web_page_preview": True,
-            }
-            response = requests.post(url, json=payload, timeout=10)
-            response.raise_for_status()
-            self.logger.info("Telegram notification sent successfully")
-        except Exception as e:
-            self.logger.error(f"Failed to send Telegram notification: {e}")
-
-    def print_summary(self, changes: Dict):
-        """
-        Print a summary of changes.
-
-        Overrides base class to add category labels to page names.
-        """
-        self.logger.info("=" * 70)
-        self.logger.info("CHANGE SUMMARY")
-        self.logger.info("=" * 70)
-
-        if changes["new_sections"]:
-            self.logger.info(f"📄 NEW PAGES ({len(changes['new_sections'])}):")
-            for section in changes["new_sections"]:
-                category = self._get_category_label(section["id"])
-                self.logger.info(f"  + [{category}] {section['title']}")
-                self.logger.info(f"    URL: {section['id']}")
-
-        if changes["modified_sections"]:
-            self.logger.info(f"✏️  MODIFIED PAGES ({len(changes['modified_sections'])}):")
-            for section in changes["modified_sections"]:
-                category = self._get_category_label(section["id"])
-                self.logger.info(f"  ~ [{category}] {section['title']}")
-                self.logger.info(f"    URL: {section['id']}")
-                self.logger.info(f"    Old hash: {section['old_hash'][:16]}...")
-                self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
-
-        if changes["deleted_sections"]:
-            self.logger.info(f"🗑️  DELETED PAGES ({len(changes['deleted_sections'])}):")
-            for section in changes["deleted_sections"]:
-                category = self._get_category_label(section["id"])
-                self.logger.info(f"  - [{category}] {section['title']}")
-                self.logger.info(f"    URL: {section['id']}")
-
-        self.logger.info(f"✓ UNCHANGED PAGES: {len(changes['unchanged_sections'])}")
-
-        total_changes = (
-            len(changes["new_sections"])
-            + len(changes["modified_sections"])
-            + len(changes["deleted_sections"])
-        )
-
-        if total_changes == 0:
-            self.logger.info("✅ No changes detected!")
-        else:
-            self.logger.warning(f"⚠️  Total changes: {total_changes}")
-
-        # Use the base class's print_summary_footer method
-        self.print_summary_footer()
+        return ""
 
 
 def main():
