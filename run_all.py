@@ -17,23 +17,25 @@ from monitors import (
     OKXDocMonitor,
     BaseDocMonitor,
 )
+from monitors.logger_config import setup_logger
 
 
-def run_monitor(monitor_class, monitor_name, **kwargs):
+def run_monitor(monitor_class, monitor_name, logger, **kwargs):
     """
     Run a single monitor and return results.
 
     Args:
         monitor_class: The monitor class to instantiate
         monitor_name: Human-readable name for logging
+        logger: Logger instance for run_all
         **kwargs: Additional arguments to pass to the monitor
 
     Returns:
         Dict with change information
     """
-    print("\n" + "=" * 80)
-    print(f"Running {monitor_name} Monitor")
-    print("=" * 80)
+    logger.info("=" * 80)
+    logger.info(f"Running {monitor_name} Monitor")
+    logger.info("=" * 80)
 
     try:
         monitor = monitor_class(**kwargs)
@@ -49,7 +51,7 @@ def run_monitor(monitor_class, monitor_name, **kwargs):
         }
 
     except Exception as e:
-        print(f"\n❌ Error running {monitor_name} monitor: {e}")
+        logger.error(f"Error running {monitor_name} monitor: {e}")
         return {
             "success": False,
             "monitor": monitor_name,
@@ -93,6 +95,9 @@ def main():
     )
 
     args = parser.parse_args()
+
+    # Set up logger for run_all
+    logger = setup_logger("run_all")
 
     # Get Telegram credentials
     class DummyArgs:
@@ -178,21 +183,21 @@ def main():
         )
 
     # Run all monitors
-    print("\n" + "=" * 80)
-    print(f"Exchange Documentation Monitor Suite")
-    print(f"Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"Monitoring {len(monitors_config)} exchange(s)")
-    print("=" * 80)
+    logger.info("=" * 80)
+    logger.info("Exchange Documentation Monitor Suite")
+    logger.info(f"Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    logger.info(f"Monitoring {len(monitors_config)} exchange(s)")
+    logger.info("=" * 80)
 
     results = []
     for config in monitors_config:
-        result = run_monitor(config["class"], config["name"], **config["kwargs"])
+        result = run_monitor(config["class"], config["name"], logger, **config["kwargs"])
         results.append(result)
 
     # Print summary
-    print("\n" + "=" * 80)
-    print("FINAL SUMMARY")
-    print("=" * 80)
+    logger.info("=" * 80)
+    logger.info("FINAL SUMMARY")
+    logger.info("=" * 80)
 
     total_changes = 0
     successful_monitors = 0
@@ -210,16 +215,16 @@ def main():
             total_changes += change_count
 
             status = "✅" if change_count == 0 else f"⚠️  {change_count} change(s)"
-            print(f"  {result['monitor']}: {status}")
+            logger.info(f"  {result['monitor']}: {status}")
         else:
             failed_monitors += 1
-            print(f"  {result['monitor']}: ❌ Failed - {result['error']}")
+            logger.error(f"  {result['monitor']}: ❌ Failed - {result['error']}")
 
-    print(f"\nTotal monitors run: {len(results)}")
-    print(f"Successful: {successful_monitors}")
-    print(f"Failed: {failed_monitors}")
-    print(f"Total changes detected: {total_changes}")
-    print(f"\nCompleted at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    logger.info(f"Total monitors run: {len(results)}")
+    logger.info(f"Successful: {successful_monitors}")
+    logger.info(f"Failed: {failed_monitors}")
+    logger.info(f"Total changes detected: {total_changes}")
+    logger.info(f"Completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     # Exit with error code if any monitors failed
     if failed_monitors > 0:

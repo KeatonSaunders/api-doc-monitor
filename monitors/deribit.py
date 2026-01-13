@@ -42,7 +42,7 @@ class DeribitDocMonitor(BaseDocMonitor):
     def _fetch_and_cache_page(self):
         """Fetch the documentation page once and cache it."""
         if self._cached_soup is None:
-            print(f"Fetching documentation from {self.base_url}...")
+            self.logger.info(f"Fetching documentation from {self.base_url}...")
             response = self.session.get(self.base_url, timeout=10)
             response.raise_for_status()
             self._cached_soup = BeautifulSoup(response.text, "html.parser")
@@ -69,12 +69,12 @@ class DeribitDocMonitor(BaseDocMonitor):
                 if section_id:
                     section_title = heading.get_text(strip=True)
                     sections[section_id] = section_title
-                    print(f"Found section: {section_title} (#{section_id})")
+                    self.logger.debug(f"Found section: {section_title} (#{section_id})")
 
-            print(f"\nDiscovered {len(sections)} documentation sections")
+            self.logger.info(f"Discovered {len(sections)} documentation sections")
 
         except Exception as e:
-            print(f"Error fetching documentation: {e}")
+            self.logger.error(f"Error fetching documentation: {e}")
 
         return sections
 
@@ -97,7 +97,7 @@ class DeribitDocMonitor(BaseDocMonitor):
             section = self._cached_soup.find(id=section_id)
 
             if not section:
-                print(f"Section {section_id} not found")
+                self.logger.warning(f"Section {section_id} not found")
                 return "", ""
 
             # Get all content until the next major heading
@@ -118,7 +118,7 @@ class DeribitDocMonitor(BaseDocMonitor):
 
             return content, content_hash
         except Exception as e:
-            print(f"Error fetching section {section_id}: {e}")
+            self.logger.error(f"Error fetching section {section_id}: {e}")
             return "", ""
 
     def get_section_url(self, section_id: str) -> str:
@@ -157,7 +157,7 @@ class DeribitDocMonitor(BaseDocMonitor):
 
     def print_summary_footer(self):
         """Print footer for summary."""
-        print(f"\nView full documentation at: {self.base_url}")
+        self.logger.info(f"View full documentation at: {self.base_url}")
 
 
 def main():

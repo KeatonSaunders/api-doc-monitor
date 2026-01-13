@@ -50,7 +50,7 @@ class OKXDocMonitor(BaseDocMonitor):
         Returns:
             Dict of section_id -> section_title
         """
-        print(f"\nDiscovering upcoming changes from {self.base_url}...")
+        self.logger.info(f"Discovering upcoming changes from {self.base_url}...")
 
         sections = {}
 
@@ -64,7 +64,7 @@ class OKXDocMonitor(BaseDocMonitor):
             upcoming_section = soup.find(id="upcoming-changes")
 
             if not upcoming_section:
-                print("  Warning: Could not find 'upcoming-changes' section")
+                self.logger.warning("  Warning: Could not find 'upcoming-changes' section")
                 return sections
 
             # Get the heading level of "Upcoming Changes"
@@ -86,13 +86,13 @@ class OKXDocMonitor(BaseDocMonitor):
                     if section_id:
                         section_title = sibling.get_text(strip=True)
                         sections[section_id] = section_title
-                        print(f"  Found: {section_title} (#{section_id})")
+                        self.logger.debug(f"  Found: {section_title} (#{section_id})")
 
-            print(f"\nDiscovered {len(sections)} upcoming changes to monitor")
+            self.logger.info(f"Discovered {len(sections)} upcoming changes to monitor")
 
         except Exception as e:
-            print(f"  Error discovering sections: {e}")
-            print("  Falling back to empty section list")
+            self.logger.error(f"  Error discovering sections: {e}")
+            self.logger.warning("  Falling back to empty section list")
 
         return sections
 
@@ -145,7 +145,7 @@ class OKXDocMonitor(BaseDocMonitor):
             return content, content_hash
 
         except Exception as e:
-            print(f"  Error fetching section {section_id}: {e}")
+            self.logger.error(f"  Error fetching section {section_id}: {e}")
             return "", ""
 
     def get_section_url(self, section_id: str) -> str:
@@ -171,8 +171,8 @@ class OKXDocMonitor(BaseDocMonitor):
 
     def print_summary_footer(self):
         """Print footer for summary with changelog URLs."""
-        print(f"\nView changelog at:")
-        print(f"  OKX: {self.base_url}")
+        self.logger.info("View changelog at:")
+        self.logger.info(f"  OKX: {self.base_url}")
 
 
 def main():

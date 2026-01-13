@@ -14,6 +14,7 @@ from datetime import datetime
 import time
 from typing import Dict, Tuple
 from abc import ABC, abstractmethod
+from .logger_config import setup_logger
 
 
 class BaseDocMonitor(ABC):
@@ -39,6 +40,7 @@ class BaseDocMonitor(ABC):
         self.storage_file = storage_file
         self.telegram_bot_token = telegram_bot_token
         self.telegram_chat_id = telegram_chat_id
+        self.logger = setup_logger(exchange_name)
         self.session = requests.Session()
         self.session.headers.update(
             {
@@ -57,7 +59,7 @@ class BaseDocMonitor(ABC):
                 with open(self.storage_file, "r") as f:
                     return json.load(f)
             except Exception as e:
-                print(f"Error loading previous state: {e}")
+                self.logger.error(f"Error loading previous state: {e}")
         return {}
 
     def save_state(self, state: Dict):
@@ -65,9 +67,9 @@ class BaseDocMonitor(ABC):
         try:
             with open(self.storage_file, "w") as f:
                 json.dump(state, f, indent=2)
-            print(f"\nState saved to {self.storage_file}")
+            self.logger.info(f"State saved to {self.storage_file}")
         except Exception as e:
-            print(f"Error saving state: {e}")
+            self.logger.error(f"Error saving state: {e}")
 
     @abstractmethod
     def discover_sections(self) -> Dict[str, str]:
@@ -121,21 +123,21 @@ class BaseDocMonitor(ABC):
         Returns:
             Dictionary with change information
         """
-        print("=" * 70)
-        print(f"{self.exchange_name} API Documentation Change Monitor")
-        print("=" * 70)
+        self.logger.info("=" * 70)
+        self.logger.info(f"{self.exchange_name} API Documentation Change Monitor")
+        self.logger.info("=" * 70)
 
         # Discover sections
         sections = self.discover_sections()
-        print(f"\nDiscovered {len(sections)} sections")
+        self.logger.info(f"Discovered {len(sections)} sections")
 
         # Load previous state
         previous_state = self.load_previous_state()
         previous_sections = previous_state.get("sections", {})
         previous_timestamp = previous_state.get("timestamp", "Never")
 
-        print(f"Previous check: {previous_timestamp}")
-        print(f"Checking {len(sections)} sections for changes...\n")
+        self.logger.info(f"Previous check: {previous_timestamp}")
+        self.logger.info(f"Checking {len(sections)} sections for changes...")
 
         # Current state
         current_state = {"timestamp": datetime.now().isoformat(), "sections": {}}
@@ -150,12 +152,12 @@ class BaseDocMonitor(ABC):
 
         # Check each section
         for i, (section_id, section_title) in enumerate(sorted(sections.items()), 1):
-            print(f"[{i}/{len(sections)}] Checking {section_title}...", end=" ")
+            self.logger.info(f"[{i}/{len(sections)}] Checking {section_title}...")
 
             content, content_hash = self.fetch_section_content(section_id)
 
             if not content_hash:
-                print("FAILED")
+                self.logger.warning(f"[{i}/{len(sections)}] {section_title}: FAILED")
                 continue
 
             # Store in current state
@@ -172,12 +174,12 @@ class BaseDocMonitor(ABC):
 
             # Compare with previous state
             if section_id not in previous_sections:
-                print("NEW")
+                self.logger.info(f"[{i}/{len(sections)}] {section_title}: NEW")
                 changes["new_sections"].append(
                     {"id": section_id, "title": section_title}
                 )
             elif previous_sections[section_id].get("hash") != content_hash:
-                print("MODIFIED")
+                self.logger.info(f"[{i}/{len(sections)}] {section_title}: MODIFIED")
                 changes["modified_sections"].append(
                     {
                         "id": section_id,
@@ -187,7 +189,7 @@ class BaseDocMonitor(ABC):
                     }
                 )
             else:
-                print("UNCHANGED")
+                self.logger.debug(f"[{i}/{len(sections)}] {section_title}: UNCHANGED")
                 changes["unchanged_sections"].append(section_id)
 
             time.sleep(0.3)  # Rate limiting
@@ -273,9 +275,9 @@ class BaseDocMonitor(ABC):
             }
             response = requests.post(url, json=payload, timeout=10)
             response.raise_for_status()
-            print(f"\n✅ Telegram notification sent successfully")
+            self.logger.info("Telegram notification sent successfully")
         except Exception as e:
-            print(f"\n❌ Failed to send Telegram notification: {e}")
+            self.logger.error(f"Failed to send Telegram notification: {e}")
 
     def get_telegram_footer(self) -> str:
         """
@@ -290,28 +292,28 @@ class BaseDocMonitor(ABC):
 
     def print_summary(self, changes: Dict):
         """Print a summary of changes."""
-        print("\n" + "=" * 70)
-        print("CHANGE SUMMARY")
-        print("=" * 70)
+        self.logger.info("=" * 70)
+        self.logger.info("CHANGE SUMMARY")
+        self.logger.info("=" * 70)
 
         if changes["new_sections"]:
-            print(f"\n📄 NEW SECTIONS ({len(changes['new_sections'])}):")
+            self.logger.info(f"📄 NEW SECTIONS ({len(changes['new_sections'])}):")
             for section in changes["new_sections"]:
-                print(f"  + {section['title']} (#{section['id']})")
+                self.logger.info(f"  + {section['title']} (#{section['id']})")
 
         if changes["modified_sections"]:
-            print(f"\n✏️  MODIFIED SECTIONS ({len(changes['modified_sections'])}):")
+            self.logger.info(f"✏️  MODIFIED SECTIONS ({len(changes['modified_sections'])}):")
             for section in changes["modified_sections"]:
-                print(f"  ~ {section['title']} (#{section['id']})")
-                print(f"    Old hash: {section['old_hash'][:16]}...")
-                print(f"    New hash: {section['new_hash'][:16]}...")
+                self.logger.info(f"  ~ {section['title']} (#{section['id']})")
+                self.logger.info(f"    Old hash: {section['old_hash'][:16]}...")
+                self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
 
         if changes["deleted_sections"]:
-            print(f"\n🗑️  DELETED SECTIONS ({len(changes['deleted_sections'])}):")
+            self.logger.info(f"🗑️  DELETED SECTIONS ({len(changes['deleted_sections'])}):")
             for section in changes["deleted_sections"]:
-                print(f"  - {section['title']} (#{section['id']})")
+                self.logger.info(f"  - {section['title']} (#{section['id']})")
 
-        print(f"\n✓ UNCHANGED SECTIONS: {len(changes['unchanged_sections'])}")
+        self.logger.info(f"✓ UNCHANGED SECTIONS: {len(changes['unchanged_sections'])}")
 
         total_changes = (
             len(changes["new_sections"])
@@ -320,9 +322,9 @@ class BaseDocMonitor(ABC):
         )
 
         if total_changes == 0:
-            print("\n✅ No changes detected!")
+            self.logger.info("✅ No changes detected!")
         else:
-            print(f"\n⚠️  Total changes: {total_changes}")
+            self.logger.warning(f"⚠️  Total changes: {total_changes}")
 
         # Print documentation URLs - subclasses can override
         self.print_summary_footer()
@@ -347,7 +349,9 @@ class BaseDocMonitor(ABC):
                 with open(config_path, "r") as f:
                     return json.load(f)
             except Exception as e:
-                print(f"Warning: Could not load config file: {e}")
+                # Use print here since this is a static method without logger
+                import sys
+                print(f"Warning: Could not load config file: {e}", file=sys.stderr)
         return {}
 
     @staticmethod

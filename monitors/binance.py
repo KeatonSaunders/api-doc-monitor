@@ -61,7 +61,7 @@ class BinanceDocMonitor(BaseDocMonitor):
         all_sections = {}
 
         for api_type, url in self.urls.items():
-            print(f"\nFetching {api_type.upper()} documentation from {url}...")
+            self.logger.info(f"Fetching {api_type.upper()} documentation from {url}...")
 
             try:
                 response = self.session.get(url, timeout=10)
@@ -77,12 +77,12 @@ class BinanceDocMonitor(BaseDocMonitor):
                         # Create a unique key combining API type and section ID
                         full_id = f"{api_type}:{section_id}"
                         all_sections[full_id] = section_title
-                        print(f"  Found section: {section_title} (#{section_id})")
+                        self.logger.debug(f"  Found section: {section_title} (#{section_id})")
 
-                print(f"  Discovered {len([k for k in all_sections if k.startswith(api_type)])} sections for {api_type}")
+                self.logger.info(f"  Discovered {len([k for k in all_sections if k.startswith(api_type)])} sections for {api_type}")
 
             except Exception as e:
-                print(f"  Error fetching documentation: {e}")
+                self.logger.error(f"  Error fetching documentation: {e}")
 
         return all_sections
 
@@ -140,7 +140,7 @@ class BinanceDocMonitor(BaseDocMonitor):
 
             return content, content_hash
         except Exception as e:
-            print(f"  Error fetching section {full_section_id}: {e}")
+            self.logger.error(f"  Error fetching section {full_section_id}: {e}")
             return "", ""
 
     def get_section_url(self, full_section_id: str) -> str:
@@ -177,9 +177,9 @@ class BinanceDocMonitor(BaseDocMonitor):
 
     def print_summary_footer(self):
         """Print footer for summary with documentation URLs."""
-        print("\nView documentation at:")
+        self.logger.info("View documentation at:")
         for api_type, url in self.urls.items():
-            print(f"  {api_type.upper()}: {url}")
+            self.logger.info(f"  {api_type.upper()}: {url}")
 
     def send_telegram(self, changes: Dict):
         """
@@ -258,9 +258,9 @@ class BinanceDocMonitor(BaseDocMonitor):
             }
             response = requests.post(url, json=payload, timeout=10)
             response.raise_for_status()
-            print(f"\n✅ Telegram notification sent successfully")
+            self.logger.info("Telegram notification sent successfully")
         except Exception as e:
-            print(f"\n❌ Failed to send Telegram notification: {e}")
+            self.logger.error(f"Failed to send Telegram notification: {e}")
 
     def print_summary(self, changes: Dict):
         """
@@ -268,37 +268,37 @@ class BinanceDocMonitor(BaseDocMonitor):
 
         Overrides base class to add API type labels to section names.
         """
-        print("\n" + "=" * 70)
-        print("CHANGE SUMMARY")
-        print("=" * 70)
+        self.logger.info("=" * 70)
+        self.logger.info("CHANGE SUMMARY")
+        self.logger.info("=" * 70)
 
         if changes["new_sections"]:
-            print(f"\n📄 NEW SECTIONS ({len(changes['new_sections'])}):")
+            self.logger.info(f"📄 NEW SECTIONS ({len(changes['new_sections'])}):")
             for section in changes["new_sections"]:
                 # Parse api_type from section ID (format: "api_type:section_id")
                 api_type, section_id = section["id"].split(":", 1)
                 api_label = api_type.upper()
-                print(f"  + [{api_label}] {section['title']} (#{section_id})")
+                self.logger.info(f"  + [{api_label}] {section['title']} (#{section_id})")
 
         if changes["modified_sections"]:
-            print(f"\n✏️  MODIFIED SECTIONS ({len(changes['modified_sections'])}):")
+            self.logger.info(f"✏️  MODIFIED SECTIONS ({len(changes['modified_sections'])}):")
             for section in changes["modified_sections"]:
                 # Parse api_type from section ID (format: "api_type:section_id")
                 api_type, section_id = section["id"].split(":", 1)
                 api_label = api_type.upper()
-                print(f"  ~ [{api_label}] {section['title']} (#{section_id})")
-                print(f"    Old hash: {section['old_hash'][:16]}...")
-                print(f"    New hash: {section['new_hash'][:16]}...")
+                self.logger.info(f"  ~ [{api_label}] {section['title']} (#{section_id})")
+                self.logger.info(f"    Old hash: {section['old_hash'][:16]}...")
+                self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
 
         if changes["deleted_sections"]:
-            print(f"\n🗑️  DELETED SECTIONS ({len(changes['deleted_sections'])}):")
+            self.logger.info(f"🗑️  DELETED SECTIONS ({len(changes['deleted_sections'])}):")
             for section in changes["deleted_sections"]:
                 # Parse api_type from section ID (format: "api_type:section_id")
                 api_type, section_id = section["id"].split(":", 1)
                 api_label = api_type.upper()
-                print(f"  - [{api_label}] {section['title']} (#{section_id})")
+                self.logger.info(f"  - [{api_label}] {section['title']} (#{section_id})")
 
-        print(f"\n✓ UNCHANGED SECTIONS: {len(changes['unchanged_sections'])}")
+        self.logger.info(f"✓ UNCHANGED SECTIONS: {len(changes['unchanged_sections'])}")
 
         total_changes = (
             len(changes["new_sections"])
@@ -307,9 +307,9 @@ class BinanceDocMonitor(BaseDocMonitor):
         )
 
         if total_changes == 0:
-            print("\n✅ No changes detected!")
+            self.logger.info("✅ No changes detected!")
         else:
-            print(f"\n⚠️  Total changes: {total_changes}")
+            self.logger.warning(f"⚠️  Total changes: {total_changes}")
 
         # Use the base class's print_summary_footer method
         self.print_summary_footer()

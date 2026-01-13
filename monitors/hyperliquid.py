@@ -110,10 +110,10 @@ class HyperliquidDocMonitor(BaseDocMonitor):
                     continue
 
                 sections[path] = title
-                print(f"  Found: {title} ({path})")
+                self.logger.debug(f"  Found: {title} ({path})")
 
         except Exception as e:
-            print(f"  Error fetching {url}: {e}")
+            self.logger.error(f"  Error fetching {url}: {e}")
 
     def discover_sections(self) -> Dict[str, str]:
         """
@@ -122,7 +122,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         Returns:
             Dict of page_path -> page_title
         """
-        print(f"\nDiscovering documentation pages from {self.base_url}...")
+        self.logger.info(f"Discovering documentation pages from {self.base_url}...")
 
         sections = {}
         visited = set()
@@ -134,14 +134,14 @@ class HyperliquidDocMonitor(BaseDocMonitor):
             # Then visit each monitored section to find child pages
             for section_path in self.SECTIONS_TO_MONITOR:
                 section_url = f"{self.base_url}/{section_path}"
-                print(f"\nCrawling section: {section_path}")
+                self.logger.info(f"Crawling section: {section_path}")
                 self._discover_links_from_page(section_url, sections, visited)
 
-            print(f"\nDiscovered {len(sections)} total pages to monitor")
+            self.logger.info(f"Discovered {len(sections)} total pages to monitor")
 
         except Exception as e:
-            print(f"  Error discovering sections: {e}")
-            print("  Falling back to empty section list")
+            self.logger.error(f"  Error discovering sections: {e}")
+            self.logger.warning("  Falling back to empty section list")
 
         return sections
 
@@ -190,7 +190,7 @@ class HyperliquidDocMonitor(BaseDocMonitor):
             return content, content_hash
 
         except Exception as e:
-            print(f"  Error fetching page {page_path}: {e}")
+            self.logger.error(f"  Error fetching page {page_path}: {e}")
             return "", ""
 
     def get_section_url(self, page_path: str) -> str:
@@ -216,8 +216,8 @@ class HyperliquidDocMonitor(BaseDocMonitor):
 
     def print_summary_footer(self):
         """Print footer for summary with documentation URLs."""
-        print(f"\nView documentation at:")
-        print(f"  Hyperliquid: {self.base_url}")
+        self.logger.info("View documentation at:")
+        self.logger.info(f"  Hyperliquid: {self.base_url}")
 
     def _get_category_label(self, page_path: str) -> str:
         """
@@ -309,9 +309,9 @@ class HyperliquidDocMonitor(BaseDocMonitor):
             }
             response = requests.post(url, json=payload, timeout=10)
             response.raise_for_status()
-            print(f"\n✅ Telegram notification sent successfully")
+            self.logger.info("Telegram notification sent successfully")
         except Exception as e:
-            print(f"\n❌ Failed to send Telegram notification: {e}")
+            self.logger.error(f"Failed to send Telegram notification: {e}")
 
     def print_summary(self, changes: Dict):
         """
@@ -319,34 +319,34 @@ class HyperliquidDocMonitor(BaseDocMonitor):
 
         Overrides base class to add category labels to page names.
         """
-        print("\n" + "=" * 70)
-        print("CHANGE SUMMARY")
-        print("=" * 70)
+        self.logger.info("=" * 70)
+        self.logger.info("CHANGE SUMMARY")
+        self.logger.info("=" * 70)
 
         if changes["new_sections"]:
-            print(f"\n📄 NEW PAGES ({len(changes['new_sections'])}):")
+            self.logger.info(f"📄 NEW PAGES ({len(changes['new_sections'])}):")
             for section in changes["new_sections"]:
                 category = self._get_category_label(section["id"])
-                print(f"  + [{category}] {section['title']}")
-                print(f"    Path: {section['id']}")
+                self.logger.info(f"  + [{category}] {section['title']}")
+                self.logger.info(f"    Path: {section['id']}")
 
         if changes["modified_sections"]:
-            print(f"\n✏️  MODIFIED PAGES ({len(changes['modified_sections'])}):")
+            self.logger.info(f"✏️  MODIFIED PAGES ({len(changes['modified_sections'])}):")
             for section in changes["modified_sections"]:
                 category = self._get_category_label(section["id"])
-                print(f"  ~ [{category}] {section['title']}")
-                print(f"    Path: {section['id']}")
-                print(f"    Old hash: {section['old_hash'][:16]}...")
-                print(f"    New hash: {section['new_hash'][:16]}...")
+                self.logger.info(f"  ~ [{category}] {section['title']}")
+                self.logger.info(f"    Path: {section['id']}")
+                self.logger.info(f"    Old hash: {section['old_hash'][:16]}...")
+                self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
 
         if changes["deleted_sections"]:
-            print(f"\n🗑️  DELETED PAGES ({len(changes['deleted_sections'])}):")
+            self.logger.info(f"🗑️  DELETED PAGES ({len(changes['deleted_sections'])}):")
             for section in changes["deleted_sections"]:
                 category = self._get_category_label(section["id"])
-                print(f"  - [{category}] {section['title']}")
-                print(f"    Path: {section['id']}")
+                self.logger.info(f"  - [{category}] {section['title']}")
+                self.logger.info(f"    Path: {section['id']}")
 
-        print(f"\n✓ UNCHANGED PAGES: {len(changes['unchanged_sections'])}")
+        self.logger.info(f"✓ UNCHANGED PAGES: {len(changes['unchanged_sections'])}")
 
         total_changes = (
             len(changes["new_sections"])
@@ -355,9 +355,9 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         )
 
         if total_changes == 0:
-            print("\n✅ No changes detected!")
+            self.logger.info("✅ No changes detected!")
         else:
-            print(f"\n⚠️  Total changes: {total_changes}")
+            self.logger.warning(f"⚠️  Total changes: {total_changes}")
 
         # Use the base class's print_summary_footer method
         self.print_summary_footer()

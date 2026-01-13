@@ -3,6 +3,7 @@ config.json
 
 # Log files
 *.log
+logs/
 
 # Python
 __pycache__/

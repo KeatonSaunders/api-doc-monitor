@@ -1,25 +1,30 @@
 {
-  "timestamp": "2025-12-29T12:05:35.326003",
+  "timestamp": "2026-01-13T11:09:26.733255",
   "sections": {
     "upcoming-changes-delist-instid-request-parameter-in-ws-order-operation-channels": {
       "title": "Delist instId request parameter in WS order operation channels",
-      "hash": "01fd8338b89a4e7cfbf39cfc77142b66247416d8e1fea82912cf0a7b4fe81547",
-      "last_checked": "2025-12-29T12:05:38.482185"
+      "hash": "038ed4f147c5863b6eb3c1daedd9cebfcd3ecad52f1465fdb66258c06e439850",
+      "last_checked": "2026-01-13T11:09:28.895041"
     },
     "upcoming-changes-delist-old-attached-stop-profit-and-stop-loss-parameters": {
       "title": "Delist old attached stop profit and stop loss parameters",
       "hash": "18b5f22048ea9125f18d5ed2ebe87247e21188ca422920524acdcae790e8105a",
-      "last_checked": "2025-12-29T12:05:41.446446"
+      "last_checked": "2026-01-13T11:09:31.556664"
     },
     "upcoming-changes-manual-borrow-rate-limit-update": {
       "title": "Manual borrow rate limit Update",
       "hash": "7d0eded3f46677c48955397702b2d3c5592e9e4e8b0e19c15591fda0c9d5691a",
-      "last_checked": "2025-12-29T12:05:44.253889"
+      "last_checked": "2026-01-13T11:09:34.532691"
+    },
+    "upcoming-changes-rename-xaut-perpetual-contract": {
+      "title": "Rename XAUT Perpetual Contract",
+      "hash": "b34b152ac62e41a9c7883255a1dfb829f6ce6b15fc64835397f197994985ef37",
+      "last_checked": "2026-01-13T11:09:37.479932"
     },
     "upcoming-changes-support-api-users-to-take-elp-orders": {
       "title": "Support API Users to Take ELP Orders",
-      "hash": "0b04fb7e72933202dbc832c0323a8fa5a3216dbdbdde5393c5af62ef17c143b4",
-      "last_checked": "2025-12-29T12:05:47.385569"
+      "hash": "190abfe3efe0be3225cd7ed1da59a53f4af3050877dddccba68e3991c973551b",
+      "last_checked": "2026-01-13T11:09:40.710868"
     }
   }
 }

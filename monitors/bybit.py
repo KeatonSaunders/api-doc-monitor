@@ -55,7 +55,7 @@ class BybitDocMonitor(BaseDocMonitor):
         to_visit = {self.base_url}
         discovered = {}
 
-        print(f"Discovering Bybit V5 API documentation from {self.base_url}...")
+        self.logger.info(f"Discovering Bybit V5 API documentation from {self.base_url}...")
 
         while to_visit and len(discovered) < self.max_pages:
             url = to_visit.pop()
@@ -80,7 +80,7 @@ class BybitDocMonitor(BaseDocMonitor):
 
                 # Add current page to discovered
                 discovered[url] = title
-                print(f"Discovered ({len(discovered)}/{self.max_pages}): {title}")
+                self.logger.debug(f"Discovered ({len(discovered)}/{self.max_pages}): {title}")
 
                 # Find all documentation links
                 for link in soup.find_all("a", href=True):
@@ -104,9 +104,9 @@ class BybitDocMonitor(BaseDocMonitor):
                 time.sleep(0.5)  # Be polite to the server
 
             except Exception as e:
-                print(f"Error discovering from {url}: {e}")
+                self.logger.error(f"Error discovering from {url}: {e}")
 
-        print(f"\nDiscovered {len(discovered)} pages")
+        self.logger.info(f"Discovered {len(discovered)} pages")
         return discovered
 
     def fetch_section_content(self, section_id: str) -> Tuple[str, str]:
@@ -147,7 +147,7 @@ class BybitDocMonitor(BaseDocMonitor):
 
             return content, content_hash
         except Exception as e:
-            print(f"Error fetching {section_id}: {e}")
+            self.logger.error(f"Error fetching {section_id}: {e}")
             return "", ""
 
     def get_section_url(self, section_id: str) -> str:
@@ -166,7 +166,7 @@ class BybitDocMonitor(BaseDocMonitor):
 
     def print_summary_footer(self):
         """Print footer for summary."""
-        print(f"\nView full documentation at: {self.base_url}")
+        self.logger.info(f"View full documentation at: {self.base_url}")
 
 
 def main():
