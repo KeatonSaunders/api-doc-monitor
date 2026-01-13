@@ -1,1720 +1,325 @@
 {
-  "timestamp": "2026-01-13T10:58:04.798370",
+  "timestamp": "2026-01-13T11:43:47.871050",
   "sections": {
-    "derivatives:2019-10-08": {
-      "title": "2019-10-08\u200b",
-      "hash": "51cd55c3dc2cd123bdd888f73a5575d10dd232574b7cc8fdb04b0330a120e895",
-      "last_checked": "2026-01-13T10:58:05.095439"
-    },
-    "derivatives:2019-10-11": {
-      "title": "2019-10-11\u200b",
-      "hash": "8132aa6d521f6588cdfffd2aae810257fddb4eaf0781b212928a96e023d083ef",
-      "last_checked": "2026-01-13T10:58:05.572653"
-    },
-    "derivatives:2019-10-14": {
-      "title": "2019-10-14\u200b",
-      "hash": "91bd7651f00aa03581848b9e4a8d18fc11fb6f7c7247cb696951e72b66cdaa5f",
-      "last_checked": "2026-01-13T10:58:06.033041"
-    },
-    "derivatives:2019-10-18": {
-      "title": "2019-10-18\u200b",
-      "hash": "4c393cbe7875a346bdc03b98a7d8a7f4b503991f14cbf81c347c3a531c3b1876",
-      "last_checked": "2026-01-13T10:58:06.480090"
-    },
-    "derivatives:2019-10-24": {
-      "title": "2019-10-24\u200b",
-      "hash": "d0e4a2fe9dc1f84334cee2e439035ab502d297e2e9bc9a7cbc6d6ffee37ddcd3",
-      "last_checked": "2026-01-13T10:58:06.990822"
-    },
-    "derivatives:2019-10-25": {
-      "title": "2019-10-25\u200b",
-      "hash": "d805cbec867ba0d87c066c43764584ced29126797729c62fe926feef9a4ffec8",
-      "last_checked": "2026-01-13T10:58:07.435809"
-    },
-    "derivatives:2019-10-28": {
-      "title": "2019-10-28\u200b",
-      "hash": "956599c146a2c6904394ce223b828e58bcb126b80af6a512fb48210b653cfe06",
-      "last_checked": "2026-01-13T10:58:07.871147"
-    },
-    "derivatives:2019-11-05": {
-      "title": "2019-11-05\u200b",
-      "hash": "644b89b9faa82042434d31ae03868a3432906c3e7239c6950605dc924b710e1e",
-      "last_checked": "2026-01-13T10:58:08.349072"
-    },
-    "derivatives:2019-11-12": {
-      "title": "2019-11-12\u200b",
-      "hash": "b66851cfab037701ff2c061bae2c4d6ad21a7854317fa15a1a65a5eff0341594",
-      "last_checked": "2026-01-13T10:58:08.802299"
-    },
-    "derivatives:2019-11-15": {
-      "title": "2019-11-15\u200b",
-      "hash": "394555e0936fe3456bb1c7a87039720e40042e1f5d0c568960a9dba55abdc946",
-      "last_checked": "2026-01-13T10:58:09.299835"
-    },
-    "derivatives:2019-11-25": {
-      "title": "2019-11-25\u200b",
-      "hash": "417904fbe65360dbdeaee7dd1fb87c2dfa52e2181036a96211e18ce4570d065a",
-      "last_checked": "2026-01-13T10:58:09.746088"
-    },
-    "derivatives:2019-11-29": {
-      "title": "2019-11-29\u200b",
-      "hash": "bc0a8e1c76cb43caced7e47f568c13b5bae5d8353b54b87f86105cf5541c9e16",
-      "last_checked": "2026-01-13T10:58:10.192440"
-    },
-    "derivatives:2019-12-12": {
-      "title": "2019-12-12\u200b",
-      "hash": "27472d4424f898ad4f513afb7c302838a41d4ffa7d41ac465edb4baf1faae3f3",
-      "last_checked": "2026-01-13T10:58:10.677556"
-    },
-    "derivatives:2019-12-18": {
-      "title": "2019-12-18\u200b",
-      "hash": "d68dbf1996f51988d34f6aff8b93045f0cb5131cc7edf8b446de095cc6d4178c",
-      "last_checked": "2026-01-13T10:58:11.122713"
-    },
-    "derivatives:2019-12-19": {
-      "title": "2019-12-19\u200b",
-      "hash": "0247e8f19871bb2649180b50ae5bdf5040668653b19e79d6d33767e92ce8a0d7",
-      "last_checked": "2026-01-13T10:58:11.594769"
-    },
-    "derivatives:2020-01-03": {
-      "title": "2020-01-03\u200b",
-      "hash": "6a1399f58d315cf6808d13d1ca498ac295a87b7b83ecc6ab8c95cc25bd71e583",
-      "last_checked": "2026-01-13T10:58:12.079306"
-    },
-    "derivatives:2020-01-06": {
-      "title": "2020-01-06\u200b",
-      "hash": "4c9428572e775936cb313ff0dfe23eaa9481d4ab4976dedf586173b7dc96aec6",
-      "last_checked": "2026-01-13T10:58:12.502616"
-    },
-    "derivatives:2020-01-17": {
-      "title": "2020-01-17\u200b",
-      "hash": "b7ebe35863aa5897da4c8db1899ed1ade30acdbac1e6df636d65caa827370480",
-      "last_checked": "2026-01-13T10:58:12.944186"
-    },
-    "derivatives:2020-01-19": {
-      "title": "2020-01-19\u200b",
-      "hash": "0f28e25ee309eee7af1b6cd0360390a5de49266648781beb0de4fdd8b25450f7",
-      "last_checked": "2026-01-13T10:58:13.431341"
-    },
-    "derivatives:2020-02-05": {
-      "title": "2020-02-05\u200b",
-      "hash": "d864cecc7fb333a4d935adb3f389e22bd1b81f49e6cfcb56cd2185cfda07f6fd",
-      "last_checked": "2026-01-13T10:58:13.865973"
-    },
-    "derivatives:2020-02-12": {
-      "title": "2020-02-12\u200b",
-      "hash": "8a2f06d3b24cec1da12bcfca4e83b64e98a44b91423a2345d99618398b1c6cb8",
-      "last_checked": "2026-01-13T10:58:14.356316"
-    },
-    "derivatives:2020-02-17": {
-      "title": "2020-02-17\u200b",
-      "hash": "743085a0f4963a665c4af8c212575d0f6bd09f03af32eb89f6b023f95422cd3a",
-      "last_checked": "2026-01-13T10:58:14.806521"
-    },
-    "derivatives:2020-02-20": {
-      "title": "2020-02-20\u200b",
-      "hash": "47df00c1e964ab540e24709cc24497c484541d3ce04a1bee8741298be67bb0a7",
-      "last_checked": "2026-01-13T10:58:15.278905"
-    },
-    "derivatives:2020-02-26": {
-      "title": "2020-02-26\u200b",
-      "hash": "8ba7f2f70d45a6282a2f418209f53d06a66d25540f2b7b26beb840a8d0bc4337",
-      "last_checked": "2026-01-13T10:58:16.089312"
-    },
-    "derivatives:2020-03-30": {
-      "title": "2020-03-30\u200b",
-      "hash": "5db709361c5a700c957252cdf03f1b5545d35697f1157c3510a860737b06bb7a",
-      "last_checked": "2026-01-13T10:58:16.583506"
-    },
-    "derivatives:2020-04-06": {
-      "title": "2020-04-06\u200b",
-      "hash": "a8369c2d5f45263233e4e9e48727e31f3f7ca36f7237c822fcb487bc735a8465",
-      "last_checked": "2026-01-13T10:58:17.048785"
-    },
-    "derivatives:2020-04-08": {
-      "title": "2020-04-08\u200b",
-      "hash": "190f13f7ef7c68c4964633f555b91d3ca39d6c74a6303ad3f38f9d218223b9f8",
-      "last_checked": "2026-01-13T10:58:17.592370"
-    },
-    "derivatives:2020-04-09": {
-      "title": "2020-04-09\u200b",
-      "hash": "867eb960024ebc8ba874e2749b37db07b48106b4e97ff20a5bd0afb727e24675",
-      "last_checked": "2026-01-13T10:58:18.063109"
-    },
-    "derivatives:2020-04-14": {
-      "title": "2020-04-14\u200b",
-      "hash": "907f27cf155f9e99dbf1123e0574965d3a8bc8070ec9cb2bb623c02ad59d06ba",
-      "last_checked": "2026-01-13T10:58:18.523904"
-    },
-    "derivatives:2020-04-17": {
-      "title": "2020-04-17\u200b",
-      "hash": "65cdb3d2958955f1269b8314d89d6ab3914c17cad0094e790fc9aea07f2481ff",
-      "last_checked": "2026-01-13T10:58:19.012887"
-    },
-    "derivatives:2020-04-25": {
-      "title": "2020-04-25\u200b",
-      "hash": "888326d19d1a15f68a8059f7776266b248c85b4485b7ab31cc7477e970477b58",
-      "last_checked": "2026-01-13T10:58:19.469186"
-    },
-    "derivatives:2020-05-06": {
-      "title": "2020-05-06\u200b",
-      "hash": "572ed00d29cf4e30670d4a42567c53620b72179484dca1887692f151b3d87e78",
-      "last_checked": "2026-01-13T10:58:19.963046"
-    },
-    "derivatives:2020-05-11": {
-      "title": "2020-05-11\u200b",
-      "hash": "4ecdd9461e45e1b3a7280c123af4f33a314d6262c61df9813cc5d2fd741a6ed3",
-      "last_checked": "2026-01-13T10:58:20.440072"
-    },
-    "derivatives:2020-05-14": {
-      "title": "2020-05-14\u200b",
-      "hash": "70965cc9a18c19b508a614393874daf0975c79a2c6f84ecf0996389244064bd7",
-      "last_checked": "2026-01-13T10:58:20.910618"
-    },
-    "derivatives:2020-05-15": {
-      "title": "2020-05-15\u200b",
-      "hash": "e04038963ddfee906f18cd778022aad9fe41f1cefb294f2489a6f1438950fd24",
-      "last_checked": "2026-01-13T10:58:21.402159"
-    },
-    "derivatives:2020-05-18": {
-      "title": "2020-05-18\u200b",
-      "hash": "0441d773f7fb09a2701c5002672b020667926a1eead6b66ffccd7be13a52d01d",
-      "last_checked": "2026-01-13T10:58:21.850422"
-    },
-    "derivatives:2020-05-18-1": {
-      "title": "2020-05-18\u200b",
-      "hash": "8a15cb26392536788456e69e781d6984fdca528fa29340729af28945a92eb43c",
-      "last_checked": "2026-01-13T10:58:22.299900"
-    },
-    "derivatives:2020-06-02": {
-      "title": "2020-06-02\u200b",
-      "hash": "c9d6942339acf3499e172b8102f0d24672ed8bb83124c05ccff4b6feae32b8f8",
-      "last_checked": "2026-01-13T10:58:22.770972"
-    },
-    "derivatives:2020-06-04": {
-      "title": "2020-06-04\u200b",
-      "hash": "14364e9a10ca350179f4dea372dd19a846540b887ca349cbf8239275858b9578",
-      "last_checked": "2026-01-13T10:58:23.225385"
-    },
-    "derivatives:2020-06-15": {
-      "title": "2020-06-15\u200b",
-      "hash": "01655070de946d6c7c4c8443270fda52d98514c34524748e58a7244d38c92ddc",
-      "last_checked": "2026-01-13T10:58:23.725859"
-    },
-    "derivatives:2020-07-02": {
-      "title": "2020-07-02\u200b",
-      "hash": "7b0b9d6e3b105d4b68d78d66a104e8b85301a5a759cb039b5b858d6262d222fd",
-      "last_checked": "2026-01-13T10:58:24.205673"
-    },
-    "derivatives:2020-07-17": {
-      "title": "2020-07-17\u200b",
-      "hash": "fda1537f73b80c331d44e9a76e6de8c0d29efe47c2fc1890343d7c103dab4ef0",
-      "last_checked": "2026-01-13T10:58:24.677911"
-    },
-    "derivatives:2020-07-22": {
-      "title": "2020-07-22\u200b",
-      "hash": "13de83a353f1156dd07fb612ab0eefedfa3dbc409df1a7cd7ce457e6e2190549",
-      "last_checked": "2026-01-13T10:58:25.165391"
-    },
-    "derivatives:2020-07-30": {
-      "title": "2020-07-30\u200b",
-      "hash": "fd1fe9904781616919dcb6530ee3bbafc551c2fae34e018767b1f99ef9a7adca",
-      "last_checked": "2026-01-13T10:58:25.674961"
-    },
-    "derivatives:2020-08-11": {
-      "title": "2020-08-11\u200b",
-      "hash": "4631656878b824f720550b5c5f6c677a01046cafd27bb911be82f6c87d5ea7bd",
-      "last_checked": "2026-01-13T10:58:26.142448"
-    },
-    "derivatives:2020-08-12": {
-      "title": "2020-08-12\u200b",
-      "hash": "20d336b7f9730c0223e4af57acd82f6728cfaa02f35cb98b0d8aaf3cdbda2a1b",
-      "last_checked": "2026-01-13T10:58:26.617530"
-    },
-    "derivatives:2020-08-12-1": {
-      "title": "2020-08-12\u200b",
-      "hash": "6383a7c5d830995629eb5bc7bdc0e73a579b7981a8768ee45d83ec17e334646e",
-      "last_checked": "2026-01-13T10:58:27.094187"
-    },
-    "derivatives:2020-08-14": {
-      "title": "2020-08-14\u200b",
-      "hash": "53780be3e557db5f85ab34fb324a778aaa960f13144bade5a956b976809cbb67",
-      "last_checked": "2026-01-13T10:58:27.640792"
-    },
-    "derivatives:2020-08-16": {
-      "title": "2020-08-16\u200b",
-      "hash": "85374cd9e4048cc3e548dc1d236334d4bd9017292e669d434791a23458cb1cea",
-      "last_checked": "2026-01-13T10:58:28.152127"
-    },
-    "derivatives:2020-09-09": {
-      "title": "2020-09-09\u200b",
-      "hash": "f426ec52ff9b44adffd9956716b951f6db7730472e71a71397a9ed6c886c1b6c",
-      "last_checked": "2026-01-13T10:58:28.617606"
-    },
-    "derivatives:2020-09-16": {
-      "title": "2020-09-16\u200b",
-      "hash": "a56b8bb26de04d51c15863803a3903260b40061f6508899a6e0afe3a8e5131b2",
-      "last_checked": "2026-01-13T10:58:29.127715"
-    },
-    "derivatives:2020-09-18": {
-      "title": "2020-09-18\u200b",
-      "hash": "a25e7004f84e094a48948156bd01c08b646b462bc5998ad361fe66b3be8be934",
-      "last_checked": "2026-01-13T10:58:29.557443"
-    },
-    "derivatives:2020-10-09": {
-      "title": "2020-10-09\u200b",
-      "hash": "9e0dc79170294c6d9dbc141921d46648ac7f8159e64de10b2e23967f8cda5411",
-      "last_checked": "2026-01-13T10:58:29.999004"
-    },
-    "derivatives:2020-10-10": {
-      "title": "2020-10-10\u200b",
-      "hash": "40f7a70e195ce3cfc2e29e8491a7ee0504aa70b311e96c17c11a63fd1f44662c",
-      "last_checked": "2026-01-13T10:58:30.503579"
-    },
-    "derivatives:2020-10-27": {
-      "title": "2020-10-27\u200b",
-      "hash": "af3c6d6731ff58f6c1f94dd77365f981add241bce8b55a099eecbb82c928dc3f",
-      "last_checked": "2026-01-13T10:58:30.977070"
-    },
-    "derivatives:2020-11-09": {
-      "title": "2020-11-09\u200b",
-      "hash": "60de75f24a650b8671fd43ba32a691613b0f829836d84605cd37559b88820968",
-      "last_checked": "2026-01-13T10:58:31.497581"
-    },
-    "derivatives:2020-11-10": {
-      "title": "2020-11-10\u200b",
-      "hash": "307eccf2d163819d8b4703591de7eba1e511d620a21beb99003f46277732cd92",
-      "last_checked": "2026-01-13T10:58:32.043173"
-    },
-    "derivatives:2020-11-13": {
-      "title": "2020-11-13\u200b",
-      "hash": "e6870009b4c79534c48a2e5f94247f9ff51fb0a6fbb18a651c1a69bcac939ffd",
-      "last_checked": "2026-01-13T10:58:32.475832"
-    },
-    "derivatives:2020-11-27": {
-      "title": "2020-11-27\u200b",
-      "hash": "08ee3ec28d984be82838fcd23f05f3c98d0302eb0124c4a500f246cf1db346bb",
-      "last_checked": "2026-01-13T10:58:32.918532"
-    },
-    "derivatives:2020-11-27-1": {
-      "title": "2020-11-27\u200b",
-      "hash": "1c840ca5b3f90035f5a098b5a2c14e3cd3ccf72430c47573aba08a680d451284",
-      "last_checked": "2026-01-13T10:58:33.460442"
-    },
-    "derivatives:2020-12-08": {
-      "title": "2020-12-08\u200b",
-      "hash": "9138a1cac856187da2e1def2303be6bf07999391e5e0221217d601e2a3a3499c",
-      "last_checked": "2026-01-13T10:58:33.917589"
-    },
-    "derivatives:2020-12-30": {
-      "title": "2020-12-30\u200b",
-      "hash": "29be8e8a429530f419d98c84deeabd76c5467594cd0b016365e5672549103a7d",
-      "last_checked": "2026-01-13T10:58:34.388105"
-    },
-    "derivatives:2021-01-04": {
-      "title": "2021-01-04\u200b",
-      "hash": "740d467be10b81b4bafc21882cc1f7f0caf46a70bdbfbc0becd4e477aef80ef9",
-      "last_checked": "2026-01-13T10:58:34.856593"
-    },
-    "derivatives:2021-01-21": {
-      "title": "2021-01-21\u200b",
-      "hash": "283e2b4e0509f5aaf66cdf950dfc2574d3c4e0eaca0f9b5834ff2685aa0fa882",
-      "last_checked": "2026-01-13T10:58:35.323281"
-    },
-    "derivatives:2021-01-21-1": {
-      "title": "2021-01-21\u200b",
-      "hash": "8dbb4300064285e8364b66e9b4bcdf44264429b3dac595ead25b9825f3b1e64e",
-      "last_checked": "2026-01-13T10:58:35.820870"
-    },
-    "derivatives:2021-01-26": {
-      "title": "2021-01-26\u200b",
-      "hash": "420c47aea49f1553e86de2d069a5642d888a9d6f75c03021b145a15e2f68f9fa",
-      "last_checked": "2026-01-13T10:58:36.302272"
-    },
-    "derivatives:2021-01-26-1": {
-      "title": "2021-01-26\u200b",
-      "hash": "e0c5ff11d30699d57ca93af75a5bf9d6de9dfd1c08da4af1a453456040db635f",
-      "last_checked": "2026-01-13T10:58:36.768668"
-    },
-    "derivatives:2021-02-22": {
-      "title": "2021-02-22\u200b",
-      "hash": "af548f594461137f4edaa4ffe4c6dea1c171a926aadbedd7d65464b084d362ff",
-      "last_checked": "2026-01-13T10:58:37.338890"
-    },
-    "derivatives:2021-02-24": {
-      "title": "2021-02-24\u200b",
-      "hash": "69cd9e2f03991b4a5cc233b85891b123b9bdc55f7f6964d113f9e54e8a1059b2",
-      "last_checked": "2026-01-13T10:58:37.877373"
-    },
-    "derivatives:2021-03-02": {
-      "title": "2021-03-02\u200b",
-      "hash": "ad9d90dc6c25599be93980180bccdcfa822ba185b646b63110afcd5d08c8347e",
-      "last_checked": "2026-01-13T10:58:38.335281"
-    },
-    "derivatives:2021-03-10": {
-      "title": "2021-03-10\u200b",
-      "hash": "d3a24043b936b3cbb367e7491a7a3f979234fdeac1cef46f101fb6b8cb16f49a",
-      "last_checked": "2026-01-13T10:58:38.882232"
-    },
-    "derivatives:2021-04-22": {
-      "title": "2021-04-22\u200b",
-      "hash": "8e48461a888d68e1537479c86bcdcb9225ef5bef711faffca6e93ca60b061ecd",
-      "last_checked": "2026-01-13T10:58:39.390579"
-    },
-    "derivatives:2021-04-27": {
-      "title": "2021-04-27\u200b",
-      "hash": "2ac130a472799111f49595e5b2e830a8ebc16289782bf7e37c2e34d9d752f0c3",
-      "last_checked": "2026-01-13T10:58:39.881516"
-    },
-    "derivatives:2021-04-27-1": {
-      "title": "2021-04-27\u200b",
-      "hash": "3516fb0e83e2629c2409802e12677c9924afc4d7ec605cc55a9bad696ed79b6b",
-      "last_checked": "2026-01-13T10:58:40.428472"
-    },
-    "derivatives:2021-05-06": {
-      "title": "2021-05-06\u200b",
-      "hash": "98857d545dbf336a3229458c0c84205d0b33e9d46fe5727500f1e563beec402c",
-      "last_checked": "2026-01-13T10:58:40.915692"
-    },
-    "derivatives:2021-05-06-1": {
-      "title": "2021-05-06\u200b",
-      "hash": "847b45696ec968b290f0bbdc1c3acbcfdeb6ca83ba54887960a4fe24ad2294d9",
-      "last_checked": "2026-01-13T10:58:41.446183"
-    },
-    "derivatives:2021-06-15": {
-      "title": "2021-06-15\u200b",
-      "hash": "1b799ab3a621bc0f0f063f4885219981f697a62a8f22ee9efb05e50426263525",
-      "last_checked": "2026-01-13T10:58:41.882058"
-    },
-    "derivatives:2021-07-06": {
-      "title": "2021-07-06\u200b",
-      "hash": "b6ab8ead63f3b3c4523482208d510f817dd39753a134018a5c5f3dbb6fee1153",
-      "last_checked": "2026-01-13T10:58:42.397219"
-    },
-    "derivatives:2021-07-06-1": {
-      "title": "2021-07-06\u200b",
-      "hash": "9f85a3a0685520a65ec6da659e460da96d158d10c98718a15e680ca4dded688a",
-      "last_checked": "2026-01-13T10:58:42.865156"
-    },
-    "derivatives:2021-07-23": {
-      "title": "2021-07-23\u200b",
-      "hash": "e5b778c25fcf219cd6e1c8bb3f95210e6eae426085141e9f80610d8d864ebc94",
-      "last_checked": "2026-01-13T10:58:43.329442"
-    },
-    "derivatives:2021-08-17": {
-      "title": "2021-08-17\u200b",
-      "hash": "7ea4cc1bcfa52797bf82587966aca1946036e0405471a534b3d6dc73a2a7851a",
-      "last_checked": "2026-01-13T10:58:43.816354"
-    },
-    "derivatives:2021-08-18": {
-      "title": "2021-08-18\u200b",
-      "hash": "3e5f4d1bee7740cd5747e3249ab630f6496888ffa142c7583a06e1e2c1ecb15a",
-      "last_checked": "2026-01-13T10:58:44.302563"
-    },
-    "derivatives:2021-11-02": {
-      "title": "2021-11-02\u200b",
-      "hash": "c514f288f900895ee65c3801f3423240c019a94fa5f130f536ef3d502e99d300",
-      "last_checked": "2026-01-13T10:58:44.755163"
-    },
-    "derivatives:2021-12-30": {
-      "title": "2021-12-30\u200b",
-      "hash": "791017b54865d8cc0801b79cb23e45c1e671c2c771fd4c43c2bffb993a1d800f",
-      "last_checked": "2026-01-13T10:58:45.261240"
-    },
-    "derivatives:2022-02-10": {
-      "title": "2022-02-10\u200b",
-      "hash": "7436c431beae843c9ca7449b944f5204d24edbc7e876341272d3effa38cb5c5c",
-      "last_checked": "2026-01-13T10:58:45.701349"
-    },
-    "derivatives:2022-02-18": {
-      "title": "2022-02-18\u200b",
-      "hash": "126314ddb6576bacefa048d1b356b07726a5bdedf6727167a4b966bd232edbdf",
-      "last_checked": "2026-01-13T10:58:46.160794"
-    },
-    "derivatives:2022-03-01": {
-      "title": "2022-03-01\u200b",
-      "hash": "45c28787a9c0e34ed3d2651eb0b8226410123f6382a5858b3db4c192b9b1fac2",
-      "last_checked": "2026-01-13T10:58:46.642759"
-    },
-    "derivatives:2022-04-14": {
-      "title": "2022-04-14\u200b",
-      "hash": "2de0fed47d7d6bafbdb897a6d171e3b9d042c539c3713b6d765508443f1d5b80",
-      "last_checked": "2026-01-13T10:58:47.076522"
-    },
-    "derivatives:2022-04-28": {
-      "title": "2022-04-28\u200b",
-      "hash": "c0510506dee3b0070b22d8b7c0ef4c8e7efa3646f08280334ec9c4c047e89389",
-      "last_checked": "2026-01-13T10:58:47.563848"
-    },
-    "derivatives:2022-06-28": {
-      "title": "2022-06-28\u200b",
-      "hash": "09e45921f97be975bf1276afcce214c0a0d2a3d33417cb9822bc94423bf265b3",
-      "last_checked": "2026-01-13T10:58:48.085900"
-    },
-    "derivatives:2022-06-28-1": {
-      "title": "2022-06-28\u200b",
-      "hash": "17b2cb4b1065a3dbcdf15aefe9047e7bdf7e4535f2ba606ee9be8404e71306e7",
-      "last_checked": "2026-01-13T10:58:48.547392"
-    },
-    "derivatives:2022-07-27": {
-      "title": "2022-07-27\u200b",
-      "hash": "54b75decd1cb1048839ca83b6f14bb1302e4ee9413be2bc1303c1b22b99ccbc4",
-      "last_checked": "2026-01-13T10:58:49.067523"
-    },
-    "derivatives:2022-07-27-1": {
-      "title": "2022-07-27\u200b",
-      "hash": "0e0616c4ff06b44f9639b22628373894dd2a91fffca17630e06923d2d5385730",
-      "last_checked": "2026-01-13T10:58:49.536528"
-    },
-    "derivatives:2022-08-22": {
-      "title": "2022-08-22\u200b",
-      "hash": "3062f185b8f47e51173410b43e8490c12f1c5709238285ea5fa80a8bc79bc9c9",
-      "last_checked": "2026-01-13T10:58:49.991544"
-    },
-    "derivatives:2022-09-05": {
-      "title": "2022-09-05\u200b",
-      "hash": "db9fa1f2a16b0fc707ba3bad9b5a9ee03f7641ae6ba3237d441abf5f5c8d7f13",
-      "last_checked": "2026-01-13T10:58:50.489894"
-    },
-    "derivatives:2022-09-14": {
-      "title": "2022-09-14\u200b",
-      "hash": "b4d46d10864c5d6535df6d2a17d428cc053ea38dc872eabd2bd7bc4328dfa876",
-      "last_checked": "2026-01-13T10:58:50.935204"
-    },
-    "derivatives:2022-09-20": {
-      "title": "2022-09-20\u200b",
-      "hash": "483b441fa45f8c92145d3daa16dcca4d6bf44cd8a928d8c6d45d86219a39fc33",
-      "last_checked": "2026-01-13T10:58:51.400091"
-    },
-    "derivatives:2022-09-22": {
-      "title": "2022-09-22\u200b",
-      "hash": "24879c6593a26c8cccdf3288c9ce867760615eb89ac287df3156bee7fe141a25",
-      "last_checked": "2026-01-13T10:58:51.893896"
-    },
-    "derivatives:2022-09-22-1": {
-      "title": "2022-09-22\u200b",
-      "hash": "89c37b2362069efef3998b7ca16b5c026cfa87f0f6d4eb0811235192c68efadb",
-      "last_checked": "2026-01-13T10:58:52.361377"
-    },
-    "derivatives:2022-10-13": {
-      "title": "2022-10-13\u200b",
-      "hash": "1537a35b279558314aaa0900620e5a1a833a35fda76c09d339fdaf3c5f8b8620",
-      "last_checked": "2026-01-13T10:58:52.811312"
-    },
-    "derivatives:2022-10-13-1": {
-      "title": "2022-10-13\u200b",
-      "hash": "17db55d83dd5aaf0b6655626f6d2df47993ff6afc0d1e238f6f11ba1a65fb88b",
-      "last_checked": "2026-01-13T10:58:53.299923"
-    },
-    "derivatives:2022-11-03": {
-      "title": "2022-11-03\u200b",
-      "hash": "a1561cb66a8ffd0b0649729ae53a283f72ff6e9d049c3cd4d3987a0ca4c5b89f",
-      "last_checked": "2026-01-13T10:58:53.751481"
-    },
-    "derivatives:2022-11-16": {
-      "title": "2022-11-16\u200b",
-      "hash": "bf1b891d02b47b31a7ec3fbb9bf6f6edad0de8e70d01c3252703ddab7fbd0241",
-      "last_checked": "2026-01-13T10:58:54.255456"
-    },
-    "derivatives:2022-11-18": {
-      "title": "2022-11-18\u200b",
-      "hash": "161a7a0a77cdae467415fc8976e0b550c8e677d2083648e2f6d746c126233f14",
-      "last_checked": "2026-01-13T10:58:54.710757"
-    },
-    "derivatives:2022-11-29": {
-      "title": "2022-11-29\u200b",
-      "hash": "d1f69df25d4ccd8c1664a37af808367f54c9e5521b93c742ff3b04a988ef7152",
-      "last_checked": "2026-01-13T10:58:55.185199"
-    },
-    "derivatives:2022-11-29-1": {
-      "title": "2022-11-29\u200b",
-      "hash": "0361a8098183bc9b4e19dc851bbd8c8d3e344fc15ae447e28202270dbebcbd4f",
-      "last_checked": "2026-01-13T10:58:55.660703"
-    },
-    "derivatives:2022-12-09": {
-      "title": "2022-12-09\u200b",
-      "hash": "2c80c9c6bc273c0efd4d505f3fea37b81d2906c3d3edb3dddf5a740767297262",
-      "last_checked": "2026-01-13T10:58:56.118848"
-    },
-    "derivatives:2022-12-13": {
-      "title": "2022-12-13\u200b",
-      "hash": "3ed60fd26da42b9e1a5a3130b212a5cf0931dbbf4b220ae6660d8d5f5270cc62",
-      "last_checked": "2026-01-13T10:58:56.586530"
-    },
-    "derivatives:2022-12-16": {
-      "title": "2022-12-16\u200b",
-      "hash": "0bbe1da9c4efde10374232a068a54a925ebb11d1c3e2a6d01b439f3d024136b2",
-      "last_checked": "2026-01-13T10:58:57.032119"
-    },
-    "derivatives:2022-12-16-1": {
-      "title": "2022-12-16\u200b",
-      "hash": "5c84e3a9f17a61f3b23a1fd3b5a94d55d58cb8568342123a18f22ca69218e19a",
-      "last_checked": "2026-01-13T10:58:57.497588"
-    },
-    "derivatives:2023-01-04": {
-      "title": "2023-01-04\u200b",
-      "hash": "995b6a0c6242d49f2f0c5ba367c6075cf1854be8405fd2333985e0a872f5da22",
-      "last_checked": "2026-01-13T10:58:57.998258"
-    },
-    "derivatives:2023-01-11": {
-      "title": "2023-01-11\u200b",
-      "hash": "2511d1d595c270939ee17feeaba6a397ef807d5c574e3bd4334f38fa3ac28764",
-      "last_checked": "2026-01-13T10:58:58.466583"
-    },
-    "derivatives:2023-02-02": {
-      "title": "2023-02-02\u200b",
-      "hash": "529ffa7065d3d69b16305eb873b8508c1b454fbdd14d0d9b74e9c7e084b8919a",
-      "last_checked": "2026-01-13T10:58:58.958306"
-    },
-    "derivatives:2023-03-08": {
-      "title": "2023-03-08\u200b",
-      "hash": "96272ffed08faf6eef852e59227902ccfcb9be973894c00575018a5e48688dff",
-      "last_checked": "2026-01-13T10:58:59.447836"
-    },
-    "derivatives:2023-03-28": {
-      "title": "2023-03-28\u200b",
-      "hash": "e7e35d365c7c39910b9e7528e0d014184af1235d811363fff5df4a0169c4d992",
-      "last_checked": "2026-01-13T10:58:59.911689"
-    },
-    "derivatives:2023-04-17": {
-      "title": "2023-04-17\u200b",
-      "hash": "409ae33497cae1f58ade514e7b718c770cf3c77e00c4eaa6c249cccb0a4d81a1",
-      "last_checked": "2026-01-13T10:59:00.367497"
-    },
-    "derivatives:2023-04-17-1": {
-      "title": "2023-04-17\u200b",
-      "hash": "4cff54d9f48e67796f732309b79bf9422bdc47d54378a2ed1bab1fc2237b0dea",
-      "last_checked": "2026-01-13T10:59:00.876485"
-    },
-    "derivatives:2023-05-04": {
-      "title": "2023-05-04\u200b",
-      "hash": "c9a433f5482cb8d4d2291c51421e0a0e73a325aad3f6b3060b421e2022877ebc",
-      "last_checked": "2026-01-13T10:59:01.476081"
-    },
-    "derivatives:2023-05-05": {
-      "title": "2023-05-05\u200b",
-      "hash": "0c87cf508558321d5a2386cf483076534bd008cb5c8f8d8c7f103a4c89386c59",
-      "last_checked": "2026-01-13T10:59:01.977566"
-    },
-    "derivatives:2023-05-30": {
-      "title": "2023-05-30\u200b",
-      "hash": "48e8806add161c24ac895cbf1d03097e072c5f1abc907838c37b6816768fa32d",
-      "last_checked": "2026-01-13T10:59:02.460549"
-    },
-    "derivatives:2023-05-31": {
-      "title": "2023-05-31\u200b",
-      "hash": "b5b6684759e67d987681056165239a204a9f05175342374b3387cfa0664e2f5d",
-      "last_checked": "2026-01-13T10:59:02.922953"
-    },
-    "derivatives:2023-06-01": {
-      "title": "2023-06-01\u200b",
-      "hash": "5d4b97a6cc6325a09f8819bba8f895ce93158cdaa9c8b8c7e8581802902a9dd1",
-      "last_checked": "2026-01-13T10:59:03.375246"
-    },
-    "derivatives:2023-06-14": {
-      "title": "2023-06-14\u200b",
-      "hash": "ee7a3a7570820c2a4cc900bea8342e651808383cff5104027046e10039b52fb9",
-      "last_checked": "2026-01-13T10:59:03.816595"
-    },
-    "derivatives:2023-06-14-1": {
-      "title": "2023-06-14\u200b",
-      "hash": "bd80c0c4c6d614b4bc43648ee8cbfbc793097a015db68422f2e015e06abcb929",
-      "last_checked": "2026-01-13T10:59:04.276855"
-    },
-    "derivatives:2023-06-16": {
-      "title": "2023-06-16\u200b",
-      "hash": "abc6d7c579fb25098cda1df02324b414347386c66b66617d5c9c9be8e38b85fe",
-      "last_checked": "2026-01-13T10:59:04.769616"
-    },
-    "derivatives:2023-06-19": {
-      "title": "2023-06-19\u200b",
-      "hash": "5366e1bc8c34e88851e5959df5f1885010095b123adf747e7260d8c8c7856410",
-      "last_checked": "2026-01-13T10:59:05.234723"
-    },
-    "derivatives:2023-06-22": {
-      "title": "2023-06-22\u200b",
-      "hash": "ec5b79ed3c1e3d1a105ffc35f2a618a8dba9438de2b1323e208b100fca3dc56d",
-      "last_checked": "2026-01-13T10:59:05.670192"
-    },
-    "derivatives:2023-06-22-1": {
-      "title": "2023-06-22\u200b",
-      "hash": "e9f2388973aa323263145fd9e3710e7ac1ac4ad85dbb7bf0198be51d12dbaf47",
-      "last_checked": "2026-01-13T10:59:06.156474"
-    },
-    "derivatives:2023-06-28": {
-      "title": "2023-06-28\u200b",
-      "hash": "da0d24fec83f607a08c96d5baddc9af73d18c31b186f4b001856d318bb9ac3f8",
-      "last_checked": "2026-01-13T10:59:06.619631"
-    },
-    "derivatives:2023-07-04": {
-      "title": "2023-07-04\u200b",
-      "hash": "572d34174c5d0b801db20e3878f12ac384b0fcae7c5352a5c6285cb160505dc9",
-      "last_checked": "2026-01-13T10:59:07.089562"
-    },
-    "derivatives:2023-07-11": {
-      "title": "2023-07-11\u200b",
-      "hash": "4006ad3dd8c44a61509307b95fa33754027c72211ef2a40690899ab210a5aec7",
-      "last_checked": "2026-01-13T10:59:07.584154"
-    },
-    "derivatives:2023-07-12": {
-      "title": "2023-07-12\u200b",
-      "hash": "f77847646577b24e80a8830b7ffa4a8bacf2ab98be887fc95241b00ba6e2269b",
-      "last_checked": "2026-01-13T10:59:08.040781"
-    },
-    "derivatives:2023-07-13": {
-      "title": "2023-07-13\u200b",
-      "hash": "940b194b01655dd2971721c0cf0b2a376f9e35c9c4a983cce26db07c87f2071e",
-      "last_checked": "2026-01-13T10:59:08.527481"
-    },
-    "derivatives:2023-07-13-1": {
-      "title": "2023-07-13\u200b",
-      "hash": "d153a4878e551216c884d14377490ad4e62248271d4211f530b2e063b7896587",
-      "last_checked": "2026-01-13T10:59:08.986137"
-    },
-    "derivatives:2023-07-18": {
-      "title": "2023-07-18\u200b",
-      "hash": "63b69b1ba87fbb60b2647cb3ef0355a510d81e149aa307e25214807b35a3c019",
-      "last_checked": "2026-01-13T10:59:09.429766"
-    },
-    "derivatives:2023-07-18-1": {
-      "title": "2023-07-18\u200b",
-      "hash": "b304ccf1645659b539f82cf3b1582992f2f0d303d25ec00366a12968ec68fc44",
-      "last_checked": "2026-01-13T10:59:09.906810"
-    },
-    "derivatives:2023-07-19": {
-      "title": "2023-07-19\u200b",
-      "hash": "b01edf681bfaafb431b4426fb8ff2f26f283c62522373b8bcdc26b370684e2b1",
-      "last_checked": "2026-01-13T10:59:10.361470"
-    },
-    "derivatives:2023-07-20": {
-      "title": "2023-07-20\u200b",
-      "hash": "9fb964d028a53b200dd5e52d6f30229dbd40807e72c024486fbb4a8d766ea465",
-      "last_checked": "2026-01-13T10:59:10.792275"
-    },
-    "derivatives:2023-07-21": {
-      "title": "2023-07-21\u200b",
-      "hash": "ae1aee0fa23c711298fa5a7d7ceb6a4f781ec0501231e8ba625ed0d162f85bf6",
-      "last_checked": "2026-01-13T10:59:11.297124"
-    },
-    "derivatives:2023-07-28": {
-      "title": "2023-07-28\u200b",
-      "hash": "887c38af8500739c6ac222f191776a968f3a872530731b79748376681affe108",
-      "last_checked": "2026-01-13T10:59:11.770371"
-    },
-    "derivatives:2023-08-14": {
-      "title": "2023-08-14\u200b",
-      "hash": "3910b68632935bc637aaa6203f01fa88d4057fdd0a4a51c4a1986461b846fe71",
-      "last_checked": "2026-01-13T10:59:12.218852"
-    },
-    "derivatives:2023-08-14-1": {
-      "title": "2023-08-14\u200b",
-      "hash": "7544f40d409fd5e68d6a73ce7af9282c650ea83f050189fe8b2ff54ebed355e5",
-      "last_checked": "2026-01-13T10:59:12.714351"
-    },
-    "derivatives:2023-08-18": {
-      "title": "2023-08-18\u200b",
-      "hash": "8cd69c6d9b4b03ab2d887cc401598e108b219c91a334c6cef1005e37d2b4577f",
-      "last_checked": "2026-01-13T10:59:13.171776"
-    },
-    "derivatives:2023-08-19": {
-      "title": "2023-08-19\u200b",
-      "hash": "b47feebbcaf6d3f637d29cc9f77eba8a42ae2439a949aa0cae40613ec1dfa356",
-      "last_checked": "2026-01-13T10:59:13.660561"
-    },
-    "derivatives:2023-08-25": {
-      "title": "2023-08-25\u200b",
-      "hash": "50cd2f53e0ba932280727c14d797b977d1336917574c2192c21bad08d0a58f48",
-      "last_checked": "2026-01-13T10:59:14.126827"
-    },
-    "derivatives:2023-08-29": {
-      "title": "2023-08-29\u200b",
-      "hash": "a2c6cd2da05c0dcb5f9bcd93775c49e5a5253e8303fe2edde518da1cdb54cf65",
-      "last_checked": "2026-01-13T10:59:14.584237"
-    },
-    "derivatives:2023-08-29-1": {
-      "title": "2023-08-29\u200b",
-      "hash": "074c6e473a200fdf4de258e413e51255a5789dfb5b9ab866888b5d8dd7ab0a68",
-      "last_checked": "2026-01-13T10:59:15.126588"
-    },
-    "derivatives:2023-08-31": {
-      "title": "2023-08-31\u200b",
-      "hash": "63d31bed39e502424fd292eb917de77d7a15d009fd1fb761411b99043bd179dd",
-      "last_checked": "2026-01-13T10:59:15.600282"
-    },
-    "derivatives:2023-08-31-1": {
-      "title": "2023-08-31\u200b",
-      "hash": "7f7fc56eb9005ee06a56b2dcb3eda7f9176695a75d0d04c861aebd040419e636",
-      "last_checked": "2026-01-13T10:59:16.049863"
-    },
-    "derivatives:2023-09-04": {
-      "title": "2023-09-04\u200b",
-      "hash": "3f7d7b1d863dd7af72d0d15d370f8f596574a8c32899d5144e97c319101a476f",
-      "last_checked": "2026-01-13T10:59:16.556467"
-    },
-    "derivatives:2023-09-05": {
-      "title": "2023-09-05\u200b",
-      "hash": "eb85dbeb3cbc1b212687e1fa65d946da48853e0c34b8d7aceefe444eb3f461c4",
-      "last_checked": "2026-01-13T10:59:17.026131"
-    },
-    "derivatives:2023-09-07": {
-      "title": "2023-09-07\u200b",
-      "hash": "c78717f9e50008d84668c1e0ddea32ec4a4ffa4a95e972daf7ee03ee2407ef0d",
-      "last_checked": "2026-01-13T10:59:17.511119"
-    },
-    "derivatives:2023-09-19": {
-      "title": "2023-09-19\u200b",
-      "hash": "de972b360fa8dba7e30c07346d3f35b10b58de16d21e7d79c19438036d84a407",
-      "last_checked": "2026-01-13T10:59:17.967178"
-    },
-    "derivatives:2023-09-20": {
-      "title": "2023-09-20\u200b",
-      "hash": "8c935d753284c5d2dd7c4d3369a5f3de8493fefb3ab20c15094fb2472007518b",
-      "last_checked": "2026-01-13T10:59:18.422945"
-    },
-    "derivatives:2023-09-20-1": {
-      "title": "2023-09-20\u200b",
-      "hash": "37439a6d83ce8e6e5e21e15c4815d2066f1ac3ebee377a7e2e2ef876b97ce235",
-      "last_checked": "2026-01-13T10:59:18.897005"
-    },
-    "derivatives:2023-09-22": {
-      "title": "2023-09-22\u200b",
-      "hash": "6c626416ade250b56191555c2f884e45c611f9ab45fafd417347c25214672c81",
-      "last_checked": "2026-01-13T10:59:19.345100"
-    },
-    "derivatives:2023-09-25": {
-      "title": "2023-09-25\u200b",
-      "hash": "b79140bb77cf1bce334666ecba88bfbc915064054fac9550d5192c92f5958cbc",
-      "last_checked": "2026-01-13T10:59:19.800636"
-    },
-    "derivatives:2023-09-25-1": {
-      "title": "2023-09-25\u200b",
-      "hash": "d5d6f93785435e6f457fbc8aee86a4db649e947ffbe1af39b081e5cfee4d863c",
-      "last_checked": "2026-01-13T10:59:20.347558"
-    },
-    "derivatives:2023-10-11": {
-      "title": "2023-10-11\u200b",
-      "hash": "e7230752279ff187673a9f09eeeee3d0114d8b094713253ee4ed1a0f9f2d6c7b",
-      "last_checked": "2026-01-13T10:59:20.805495"
-    },
-    "derivatives:2023-10-16": {
-      "title": "2023-10-16\u200b",
-      "hash": "7f1ecc018538fd74a47596301169962707a33d231c14eedcdf69d3271d82d676",
-      "last_checked": "2026-01-13T10:59:21.277554"
-    },
-    "derivatives:2023-10-16-1": {
-      "title": "2023-10-16\u200b",
-      "hash": "cf6001c83d4ed2313ee69e4b03c24188c8d26ec3790393538ce215344ec5af96",
-      "last_checked": "2026-01-13T10:59:21.758365"
-    },
-    "derivatives:2023-10-19": {
-      "title": "2023-10-19\u200b",
-      "hash": "ad6f4c702eddf069d02fd6b60c5e9a9887375aa6ca4abb6937ddb577a40ec2ac",
-      "last_checked": "2026-01-13T10:59:22.196495"
-    },
-    "derivatives:2023-10-19-1": {
-      "title": "2023-10-19\u200b",
-      "hash": "804599e6190eed2977f3166ec20945c8bb655d9f4c56a9a293fa44e3e08d5cc0",
-      "last_checked": "2026-01-13T10:59:22.668507"
-    },
-    "derivatives:2023-10-19-2": {
-      "title": "2023-10-19\u200b",
-      "hash": "e2c12ff2d1197e24fe8aab28ae8a59c1b3254838ad479cedde94418914b16704",
-      "last_checked": "2026-01-13T10:59:23.126051"
-    },
-    "derivatives:2023-11-01": {
-      "title": "2023-11-01\u200b",
-      "hash": "08e22a8e3dfd69087018525f1e0bb3a6e779e116592af613fabbc9c41dd2b27e",
-      "last_checked": "2026-01-13T10:59:23.615664"
-    },
-    "derivatives:2023-11-01-1": {
-      "title": "2023-11-01\u200b",
-      "hash": "17e8e61736da99a9a3b434572608695ece32d72c128a1ee79eae947d559a1b95",
-      "last_checked": "2026-01-13T10:59:24.120167"
-    },
-    "derivatives:2023-11-15": {
-      "title": "2023-11-15\u200b",
-      "hash": "33e371233be1028e7f34d3690af072cb5b363eff17a93ae2a461884ccc42d629",
-      "last_checked": "2026-01-13T10:59:24.576301"
-    },
-    "derivatives:2023-12-12": {
-      "title": "2023-12-12\u200b",
-      "hash": "491a3699dbaf3ca21daa98621947233d88813df3e61c50e90ce2fb325fcbd439",
-      "last_checked": "2026-01-13T10:59:25.018575"
-    },
-    "derivatives:2024-01-08": {
-      "title": "2024-01-08\u200b",
-      "hash": "67967c1c72f23a2a2ed66572d2ddbc27677f230aa6b7c9166f0d1887bd9089b9",
-      "last_checked": "2026-01-13T10:59:25.508109"
-    },
-    "derivatives:2024-01-11": {
-      "title": "2024-01-11\u200b",
-      "hash": "dd7d0c3d62374b2b29d976213e8e4d410c14ab1e3036d9d25dcf3b16a8266029",
-      "last_checked": "2026-01-13T10:59:25.997207"
-    },
-    "derivatives:2024-01-19": {
-      "title": "2024-01-19\u200b",
-      "hash": "af8ac9ca5ea2fc404dade5ef76c6071d10de746390e84f7fb3adb49ee3241074",
-      "last_checked": "2026-01-13T10:59:26.438430"
-    },
-    "derivatives:2024-01-24": {
-      "title": "2024-01-24\u200b",
-      "hash": "67fb2329171c295a43eae6581143f01f439e6b3dabe8ef7e24f16d4a48a9bcf9",
-      "last_checked": "2026-01-13T10:59:27.022759"
-    },
-    "derivatives:2024-02-09": {
-      "title": "2024-02-09\u200b",
-      "hash": "92d74a52e0b51b78fb2e7a7222b02dc6b7f7b4aa7cd541db5fe824488d78f669",
-      "last_checked": "2026-01-13T10:59:27.472522"
-    },
-    "derivatives:2024-03-11": {
-      "title": "2024-03-11\u200b",
-      "hash": "bd23b7b36e49e4e0de9c8d68448a251a4978abdcb39a30086d4a4dfe89f44b2a",
-      "last_checked": "2026-01-13T10:59:27.950002"
-    },
-    "derivatives:2024-04-01": {
-      "title": "2024-04-01\u200b",
-      "hash": "cd44e657d04f4ee4ab7b4fb8b715c8a0cb5e608ff3c802a73c4aab163e3f2e11",
-      "last_checked": "2026-01-13T10:59:28.436998"
-    },
-    "derivatives:2024-04-09": {
-      "title": "2024-04-09\u200b",
-      "hash": "6d9ce99f1e118b099523a51bdfce7b4e05e08882ce5c1dea86d92051fee68e92",
-      "last_checked": "2026-01-13T10:59:28.863540"
-    },
-    "derivatives:2024-04-19": {
-      "title": "2024-04-19\u200b",
-      "hash": "1f6c0b0d96de1da7ce256d99b5720fbf7fa8777d3a15bf66000c836488d32b84",
-      "last_checked": "2026-01-13T10:59:29.369408"
-    },
-    "derivatives:2024-05-22": {
-      "title": "2024-05-22\u200b",
-      "hash": "44c2fbcdc67a7a00d2a635a2caca512c3e754d96ef4276a4e09df6bee89f62f1",
-      "last_checked": "2026-01-13T10:59:29.828051"
-    },
-    "derivatives:2024-06-19": {
-      "title": "2024-06-19\u200b",
-      "hash": "b29940b90eb83d7754facae14a59b8f610183e139a8b9d977183602b4738b574",
-      "last_checked": "2026-01-13T10:59:30.293085"
-    },
-    "derivatives:2024-07-17": {
-      "title": "2024-07-17\u200b",
-      "hash": "76cbf005169245aab3f76e8116f7eddb010638e937343aa403faac1ba90c8122",
-      "last_checked": "2026-01-13T10:59:30.844354"
-    },
-    "derivatives:2024-07-24": {
-      "title": "2024-07-24\u200b",
-      "hash": "c511d4425a21dd086aa9f20d23abad186fc2c7c4eb2948a1516e4343f0df2509",
-      "last_checked": "2026-01-13T10:59:31.355767"
-    },
-    "derivatives:2024-08-06": {
-      "title": "2024-08-06\u200b",
-      "hash": "09261dcacc3a16bfb3f001ff4785de95cb531e1cbfe15d7bf2eae0ba9864c815",
-      "last_checked": "2026-01-13T10:59:31.892616"
-    },
-    "derivatives:2024-08-07": {
-      "title": "2024-08-07\u200b",
-      "hash": "ec4156eabfe135abaec97313af0ecb9737fcf7202843ba605c650d4389ed6c32",
-      "last_checked": "2026-01-13T10:59:32.393726"
-    },
-    "derivatives:2024-08-23": {
-      "title": "2024-08-23\u200b",
-      "hash": "000577ac17bb0cc452b9a49cc71e9a4479e3294efa1068d06166edb10025c28e",
-      "last_checked": "2026-01-13T10:59:32.846742"
-    },
-    "derivatives:2024-08-26": {
-      "title": "2024-08-26\u200b",
-      "hash": "58c0be9f078543a28c892816fed594397d3ac44c4b63be51cba058ff7feb4d2f",
-      "last_checked": "2026-01-13T10:59:33.327804"
-    },
-    "derivatives:2024-09-03": {
-      "title": "2024-09-03\u200b",
-      "hash": "d22ac274e09414e0f49c4f033517530a2deafc06896d341b0467cb83712935bc",
-      "last_checked": "2026-01-13T10:59:33.806772"
-    },
-    "derivatives:2024-09-05": {
-      "title": "2024-09-05\u200b",
-      "hash": "db5518ace83147f08b8d24df0ddddb592d1e8b8d9235930c81494bfdd381ed55",
-      "last_checked": "2026-01-13T10:59:34.245663"
-    },
-    "derivatives:2024-09-06": {
-      "title": "2024-09-06\u200b",
-      "hash": "3d983bee249c25752f72123904892a49fab241b30bbc9a0faaa929e7075b9854",
-      "last_checked": "2026-01-13T10:59:34.741983"
-    },
-    "derivatives:2024-09-19": {
-      "title": "2024-09-19\u200b",
-      "hash": "3720d043a548e887a9ffccc9db9cb27737ef7da835494ee5abcde555636ce4f4",
-      "last_checked": "2026-01-13T10:59:35.178437"
-    },
-    "derivatives:2024-09-27": {
-      "title": "2024-09-27\u200b",
-      "hash": "3e65560510ff67c413224eb47f13203edd824bbca9bcfa396d4d45b2e166c6c6",
-      "last_checked": "2026-01-13T10:59:35.638710"
-    },
-    "derivatives:2024-10-08": {
-      "title": "2024-10-08\u200b",
-      "hash": "f186fe1702d4f413f3f62dff9b06df37e22aca671246ee54be8ad3d801076160",
-      "last_checked": "2026-01-13T10:59:36.135952"
-    },
-    "derivatives:2024-10-10": {
-      "title": "2024-10-10\u200b",
-      "hash": "443a3ce15de17ceae673ecc0b8a5213963391f640315263b2dc85b9d34383f2c",
-      "last_checked": "2026-01-13T10:59:36.592913"
-    },
-    "derivatives:2024-10-11": {
-      "title": "2024-10-11\u200b",
-      "hash": "1fbf9f56f63fc8ec2f47c942d7ce508530b67d7ff7c5600bc55b4cc5d4c304ee",
-      "last_checked": "2026-01-13T10:59:37.131690"
-    },
-    "derivatives:2024-10-14": {
-      "title": "2024-10-14\u200b",
-      "hash": "e2d0387b60347417a9602e4eb7ac76971b650ff5467fb08520febf48b9a3f636",
-      "last_checked": "2026-01-13T10:59:37.619535"
-    },
-    "derivatives:2024-10-15": {
-      "title": "2024-10-15\u200b",
-      "hash": "beff49d7686f75be515364745f07ba1f1f4de3a395c9ea15a708c95c309238bf",
-      "last_checked": "2026-01-13T10:59:38.075375"
-    },
-    "derivatives:2024-10-21": {
-      "title": "2024-10-21\u200b",
-      "hash": "18a4319296f3807eed6b46c38052aa9faf4b51545c13bc77a8d7f6e3696529bd",
-      "last_checked": "2026-01-13T10:59:38.575398"
-    },
-    "derivatives:2024-10-24": {
-      "title": "2024-10-24\u200b",
-      "hash": "98a933f0909b02a85df370420a3c12b147878c1220dc8a6f94d95749717c5366",
-      "last_checked": "2026-01-13T10:59:39.014818"
-    },
-    "derivatives:2024-10-29": {
-      "title": "2024-10-29\u200b",
-      "hash": "6053f881d12e1959aa37467fb1bc8e3b9342a95d676f61ff9587966ff5989730",
-      "last_checked": "2026-01-13T10:59:39.487390"
-    },
-    "derivatives:2024-11-01": {
-      "title": "2024-11-01\u200b",
-      "hash": "ec692ce925e9dca941ff2a0cd18033da182f9c73ade610b2cf229f95d3c4142b",
-      "last_checked": "2026-01-13T10:59:39.975889"
-    },
-    "derivatives:2024-11-04": {
-      "title": "2024-11-04\u200b",
-      "hash": "e2c5c3c344f08ccf914e8e2a6e6a9037ebe47034bdd0b6a40430f901f8458e03",
-      "last_checked": "2026-01-13T10:59:40.438731"
-    },
-    "derivatives:2024-12-02": {
-      "title": "2024-12-02\u200b",
-      "hash": "91372063fccb312aae15e8db469e289a13c2f841936686e73638c3800508e364",
-      "last_checked": "2026-01-13T10:59:40.880148"
-    },
-    "derivatives:2024-12-17": {
-      "title": "2024-12-17\u200b",
-      "hash": "e37636de5bd81a38ecad69e40695b0a08461d47b996c09881144980fa13b609a",
-      "last_checked": "2026-01-13T10:59:41.352044"
-    },
-    "derivatives:2024-12-19": {
-      "title": "2024-12-19\u200b",
-      "hash": "c1b63831dc4f20995e662bbddef46f6115e5899d0c7771f845ddc607a38e6bca",
-      "last_checked": "2026-01-13T10:59:41.803282"
-    },
     "derivatives:2025-01-06": {
       "title": "2025-01-06\u200b",
       "hash": "044bb77ae1bc83b9e574152bee4fb8bb2f2968f9c3076325de5fc5ef6179aa85",
-      "last_checked": "2026-01-13T10:59:42.288424"
+      "last_checked": "2026-01-13T11:43:48.063730"
     },
     "derivatives:2025-01-13": {
       "title": "2025-01-13\u200b",
       "hash": "f4b3cf43b28543b86d49f53c6d9a97ada8d2eccb3a536f774d99dd31edfb74bd",
-      "last_checked": "2026-01-13T10:59:42.764942"
+      "last_checked": "2026-01-13T11:43:48.570263"
     },
     "derivatives:2025-01-20": {
       "title": "2025-01-20\u200b",
       "hash": "963586bb8ecc29003053f920f4fcc7c9f164451c285a525dfa121d9d5c0065d5",
-      "last_checked": "2026-01-13T10:59:43.231968"
+      "last_checked": "2026-01-13T11:43:49.087321"
     },
     "derivatives:2025-02-20": {
       "title": "2025-02-20\u200b",
       "hash": "6d1100ff6f16e294c6c721db2ad4903bb32de3999eed5cc1353fe1a100dba96d",
-      "last_checked": "2026-01-13T10:59:43.759175"
+      "last_checked": "2026-01-13T11:43:49.535349"
     },
     "derivatives:2025-02-28": {
       "title": "2025-02-28\u200b",
       "hash": "cea747ff357e91b0d26609a97767e9f60b84601ec50e6cdabab7a66d34d71d58",
-      "last_checked": "2026-01-13T10:59:44.223788"
+      "last_checked": "2026-01-13T11:43:49.995105"
     },
     "derivatives:2025-04-15": {
       "title": "2025-04-15\u200b",
       "hash": "7f57ba8d72ea85073f00317be18e47ef4435aa30648c3fcb0636ab677bf1a024",
-      "last_checked": "2026-01-13T10:59:44.732645"
+      "last_checked": "2026-01-13T11:43:50.483582"
     },
     "derivatives:2025-04-23": {
       "title": "2025-04-23\u200b",
       "hash": "2d28df6fc3e91dab19001ab204e6ed0f42ecabff7d78314339ed451789e9a5c1",
-      "last_checked": "2026-01-13T10:59:45.232700"
+      "last_checked": "2026-01-13T11:43:50.965836"
     },
     "derivatives:2025-07-02": {
       "title": "2025-07-02\u200b",
       "hash": "5d1dd1d173e6c2b84a849ea368047b6c4c6946e7d8dc1094b811e617801549a3",
-      "last_checked": "2026-01-13T10:59:45.723652"
+      "last_checked": "2026-01-13T11:43:51.538373"
     },
     "derivatives:2025-07-25": {
       "title": "2025-07-25\u200b",
       "hash": "d14241db8674e9516aba6ada0a22fa59c8bcbdeef450c10b6eb8179f60412b2f",
-      "last_checked": "2026-01-13T10:59:46.239925"
+      "last_checked": "2026-01-13T11:43:52.019060"
     },
     "derivatives:2025-08-11": {
       "title": "2025-08-11\u200b",
       "hash": "510a18033dbb823ce177332f43ade0df8e6d96423347e8da31bd6042ee60179d",
-      "last_checked": "2026-01-13T10:59:46.783603"
+      "last_checked": "2026-01-13T11:43:52.567934"
     },
     "derivatives:2025-10-09": {
       "title": "2025-10-09\u200b",
       "hash": "4155defd2615de673491e20f397dee65637e6a788fab3f6dc723292aeabea132",
-      "last_checked": "2026-01-13T10:59:47.240778"
+      "last_checked": "2026-01-13T11:43:53.077480"
     },
     "derivatives:2025-10-14": {
       "title": "2025-10-14\u200b",
       "hash": "1ee1f6eaa735ad74ad937593166e8e27fe34649eb64f12aa8a159bc97ac07c38",
-      "last_checked": "2026-01-13T10:59:47.715184"
+      "last_checked": "2026-01-13T11:43:53.650157"
     },
     "derivatives:2025-10-20": {
       "title": "2025-10-20\u200b",
       "hash": "7d2ef678c0324578d1c4689a8f9e3fc8cd81e66552f7db0a65a8f2d81cd5e4eb",
-      "last_checked": "2026-01-13T10:59:48.187410"
+      "last_checked": "2026-01-13T11:43:54.167431"
     },
     "derivatives:2025-10-21": {
       "title": "2025-10-21\u200b",
       "hash": "76074c259c8bd303a3f955bb65b941701496f3571dff860c23d999e0e71945a2",
-      "last_checked": "2026-01-13T10:59:48.725201"
+      "last_checked": "2026-01-13T11:43:54.603195"
     },
     "derivatives:2025-11-06": {
       "title": "2025-11-06\u200b",
       "hash": "48bbb9244ab1f77df3bfb52643ac9462f0b99a436b85363411817139179abc30",
-      "last_checked": "2026-01-13T10:59:49.213870"
+      "last_checked": "2026-01-13T11:43:55.053501"
     },
     "derivatives:2025-11-10": {
       "title": "2025-11-10\u200b",
       "hash": "054b91d35f65efafb33ac6bfc2bce5ff9cf8794450fc94a471dcf067a700455f",
-      "last_checked": "2026-01-13T10:59:49.681143"
+      "last_checked": "2026-01-13T11:43:55.566664"
     },
     "derivatives:2025-11-12": {
       "title": "2025-11-12\u200b",
       "hash": "482cfaf2a1ab6eabf6daf285cf941177ace5f3bddc6493110aa10bbca2deac0c",
-      "last_checked": "2026-01-13T10:59:50.142206"
+      "last_checked": "2026-01-13T11:43:56.123494"
     },
     "derivatives:2025-11-18": {
       "title": "2025-11-18\u200b",
       "hash": "152112a1d9c83a4eea0d4da8a4b1afd01667dc5a49f3eac55aef4da0100749e7",
-      "last_checked": "2026-01-13T10:59:50.612334"
+      "last_checked": "2026-01-13T11:43:56.584116"
     },
     "derivatives:2025-11-19": {
       "title": "2025-11-19\u200b",
       "hash": "ae03b9c03227d4d4014f3be37522d994c99a1d567c41100f7852551b9b108c3b",
-      "last_checked": "2026-01-13T10:59:51.067204"
+      "last_checked": "2026-01-13T11:43:57.092853"
     },
     "derivatives:2025-11-25": {
       "title": "2025-11-25\u200b",
       "hash": "0a3dc4e845e1213615d4955a6c625137dd6c52a5e7f1d91d55d6c32bbb94095d",
-      "last_checked": "2026-01-13T10:59:51.544860"
+      "last_checked": "2026-01-13T11:43:57.570827"
     },
     "derivatives:2025-12-09": {
       "title": "2025-12-09\u200b",
       "hash": "94fd490df3e865e260bd708c11612ed38b2889adf785a26c10de5d3ffaa4874a",
-      "last_checked": "2026-01-13T10:59:51.979723"
+      "last_checked": "2026-01-13T11:43:58.124312"
     },
     "derivatives:2025-12-10": {
       "title": "2025-12-10\u200b",
       "hash": "11fb37790a83ff7e57aaa85a8056c898f3339478837964d4390d46b046a24794",
-      "last_checked": "2026-01-13T10:59:52.417522"
+      "last_checked": "2026-01-13T11:43:58.720877"
     },
     "derivatives:2025-12-11": {
       "title": "2025-12-11\u200b",
       "hash": "11d5b5203cc01a90f38dd027d28c220b9d55fae164eb83b68116502dfab148cb",
-      "last_checked": "2026-01-13T10:59:52.892611"
+      "last_checked": "2026-01-13T11:43:59.180396"
     },
     "derivatives:2025-12-29": {
       "title": "2025-12-29\u200b",
       "hash": "deb825fe7cd3d25a19a897ebc4e1c2cd48663f4647a8b265485574281642fc12",
-      "last_checked": "2026-01-13T10:59:53.329850"
+      "last_checked": "2026-01-13T11:43:59.668248"
     },
     "derivatives:2026-01-07": {
       "title": "2026-01-07\u200b",
       "hash": "23ea0260969436c1781211b4191b82ab4091a8c9b45f5cf81b16fae091428458",
-      "last_checked": "2026-01-13T10:59:53.997414"
+      "last_checked": "2026-01-13T11:44:00.141376"
     },
     "derivatives:2026-01-09": {
       "title": "2026-01-09\u200b",
       "hash": "8ba4fc69f6f3a57f5f4ce98fed615b26325367d4a09e9ace8a73f0c100073dde",
-      "last_checked": "2026-01-13T10:59:54.508709"
-    },
-    "spot:2018-01-14": {
-      "title": "2018-01-14\u200b",
-      "hash": "547e57dacb4df16f130d78fef6272ffc110155367213530802f6d4ec3a51e81f",
-      "last_checked": "2026-01-13T10:59:55.166862"
-    },
-    "spot:2018-01-20": {
-      "title": "2018-01-20\u200b",
-      "hash": "add9278d2207a5e640002b32d6aadd793c6955e1b7201d2bda01aa2fc1dfd8bc",
-      "last_checked": "2026-01-13T10:59:55.690420"
-    },
-    "spot:2018-01-23": {
-      "title": "2018-01-23\u200b",
-      "hash": "87414691d37d8e7fcd7d4209b1c894ba8e59e8eaa5f1ed503b22d279d64bc847",
-      "last_checked": "2026-01-13T10:59:56.182129"
-    },
-    "spot:2018-07-18": {
-      "title": "2018-07-18\u200b",
-      "hash": "bc0ab08fbac5686299995f462187f7f5b8f6b53b8997bd2545a12994327564f6",
-      "last_checked": "2026-01-13T10:59:56.675679"
-    },
-    "spot:2018-11-13": {
-      "title": "2018-11-13\u200b",
-      "hash": "7a9ae5b4382a03b274c23a11ee1c10a3ae8bb464eff2ff8653a39f622b051243",
-      "last_checked": "2026-01-13T10:59:57.146233"
-    },
-    "spot:2019-03-12": {
-      "title": "2019-03-12\u200b",
-      "hash": "e90e61f71828241d198b698a309f2bafc2e1025ed3345382c0d89dee23b9203c",
-      "last_checked": "2026-01-13T10:59:57.607155"
-    },
-    "spot:2019-08-15": {
-      "title": "2019-08-15\u200b",
-      "hash": "d19957c210c757b837e6e91030f3e7573a82f65efcfa2735c98a8fe9edee1a91",
-      "last_checked": "2026-01-13T10:59:58.068524"
-    },
-    "spot:2019-08-16": {
-      "title": "2019-08-16\u200b",
-      "hash": "34a9b1ceb160616b4961f480969c486e04032479c363311e5e5919a72428c800",
-      "last_checked": "2026-01-13T10:59:58.588400"
-    },
-    "spot:2019-08-16-update-2": {
-      "title": "2019-08-16 (Update 2)\u200b",
-      "hash": "409757b6ff4d5884cca7d727637487990b896c4ed190a1d3ea982a6eac92736f",
-      "last_checked": "2026-01-13T10:59:59.053460"
-    },
-    "spot:2019-09-03": {
-      "title": "2019-09-03\u200b",
-      "hash": "6fc97997e21f4a3144774bc7e118cacc1954a069f3b1c6d4bf7343712616a736",
-      "last_checked": "2026-01-13T10:59:59.490141"
-    },
-    "spot:2019-09-09": {
-      "title": "2019-09-09\u200b",
-      "hash": "4201e58d958841cee6726df17553ba6bd44fbb91eb154b915cad5583b28b470b",
-      "last_checked": "2026-01-13T10:59:59.987903"
-    },
-    "spot:2019-11-13": {
-      "title": "2019-11-13\u200b",
-      "hash": "18431db260edf8672dedf0d347387c43ae893926aa12d93017db4ec1a71429d8",
-      "last_checked": "2026-01-13T11:00:00.466493"
-    },
-    "spot:2019-11-22": {
-      "title": "2019-11-22\u200b",
-      "hash": "0b7a4f1e7fe08069e7c6cf6d52ffde6737c198e3672a2c92cef19f1015743a52",
-      "last_checked": "2026-01-13T11:00:00.914517"
-    },
-    "spot:2020-03-24": {
-      "title": "2020-03-24\u200b",
-      "hash": "7aff26df294ab884002130819280dded8c785942710227bd637fa5d9f04c4784",
-      "last_checked": "2026-01-13T11:00:01.408314"
-    },
-    "spot:2020-04-23": {
-      "title": "2020-04-23\u200b",
-      "hash": "7f2977a8c5c4d9a8abaea1f4dfb44e467bbb3ca5244058f856326e50110eec4d",
-      "last_checked": "2026-01-13T11:00:01.844619"
-    },
-    "spot:2020-04-25": {
-      "title": "2020-04-25\u200b",
-      "hash": "c9dbf9c76a172099a1979a5df697fb1bfcf3328a2d75e5e9f0d154b045af9d63",
-      "last_checked": "2026-01-13T11:00:02.320585"
-    },
-    "spot:2020-05-01": {
-      "title": "2020-05-01\u200b",
-      "hash": "fc8b864fb3064000ad2b7a12223f197b04f1b358af94fbc85beec7e648ef97f1",
-      "last_checked": "2026-01-13T11:00:02.775844"
-    },
-    "spot:2020-09-09": {
-      "title": "2020-09-09\u200b",
-      "hash": "7d4d4fc531a197f27d36a55723e1daa290f79ab851351f8ff03f1d76cf4f53d5",
-      "last_checked": "2026-01-13T11:00:03.241188"
-    },
-    "spot:2020-11-27": {
-      "title": "2020-11-27\u200b",
-      "hash": "8d38bfad34e7fbb69c04a8c71274e33340d80a574a0a56ab3756e4193473203d",
-      "last_checked": "2026-01-13T11:00:03.749793"
-    },
-    "spot:2021-01-01": {
-      "title": "2021-01-01\u200b",
-      "hash": "a934801c7eb22df79ec02de0b1e813a4018949d891ceaf97ef96ec0d6c9f4913",
-      "last_checked": "2026-01-13T11:00:05.446255"
-    },
-    "spot:2021-04-26": {
-      "title": "2021-04-26\u200b",
-      "hash": "de8505e1044c0a4b47d0f6ce44a8396ebf59717e774bd63896316bcb1da9bee0",
-      "last_checked": "2026-01-13T11:00:05.911502"
-    },
-    "spot:2021-05-12": {
-      "title": "2021-05-12\u200b",
-      "hash": "e7da36dd53d68baf140d69df47369d646685cb0b36b943ee8c3f1ec6b29f2dd7",
-      "last_checked": "2026-01-13T11:00:06.404229"
-    },
-    "spot:2021-08-12": {
-      "title": "2021-08-12\u200b",
-      "hash": "b89100ab77e0ae5f529bf720667c06532b0040a492168ee5e7a9ccab4038fcda",
-      "last_checked": "2026-01-13T11:00:06.930377"
-    },
-    "spot:2021-09-14": {
-      "title": "2021-09-14\u200b",
-      "hash": "8c31cdb30607182c819b5097383ed37848d85fe434f1f63ec4013c888aaa10fc",
-      "last_checked": "2026-01-13T11:00:07.408413"
-    },
-    "spot:2021-11-01": {
-      "title": "2021-11-01\u200b",
-      "hash": "fc6aee65be343d1df1beea407d2dcd8ff1f7810e2a20223395e2845ed6d91019",
-      "last_checked": "2026-01-13T11:00:07.867456"
-    },
-    "spot:2021-12-29": {
-      "title": "2021-12-29\u200b",
-      "hash": "4c5ad1f3203bd7c1dc5b364f47c907585c5b4b38cd3058d8ab7406aa2dbf4476",
-      "last_checked": "2026-01-13T11:00:08.362635"
-    },
-    "spot:2022-02-24": {
-      "title": "2022-02-24\u200b",
-      "hash": "ad3f6fcfd8a57501e8b102a6d49b5528dffa7986292e48190042aa418e36c46c",
-      "last_checked": "2026-01-13T11:00:08.830422"
-    },
-    "spot:2022-02-28": {
-      "title": "2022-02-28\u200b",
-      "hash": "9f6ea29e4f6d56b607cd85b9710dca96743bea0e9535cbce4fd4ae3a051cddc5",
-      "last_checked": "2026-01-13T11:00:09.312960"
-    },
-    "spot:2022-04-12": {
-      "title": "2022-04-12\u200b",
-      "hash": "df196c0e32fac92569a26665bf55c05a229fe2f0171264d28a89799c36be1486",
-      "last_checked": "2026-01-13T11:00:09.779449"
-    },
-    "spot:2022-04-13": {
-      "title": "2022-04-13\u200b",
-      "hash": "c05ac15126a5665441f53304d3c336a7431d99f41cffa0d8ada77a48b96031ff",
-      "last_checked": "2026-01-13T11:00:10.265726"
-    },
-    "spot:2022-05-17": {
-      "title": "2022-05-17\u200b",
-      "hash": "8ab5582aa789695758886fff9f7b2f1cefe43a069d5a5ed4c8dc92c2eaa6c908",
-      "last_checked": "2026-01-13T11:00:10.712135"
-    },
-    "spot:2022-05-23": {
-      "title": "2022-05-23\u200b",
-      "hash": "d17299c514867340a7982b35376aa58e9efe87328a169827c77168ff8e829d99",
-      "last_checked": "2026-01-13T11:00:11.181268"
-    },
-    "spot:2022-06-15": {
-      "title": "2022-06-15\u200b",
-      "hash": "57c7c28d22da0564207ee8e64d1bb6d53559829d0f1946b47c072d2ecd4db386",
-      "last_checked": "2026-01-13T11:00:11.728388"
-    },
-    "spot:2022-06-20": {
-      "title": "2022-06-20\u200b",
-      "hash": "05fd48533878c2addc6eb2bd4418df2446b48482c09bd42a8624f7898fafbde2",
-      "last_checked": "2026-01-13T11:00:12.245114"
-    },
-    "spot:2022-08-08": {
-      "title": "2022-08-08\u200b",
-      "hash": "a0fde3f00fe8d8e095c695ac5caf544beddc28939961a384b624f69a3de6219a",
-      "last_checked": "2026-01-13T11:00:12.728667"
-    },
-    "spot:2022-08-23": {
-      "title": "2022-08-23\u200b",
-      "hash": "286843331c601225e520cfa60200ba985df563689daf3dce149675719372a179",
-      "last_checked": "2026-01-13T11:00:13.195273"
-    },
-    "spot:2022-09-15": {
-      "title": "2022-09-15\u200b",
-      "hash": "1319eba2879a4786205ab48e121f179a446a6d4bba91485b2d7ef98dd2580817",
-      "last_checked": "2026-01-13T11:00:13.675818"
-    },
-    "spot:2022-09-30": {
-      "title": "2022-09-30\u200b",
-      "hash": "cd91ed4c3b6a9ced17d6ab15f7138bc7209da9735bc567e5311b5908bf5ee677",
-      "last_checked": "2026-01-13T11:00:14.224305"
-    },
-    "spot:2022-12-02": {
-      "title": "2022-12-02\u200b",
-      "hash": "9159c7da5390f67405e1c3327e6fe560752765e47e784df3b65cc30106075ba4",
-      "last_checked": "2026-01-13T11:00:14.709168"
-    },
-    "spot:2022-12-05": {
-      "title": "2022-12-05\u200b",
-      "hash": "6363fbad9d88ca9672d895c85f01d3bf1793d640b90abe9d75e08d03dc2ab3bf",
-      "last_checked": "2026-01-13T11:00:15.296224"
-    },
-    "spot:2022-12-13": {
-      "title": "2022-12-13\u200b",
-      "hash": "b0f8c66ca5acbc2aa32e78bf0d786ebb4a808395fb1d48fdce6b13ce7a5a4acb",
-      "last_checked": "2026-01-13T11:00:15.840029"
-    },
-    "spot:2022-12-15": {
-      "title": "2022-12-15\u200b",
-      "hash": "a96b0944bc96533d6d4b04eaa5a1e7e5738c5d7fb44ac35613316bbb2ccc6f42",
-      "last_checked": "2026-01-13T11:00:16.333725"
-    },
-    "spot:2022-12-26": {
-      "title": "2022-12-26\u200b",
-      "hash": "198e03caa0807b8981f3c8ed1bdf140a7db6d13acdbc49886906039f05b08c24",
-      "last_checked": "2026-01-13T11:00:16.817905"
-    },
-    "spot:2022-12-28": {
-      "title": "2022-12-28\u200b",
-      "hash": "da1e610c4edaee0a45ee1c0b86f00c8063846bef32301844d1aee73bb2c2a2fe",
-      "last_checked": "2026-01-13T11:00:17.276064"
-    },
-    "spot:2023-01-19": {
-      "title": "2023-01-19\u200b",
-      "hash": "50d94cdd93377eb7bdd7a61cc396364743a9383e95b2d85ecf7c6a1636b79ab3",
-      "last_checked": "2026-01-13T11:00:17.757216"
-    },
-    "spot:2023-01-23": {
-      "title": "2023-01-23\u200b",
-      "hash": "a869ddf78cba3d57be79fa1c627308358e082301571d3adae96964fb4bfd50cf",
-      "last_checked": "2026-01-13T11:00:18.339351"
-    },
-    "spot:2023-01-26": {
-      "title": "2023-01-26\u200b",
-      "hash": "75a6efa8032fb604082fd469c6633697b12978b53fe47b03df02bcc7168bc796",
-      "last_checked": "2026-01-13T11:00:18.823697"
-    },
-    "spot:2023-02-17": {
-      "title": "2023-02-17\u200b",
-      "hash": "c2f0fb37649a1044e04aa8b70b7ff5ae1a8d840e6bb6da8fa69b59c1bfaca5dd",
-      "last_checked": "2026-01-13T11:00:19.278003"
-    },
-    "spot:2023-03-13": {
-      "title": "2023-03-13\u200b",
-      "hash": "a2b8a1b133e75b8d8b03626f9de869188c48e6e5f54d44ae54ae371a1ec2ff73",
-      "last_checked": "2026-01-13T11:00:19.798009"
-    },
-    "spot:2023-05-24": {
-      "title": "2023-05-24\u200b",
-      "hash": "209a63834f3a7ee3fec532200487d6bb2b4dc7d9f81256cfaaa382d5df820d2a",
-      "last_checked": "2026-01-13T11:00:20.264132"
-    },
-    "spot:2023-05-26": {
-      "title": "2023-05-26\u200b",
-      "hash": "e6875863df17fa7b914d475beed2d38c1e0f1a6bd85ff311a3bb263fed8bea91",
-      "last_checked": "2026-01-13T11:00:20.733609"
-    },
-    "spot:2023-06-06": {
-      "title": "2023-06-06\u200b",
-      "hash": "67a643cf988be9fdad07c62eee9904464ef593da200335ed89a051c957f60e13",
-      "last_checked": "2026-01-13T11:00:21.214513"
-    },
-    "spot:2023-07-11": {
-      "title": "2023-07-11\u200b",
-      "hash": "ee5cbf2985652797c82389c8fa7e35ec7971591b2c2ad5cd75f40a73b43bc62b",
-      "last_checked": "2026-01-13T11:00:21.677533"
-    },
-    "spot:2023-07-18": {
-      "title": "2023-07-18\u200b",
-      "hash": "83e79d1b4644cd4598e95fc82b8adaef632c20cad9777bcabfe0f01234da7d47",
-      "last_checked": "2026-01-13T11:00:22.169684"
-    },
-    "spot:2023-08-08": {
-      "title": "2023-08-08\u200b",
-      "hash": "aa2fee14e3a04a39ab723a7725fb1633b048e66605856dc2a323324bdf90b1c4",
-      "last_checked": "2026-01-13T11:00:22.636052"
-    },
-    "spot:2023-08-25": {
-      "title": "2023-08-25\u200b",
-      "hash": "b3e8e8c54aa6ba3bfb5ac2954a1830c067fd106e09cb62e3cccfd9d529f8ff26",
-      "last_checked": "2026-01-13T11:00:23.100646"
-    },
-    "spot:2023-10-03": {
-      "title": "2023-10-03\u200b",
-      "hash": "18ad1f94f2e2491f66785fb2f99ae71e468ffc0c44a698c008ee84edecb69d65",
-      "last_checked": "2026-01-13T11:00:23.588624"
-    },
-    "spot:2023-10-19": {
-      "title": "2023-10-19\u200b",
-      "hash": "f0adf531f591bee2f9c38eae5df60b12906bd0e3d09fec5876fd15ed15ec3dc6",
-      "last_checked": "2026-01-13T11:00:24.080690"
-    },
-    "spot:2023-12-04": {
-      "title": "2023-12-04\u200b",
-      "hash": "5bb933853e84bc154e269376e85f10a969d4b2fe425ee046149b4ecd7f5940f7",
-      "last_checked": "2026-01-13T11:00:24.531684"
-    },
-    "spot:2023-12-08": {
-      "title": "2023-12-08\u200b",
-      "hash": "693d060f1833be99203ec942b9beca069f33028be6beebb287e4366819dd0db0",
-      "last_checked": "2026-01-13T11:00:25.074590"
-    },
-    "spot:2024-02-08": {
-      "title": "2024-02-08\u200b",
-      "hash": "1cc4cdb95f926dfdef156001d2eeffe7a6ffd51d7e2dff65bb23ed5c47876170",
-      "last_checked": "2026-01-13T11:00:25.531168"
-    },
-    "spot:2024-02-28": {
-      "title": "2024-02-28\u200b",
-      "hash": "00a94a06d183085e9dc592f3ca0a64957a873a8f13a7269e4f1101c0748bf246",
-      "last_checked": "2026-01-13T11:00:25.989255"
-    },
-    "spot:2024-04-02": {
-      "title": "2024-04-02\u200b",
-      "hash": "5593b29d13584f91348000c8d6e973284f52e5498ed2ce960f62795687103916",
-      "last_checked": "2026-01-13T11:00:26.480334"
-    },
-    "spot:2024-04-10": {
-      "title": "2024-04-10\u200b",
-      "hash": "c1752fdc74c287be9e01d03c748936c8176b2f6a61411b2bbcc44dbdff110529",
-      "last_checked": "2026-01-13T11:00:26.987489"
-    },
-    "spot:2024-05-30": {
-      "title": "2024-05-30\u200b",
-      "hash": "f0deb05e6df0adfd6c4748f1739ed4d873a7cb1633ae0a9d1890dec76604a5ae",
-      "last_checked": "2026-01-13T11:00:27.458821"
-    },
-    "spot:2024-06-06": {
-      "title": "2024-06-06\u200b",
-      "hash": "ad6a573ccaf1db73b1a47f867ed38ec19105e193df1d875aa8fdd8201da3abb0",
-      "last_checked": "2026-01-13T11:00:27.978041"
-    },
-    "spot:2024-06-11": {
-      "title": "2024-06-11\u200b",
-      "hash": "45b90c8e87ff676f3c2eb9c1031180f4db3c473af18c82aa5a1700f423e2dd5a",
-      "last_checked": "2026-01-13T11:00:28.489360"
-    },
-    "spot:2024-07-22": {
-      "title": "2024-07-22\u200b",
-      "hash": "a3b7e78b7d946bb27aa6a922b48d646775d26ed83663938aa81b818d02b26e00",
-      "last_checked": "2026-01-13T11:00:28.994901"
-    },
-    "spot:2024-07-26": {
-      "title": "2024-07-26\u200b",
-      "hash": "4662d03cd65ac70c295f4990f9e9705561a0e7516c6e3e273fbc1b9989624f5f",
-      "last_checked": "2026-01-13T11:00:29.453491"
-    },
-    "spot:2024-08-01": {
-      "title": "2024-08-01\u200b",
-      "hash": "850d430ba640f921a37c0bc6ed1c6f51b21a208ffaac50d8251b4e5acf9d2093",
-      "last_checked": "2026-01-13T11:00:29.978694"
-    },
-    "spot:2024-08-16": {
-      "title": "2024-08-16\u200b",
-      "hash": "6b96464edc8f0475e4c2ea1fd76416093939ed328d09d0b5ee8b96b79fd24f79",
-      "last_checked": "2026-01-13T11:00:30.476200"
-    },
-    "spot:2024-08-26": {
-      "title": "2024-08-26\u200b",
-      "hash": "6551876633e8011a80c36a9885ae59b51591695831979d938ee9a71a9e7d45ea",
-      "last_checked": "2026-01-13T11:00:30.938069"
-    },
-    "spot:2024-10-17": {
-      "title": "2024-10-17\u200b",
-      "hash": "02bae9add33faa8537e6f38eef4fcdd1df699cb7ba7593ff0e18f869015f7c0a",
-      "last_checked": "2026-01-13T11:00:31.410963"
-    },
-    "spot:2024-10-18": {
-      "title": "2024-10-18\u200b",
-      "hash": "18175829a31db2f8eb0854c7aedcb8c57e7dd532ed1613c4f0e1355e5b9810eb",
-      "last_checked": "2026-01-13T11:00:31.917607"
-    },
-    "spot:2024-12-09": {
-      "title": "2024-12-09\u200b",
-      "hash": "bf63cf34f3c19c7e2acab924446014555add9d4e70c37971658f33a2e790ab50",
-      "last_checked": "2026-01-13T11:00:32.390573"
-    },
-    "spot:2024-12-17": {
-      "title": "2024-12-17\u200b",
-      "hash": "c53b8223cf2384af1a97b0c74eb0489c08efd6e64ad80abf2b6724a1a1718001",
-      "last_checked": "2026-01-13T11:00:32.903282"
+      "last_checked": "2026-01-13T11:44:00.598497"
     },
     "spot:2025-01-09": {
       "title": "2025-01-09\u200b",
       "hash": "c66ec157211ae28aa7377eb3bfc1b102ff754ae6a64acbfb9834fce7209347f7",
-      "last_checked": "2026-01-13T11:00:33.350752"
+      "last_checked": "2026-01-13T11:44:01.089158"
     },
     "spot:2025-01-28": {
       "title": "2025-01-28\u200b",
       "hash": "494beb3563d03c0e32a351e36b25baff1bb315d6d94c88f76ecc227f8ae79361",
-      "last_checked": "2026-01-13T11:00:33.790405"
+      "last_checked": "2026-01-13T11:44:01.578640"
     },
     "spot:2025-02-12": {
       "title": "2025-02-12\u200b",
       "hash": "814b641d170a75af1c65c52e2853e2fbfb07dcef1458d2f9fa0321f1487290c5",
-      "last_checked": "2026-01-13T11:00:34.288916"
+      "last_checked": "2026-01-13T11:44:02.036026"
     },
     "spot:2025-03-05": {
       "title": "2025-03-05\u200b",
       "hash": "3f39648546055b62f546aefe6ce7bb7cb1ff90575d611913c351e3bf16fd2269",
-      "last_checked": "2026-01-13T11:00:34.795160"
+      "last_checked": "2026-01-13T11:44:02.559434"
     },
     "spot:2025-03-10": {
       "title": "2025-03-10\u200b",
       "hash": "5f5512e201b14c84808686643e6a44ad7900ea493520112c14461d24eddca4c3",
-      "last_checked": "2026-01-13T11:00:35.300362"
+      "last_checked": "2026-01-13T11:44:03.113971"
     },
     "spot:2025-03-31": {
       "title": "2025-03-31\u200b",
       "hash": "7606f26bf5a2c8bd54dad02b12e65fdc4ef54fdf9a422cf209b03e6157bda98c",
-      "last_checked": "2026-01-13T11:00:36.015208"
+      "last_checked": "2026-01-13T11:44:03.586811"
     },
     "spot:2025-04-03": {
       "title": "2025-04-03\u200b",
       "hash": "199d4e38247889381d5e07261fc053ddd12100c44279d8fbf215783a38c813ab",
-      "last_checked": "2026-01-13T11:00:36.575628"
+      "last_checked": "2026-01-13T11:44:04.081976"
     },
     "spot:2025-04-07": {
       "title": "2025-04-07\u200b",
       "hash": "ca04c91b2b183eb9f672bbdd0e46a2f276c40962920c559c82a4735a570bef76",
-      "last_checked": "2026-01-13T11:00:37.161341"
+      "last_checked": "2026-01-13T11:44:04.564710"
     },
     "spot:2025-04-08": {
       "title": "2025-04-08\u200b",
       "hash": "73a8f3499735d69c2c887ca883163a408bc618c3d138df279bcd5ddb2cc27bbd",
-      "last_checked": "2026-01-13T11:00:37.660550"
+      "last_checked": "2026-01-13T11:44:05.057214"
     },
     "spot:2025-04-21": {
       "title": "2025-04-21\u200b",
       "hash": "1bbb17d16d68a9eb69767c1474eed5ee8e643f6c5831de3b95b26a21c5270faf",
-      "last_checked": "2026-01-13T11:00:38.260095"
+      "last_checked": "2026-01-13T11:44:05.564986"
     },
     "spot:2025-04-25": {
       "title": "2025-04-25\u200b",
       "hash": "9a041c703c61b02ebb3497b08712de698e5f971db229a330b0721b15e69b5d5a",
-      "last_checked": "2026-01-13T11:00:38.758071"
+      "last_checked": "2026-01-13T11:44:06.075517"
     },
     "spot:2025-04-29": {
       "title": "2025-04-29\u200b",
       "hash": "68ec611a0c7d1dcc50f210c8502e52ed5af3482afc97cfae4b10d01bf392e539",
-      "last_checked": "2026-01-13T11:00:39.293048"
+      "last_checked": "2026-01-13T11:44:06.578541"
     },
     "spot:2025-05-22": {
       "title": "2025-05-22\u200b",
       "hash": "c62d6bd1577d6d4813d9e24944a9b9cc29bd6f2da352fb4883ba3908b9acd11b",
-      "last_checked": "2026-01-13T11:00:39.947785"
+      "last_checked": "2026-01-13T11:44:07.034130"
     },
     "spot:2025-05-28": {
       "title": "2025-05-28\u200b",
       "hash": "025493a67dcae7f90ff15826262516d9c34d851af67e3f774aab9eeeafd0fa1f",
-      "last_checked": "2026-01-13T11:00:40.538755"
+      "last_checked": "2026-01-13T11:44:07.544462"
     },
     "spot:2025-06-04": {
       "title": "2025-06-04\u200b",
       "hash": "f838edc23a9c6d9192cb8edc6fa887ae003a3991631436e9cb6125db08d651b0",
-      "last_checked": "2026-01-13T11:00:40.996875"
+      "last_checked": "2026-01-13T11:44:08.025829"
     },
     "spot:2025-07-03": {
       "title": "2025-07-03\u200b",
       "hash": "f0308d3d6bcaa6b80e1c9791b41ba79cc816666b2efe1056a293cd91b4d5b81e",
-      "last_checked": "2026-01-13T11:00:41.470942"
+      "last_checked": "2026-01-13T11:44:08.489934"
     },
     "spot:2025-08-07": {
       "title": "2025-08-07\u200b",
       "hash": "97ed46fdd087a8b2faa2b7f14693fc5d9a730a677307f7fffadac5f2f01fa7a7",
-      "last_checked": "2026-01-13T11:00:41.934654"
+      "last_checked": "2026-01-13T11:44:08.993507"
     },
     "spot:2025-08-12": {
       "title": "2025-08-12\u200b",
       "hash": "dbe4151bda00b43e2945c35cfc52a911aab32f6893fe1ade84b6191f548d42b4",
-      "last_checked": "2026-01-13T11:00:42.399037"
+      "last_checked": "2026-01-13T11:44:09.452862"
     },
     "spot:2025-08-19": {
       "title": "2025-08-19\u200b",
       "hash": "4e73800948537a4fbe4bd35fe140c9b39dd93cd8d1412bfd760ee281dc147121",
-      "last_checked": "2026-01-13T11:00:42.917664"
+      "last_checked": "2026-01-13T11:44:09.932351"
     },
     "spot:2025-08-25": {
       "title": "2025-08-25\u200b",
       "hash": "91e714ca80e3b471dea2ade7a1a831b11cd0e97314d9173e4d390f202b9fd820",
-      "last_checked": "2026-01-13T11:00:43.373493"
+      "last_checked": "2026-01-13T11:44:10.388951"
     },
     "spot:2025-08-26": {
       "title": "2025-08-26\u200b",
       "hash": "3be6ee78d5e26cd212ebf7437a9fb34a86961069b9ff38e8187e889f700ca843",
-      "last_checked": "2026-01-13T11:00:43.818599"
+      "last_checked": "2026-01-13T11:44:10.863205"
     },
     "spot:2025-08-28": {
       "title": "2025-08-28\u200b",
       "hash": "c9dfd1c5ad93ab3bd9615742506f274ee32d8dc5ebe7d4d7c31f4249d4e5ed46",
-      "last_checked": "2026-01-13T11:00:44.291474"
+      "last_checked": "2026-01-13T11:44:11.343422"
     },
     "spot:2025-09-12": {
       "title": "2025-09-12\u200b",
       "hash": "d3fc80ebcd84c6f2779d78f9f8c174b1f03033b483d81b1068ed1a5dbf57a622",
-      "last_checked": "2026-01-13T11:00:44.746485"
+      "last_checked": "2026-01-13T11:44:11.816628"
     },
     "spot:2025-09-18": {
       "title": "2025-09-18\u200b",
       "hash": "a733eecc3661cd218ffcce9c55a35d0d6203ac3730029defa0dcca397cc1ef17",
-      "last_checked": "2026-01-13T11:00:45.212387"
+      "last_checked": "2026-01-13T11:44:12.272306"
     },
     "spot:2025-09-29": {
       "title": "2025-09-29\u200b",
       "hash": "03aafe0f79abb5c90ace9afdd34ef05756299b96777b33feb6892c1e1bb663f5",
-      "last_checked": "2026-01-13T11:00:45.696243"
+      "last_checked": "2026-01-13T11:44:12.778655"
     },
     "spot:2025-10-08": {
       "title": "2025-10-08\u200b",
       "hash": "235ab5adea1875c612c821cd03202a9e926c22a485cce86af3d93d422ea063a1",
-      "last_checked": "2026-01-13T11:00:46.144926"
+      "last_checked": "2026-01-13T11:44:13.242340"
     },
     "spot:2025-10-21": {
       "title": "2025-10-21\u200b",
       "hash": "40abf005b84c0e90280b4a52d32a09ecd5ae59087f9fba21f86407a40999b92d",
-      "last_checked": "2026-01-13T11:00:46.619231"
+      "last_checked": "2026-01-13T11:44:13.716035"
     },
     "spot:2025-10-24": {
       "title": "2025-10-24\u200b",
       "hash": "dea6484ab93ab74a82dd3b17d4fcef7e7259f0239ac8d35e9cb771a7b9638716",
-      "last_checked": "2026-01-13T11:00:47.082622"
+      "last_checked": "2026-01-13T11:44:14.221637"
     },
     "spot:2025-10-28": {
       "title": "2025-10-28\u200b",
       "hash": "3eeb9a670a00c6e67cfea4b03c942e12da76b9ac9234e1979c7da04cc22ff81a",
-      "last_checked": "2026-01-13T11:00:47.540336"
+      "last_checked": "2026-01-13T11:44:14.679004"
     },
     "spot:2025-11-10": {
       "title": "2025-11-10\u200b",
       "hash": "2ca094d1e32afe283e7493383af74ac14d17c56f565663f939db3e4be2d4cf9f",
-      "last_checked": "2026-01-13T11:00:48.034274"
+      "last_checked": "2026-01-13T11:44:15.146384"
     },
     "spot:2025-11-11": {
       "title": "2025-11-11\u200b",
       "hash": "70d62e6183a20ff2a860f86f3d92cec03f6966d626831f5cb73feeb996ba3103",
-      "last_checked": "2026-01-13T11:00:48.461377"
+      "last_checked": "2026-01-13T11:44:15.667873"
     },
     "spot:2025-11-12": {
       "title": "2025-11-12\u200b",
       "hash": "bd56407ee85b1768c13669c2ba3d244acf727eb41ea06b705412486812417242",
-      "last_checked": "2026-01-13T11:00:48.949077"
+      "last_checked": "2026-01-13T11:44:16.135490"
     },
     "spot:2025-11-14": {
       "title": "2025-11-14\u200b",
       "hash": "c9d3550467edf0e55b65a6a052760a21a848cfe426ff6ef404437b504c22702a",
-      "last_checked": "2026-01-13T11:00:49.510470"
+      "last_checked": "2026-01-13T11:44:16.597214"
     },
     "spot:2025-12-02": {
       "title": "2025-12-02\u200b",
       "hash": "d2ef1eaa59a9d9a55f9f835a6cbf3c5d59f700f7c6185ed4c365861699481b60",
-      "last_checked": "2026-01-13T11:00:50.030125"
+      "last_checked": "2026-01-13T11:44:17.102281"
     },
     "spot:2025-12-09": {
       "title": "2025-12-09\u200b",
       "hash": "fa52875796830a2c6525c8463a6e45f9761e16f4570e52ce73fd0cb399643a80",
-      "last_checked": "2026-01-13T11:00:50.518817"
+      "last_checked": "2026-01-13T11:44:17.562915"
     },
     "spot:2025-12-15": {
       "title": "2025-12-15\u200b",
       "hash": "75b0072b040cb8476609cb82122b4b482d87218db0a188fa551949c414c8d8e8",
-      "last_checked": "2026-01-13T11:00:51.091873"
+      "last_checked": "2026-01-13T11:44:18.068111"
     },
     "spot:2025-12-17": {
       "title": "2025-12-17\u200b",
       "hash": "6198bf13fd14406b4c6b5697ca01e22efbbe7112c83f7a85ff8b66e4e266c4a5",
-      "last_checked": "2026-01-13T11:00:51.618429"
+      "last_checked": "2026-01-13T11:44:18.533248"
     },
     "spot:2025-12-18": {
       "title": "2025-12-18\u200b",
       "hash": "8f776e461277b3d28dca0a709b49147653d7cca2e67811021dae09b191a80002",
-      "last_checked": "2026-01-13T11:00:52.171554"
+      "last_checked": "2026-01-13T11:44:19.001808"
     }
   }
 }

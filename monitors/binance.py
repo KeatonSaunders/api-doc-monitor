@@ -12,6 +12,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 from typing import Dict, Tuple
+import re
 from .base_monitor import BaseDocMonitor
 
 
@@ -51,17 +52,52 @@ class BinanceDocMonitor(BaseDocMonitor):
                 "https://developers.binance.com/docs/derivatives/change-log"
             )
 
+        # Get current year and previous year for filtering
+        current_year = datetime.now().year
+        self.years_to_monitor = [current_year, current_year - 1]
+
+    def _is_recent_section(self, section_id: str, section_title: str) -> bool:
+        """
+        Check if a section is from current or previous year.
+
+        Args:
+            section_id: The section ID
+            section_title: The section title
+
+        Returns:
+            True if section contains current or previous year
+        """
+        # Look for year patterns in both ID and title (e.g., 2026, 2025)
+        combined_text = f"{section_id} {section_title}"
+
+        # Find all 4-digit years in the text
+        years = re.findall(r'\b(20\d{2})\b', combined_text)
+
+        if years:
+            # Check if any found year matches our monitored years
+            for year_str in years:
+                if int(year_str) in self.years_to_monitor:
+                    return True
+            # If we found years but none match, exclude this section
+            return False
+
+        # If no year found in section, include it (might be an overview/intro section)
+        return True
+
     def discover_sections(self) -> Dict[str, str]:
         """
         Discover documentation sections from all configured Binance documentation pages.
+        Only includes sections from current and previous year.
 
         Returns:
             Dict of section_id -> section_title (section_id format: "api_type:section_id")
         """
         all_sections = {}
+        filtered_count = 0
 
         for api_type, url in self.urls.items():
             self.logger.info(f"Fetching {api_type.upper()} documentation from {url}...")
+            self.logger.info(f"  Filtering for years: {', '.join(map(str, self.years_to_monitor))}")
 
             try:
                 response = self.session.get(url, timeout=10)
@@ -74,12 +110,20 @@ class BinanceDocMonitor(BaseDocMonitor):
                     section_id = heading.get("id")
                     if section_id:
                         section_title = heading.get_text(strip=True)
-                        # Create a unique key combining API type and section ID
-                        full_id = f"{api_type}:{section_id}"
-                        all_sections[full_id] = section_title
-                        self.logger.debug(f"  Found section: {section_title} (#{section_id})")
+
+                        # Check if this is a recent section
+                        if self._is_recent_section(section_id, section_title):
+                            # Create a unique key combining API type and section ID
+                            full_id = f"{api_type}:{section_id}"
+                            all_sections[full_id] = section_title
+                            self.logger.debug(f"  Found section: {section_title} (#{section_id})")
+                        else:
+                            filtered_count += 1
+                            self.logger.debug(f"  Filtered old section: {section_title}")
 
                 self.logger.info(f"  Discovered {len([k for k in all_sections if k.startswith(api_type)])} sections for {api_type}")
+                if filtered_count > 0:
+                    self.logger.info(f"  Filtered out {filtered_count} older sections")
 
             except Exception as e:
                 self.logger.error(f"  Error fetching documentation: {e}")
