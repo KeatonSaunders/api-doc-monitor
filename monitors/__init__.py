@@ -6,6 +6,7 @@ This package contains monitors for various cryptocurrency exchange API documenta
 
 from .base_monitor import BaseDocMonitor
 from .binance import BinanceDocMonitor
+from .bitget import BitgetDocMonitor
 from .bitmex import BitmexDocMonitor
 from .bybit import BybitDocMonitor
 from .coinbase import CoinbaseDocMonitor
@@ -17,6 +18,7 @@ from .okx import OKXDocMonitor
 __all__ = [
     "BaseDocMonitor",
     "BinanceDocMonitor",
+    "BitgetDocMonitor",
     "BitmexDocMonitor",
     "BybitDocMonitor",
     "CoinbaseDocMonitor",
