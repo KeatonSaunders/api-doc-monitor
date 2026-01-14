@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 import hashlib
 import json
 import os
+import re
 from datetime import datetime
 import time
 from typing import Dict, Tuple
@@ -49,8 +50,11 @@ class BaseDocMonitor(ABC):
         )
 
     def get_page_hash(self, content: str) -> str:
-        """Generate SHA-256 hash of page content."""
-        return hashlib.sha256(content.encode("utf-8")).hexdigest()
+        """Generate SHA-256 hash of page content with whitespace normalization."""
+        # Normalize whitespace: collapse all whitespace (spaces, tabs, newlines) into single spaces
+        # This prevents false positives from formatting differences
+        normalized = re.sub(r'\s+', ' ', content).strip()
+        return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
     def load_previous_state(self) -> Dict:
         """Load previous state from storage file."""
