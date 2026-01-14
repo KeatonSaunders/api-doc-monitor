@@ -227,6 +227,21 @@ class BaseDocMonitor(ABC):
         """
         return ""
 
+    def escape_markdown(self, text: str) -> str:
+        """
+        Escape Markdown special characters for Telegram.
+
+        Args:
+            text: Text to escape
+
+        Returns:
+            Escaped text safe for Telegram Markdown
+        """
+        # Escape underscores and other Markdown characters
+        for char in ['_', '*', '`', '[']:
+            text = text.replace(char, '\\' + char)
+        return text
+
     def format_section_title(self, section: Dict) -> str:
         """
         Format a section title with optional label.
@@ -235,12 +250,13 @@ class BaseDocMonitor(ABC):
             section: Section dictionary with 'id' and 'title'
 
         Returns:
-            Formatted title string
+            Formatted title string (Markdown-escaped)
         """
         label = self.get_section_label(section["id"])
+        title = self.escape_markdown(section["title"])
         if label:
-            return f"[{label}] {section['title']}"
-        return section["title"]
+            return f"[{label}] {title}"
+        return title
 
     def send_telegram(self, changes: Dict):
         """
