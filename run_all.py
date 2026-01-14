@@ -11,6 +11,7 @@ import sys
 from datetime import datetime
 from monitors import (
     BinanceDocMonitor,
+    BitmexDocMonitor,
     BybitDocMonitor,
     CoinbaseDocMonitor,
     DeribitDocMonitor,
@@ -93,6 +94,7 @@ def main():
         nargs="+",
         choices=[
             "binance",
+            "bitmex",
             "bybit",
             "coinbase",
             "deribit",
@@ -130,6 +132,7 @@ def main():
     if "all" in exchanges_to_run:
         exchanges_to_run = {
             "binance",
+            "bitmex",
             "bybit",
             "coinbase",
             "deribit",
@@ -146,6 +149,18 @@ def main():
             {
                 "class": BinanceDocMonitor,
                 "name": "Binance",
+                "kwargs": {
+                    "telegram_bot_token": telegram_token,
+                    "telegram_chat_id": telegram_chat_id,
+                },
+            }
+        )
+
+    if "bitmex" in exchanges_to_run:
+        monitors_config.append(
+            {
+                "class": BitmexDocMonitor,
+                "name": "BitMEX",
                 "kwargs": {
                     "telegram_bot_token": telegram_token,
                     "telegram_chat_id": telegram_chat_id,

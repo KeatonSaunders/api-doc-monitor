@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-01-14T10:10:54.174765",
+  "sections": {
+    "https://blog.bitmex.com/api-change-26-01-2026/": {
+      "title": "API Update: Introducing origClOrdID and changing clOrdID in executions",
+      "hash": "6dc9f6a463b8f4587da2e5c5c2c7232ed9014982f51a37762bfc7ff5a4269050",
+      "last_checked": "2026-01-14T10:10:54.174765"
+    },
+    "https://blog.bitmex.com/api-error-field/": {
+      "title": "API Update: Introducing the 'error' field to the Execution Endpoint schema",
+      "hash": "c08d6ac1ddd0336c9df3d66a0c129fe80c1b4a64499a6673605b33c99c026576",
+      "last_checked": "2026-01-14T10:10:54.476344"
+    },
+    "https://blog.bitmex.com/api-slippage/": {
+      "title": "API Update: Introducing the 'maxSlippagePct' field to the Order and Execution Endpoint",
+      "hash": "a5ca138bf4cf0d699aa424cb9b0fb87ac77378ee45aabfa10f7d1c3d4dda3b45",
+      "last_checked": "2026-01-14T10:10:54.778089"
+    },
+    "https://blog.bitmex.com/api-travel-rule/": {
+      "title": "BitMEX API Changes for Travel Rule Compliance",
+      "hash": "44f21155c1eb4f378c95c7aa93d47b63a470fb75d2435f3fd1cffbfeef20e06c",
+      "last_checked": "2026-01-14T10:10:55.079430"
+    },
+    "https://blog.bitmex.com/site-announcement/SUIUSDT-100x-leverage/": {
+      "title": "Now Live: Updated Base Initial Margin and Maintenance Margin for SUIUSDT & SUIUSD",
+      "hash": "96cc2b5aee90941b47f9ab790196df26f1271f83ff9d3f32871feac4bc765dc7",
+      "last_checked": "2026-01-14T10:10:55.381280"
+    },
+    "https://blog.bitmex.com/site-announcement/equity-perps/": {
+      "title": "Now Live: Win up to 70,000 USDT with Equity Perps on BitMEX",
+      "hash": "81c04aaf4a24392e08ff3fa1b42f73a97c54d1ebaae50cde4da807f21bde1c17",
+      "last_checked": "2026-01-14T10:10:55.682879"
+    }
+  }
+}
