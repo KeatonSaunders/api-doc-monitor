@@ -8,9 +8,7 @@ by storing the page hash for comparison.
 Automatically sends Telegram notifications when changes are detected.
 """
 
-import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
 from typing import Dict, Tuple
 from .base_monitor import BaseDocMonitor
 
@@ -77,18 +75,17 @@ class KrakenDocMonitor(BaseDocMonitor):
             for element in soup(["script", "style", "nav", "footer", "header", "aside"]):
                 element.decompose()
 
-            # Remove navigation menus and sidebars
-            for nav_class in ["navbar", "menu", "sidebar", "toc", "navigation"]:
-                for element in soup.find_all(
-                    class_=lambda x: x and nav_class in x.lower()
-                ):
-                    element.decompose()
+            # Remove navigation elements by class, but be careful not to remove content
+            # Only remove elements that are clearly navigation (not main content areas)
+            for element in soup.find_all(class_=lambda x: x and "navbar" in x.lower()):
+                element.decompose()
 
-            # Get main content - try different content containers
+            # Try to find the main content area - Docusaurus uses specific patterns
             main_content = (
-                soup.find("main")
-                or soup.find("article")
-                or soup.find("div", class_=lambda x: x and "content" in x.lower())
+                soup.find("article")
+                or soup.find("main")
+                or soup.find("div", class_=lambda x: x and "markdown" in x.lower())
+                or soup.body
                 or soup
             )
 
