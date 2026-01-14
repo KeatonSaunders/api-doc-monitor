@@ -24,7 +24,7 @@ from monitors import (
 from monitors.logger_config import setup_logger
 
 
-def run_monitor(monitor_class, monitor_name, logger, save_content=False, **kwargs):
+def run_monitor(monitor_class, monitor_name, logger, save_content=True, **kwargs):
     """
     Run a single monitor and return results.
 
@@ -87,9 +87,9 @@ def main():
         "--no-telegram", action="store_true", help="Disable Telegram notifications"
     )
     parser.add_argument(
-        "--save-content",
+        "--no-save-content",
         action="store_true",
-        help="Save full section content for detailed diffs (increases storage)",
+        help="Don't save full section content (reduces storage)",
     )
     parser.add_argument(
         "--exchanges",
@@ -267,7 +267,7 @@ def main():
     for config in monitors_config:
         result = run_monitor(
             config["class"], config["name"], logger,
-            save_content=args.save_content, **config["kwargs"]
+            save_content=not args.no_save_content, **config["kwargs"]
         )
         results.append(result)
 

@@ -1,28 +1,28 @@
 {
-  "timestamp": "2026-01-14T14:47:51.296811",
+  "timestamp": "2026-01-14T15:09:58.502818",
   "sections": {
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-delist-instid-request-parameter-in-ws-order-operation-channels": {
       "title": "Delist instId request parameter in WS order operation channels",
       "hash": "f0b98f4bfc3948353e71ea7dcf415b1607c37a229fe62991993ad9e14a1d2602",
-      "last_checked": "2026-01-14T14:47:53.128002",
+      "last_checked": "2026-01-14T15:10:01.227654",
       "content": "Delist instId request parameter in WS order operation channels\nLast update: November 20, 2025\nTo reduce the latency of WS order operations, the following order operation channels have added the request parameter instIdCode , and the request parameter instId will be delisted on February 3,2026 .\nWS / Place order WS / Place multiple orders WS / Amend order WS / Amend multiple orders WS / Cancel order WS / Cancel multiple orders\nRequest Parameter Name Type Required Description > instIdCode Integer Conditional Instrument ID code. If both instId and instIdCode are provided, instIdCode takes precedence. > instId String Conditional Instrument ID Will be deprecated on February 2026.\nNote: Users can use the Get instruments interface to map instIdCode to instId ."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-delist-old-attached-stop-profit-and-stop-loss-parameters": {
       "title": "Delist old attached stop profit and stop loss parameters",
       "hash": "49797681ae2fa6c6e4a515e74f8831bca72fd33ab5193426bc46a90a72647b5b",
-      "last_checked": "2026-01-14T14:47:55.260297",
+      "last_checked": "2026-01-14T15:10:03.678337",
       "content": "Delist old attached stop profit and stop loss parameters\nLast update: November 20, 2025\nIn order to streamline the placement parameters and order information parameters, Open API will delist the old stop-loss and take-profit parameters.\nRelated request parameters will be delisted in mid-October or later (the parameters in the array attachAlgoOrds aren\u2019t affected), no specific time will be further notified. Order channel Get order details Get order list Get order history (last 7 days) Get order history (last 30 days)\nParameter Type Description attachAlgoClOrdId String Client-supplied Algo ID when placing order attaching TP/SL. tpTriggerPx String Take-profit trigger price. tpTriggerPxType String Take-profit trigger price type. last : last price index : index price mark : mark price tpOrdPx String Take-profit order price. slTriggerPx String Stop-loss trigger price. slTriggerPxType String Stop-loss trigger price type. last : last price index : index price mark : mark price slOrdPx String Stop-loss order price."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-manual-borrow-rate-limit-update": {
       "title": "Manual borrow rate limit Update",
       "hash": "3f18919b3a69de2c01a37b8f4aa2ceb7fda65138707f819ec847d73850c12f7a",
-      "last_checked": "2026-01-14T14:47:57.337628",
+      "last_checked": "2026-01-14T15:10:05.804829",
       "content": "Manual borrow rate limit Update\nLast update: December 9, 2025\nThe rate limit for the following endpoint will be changed from 1 request per 3 second per User ID to 1 request per second per Master Account User ID Manual borrow / repay"
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-rename-xaut-perpetual-contract": {
       "title": "Rename XAUT Perpetual Contract",
       "hash": "34bb7e481efef7bc23fd9efde118552ee1a58e9c185ace8024624fb735d3b3fd",
-      "last_checked": "2026-01-14T14:47:59.810208",
+      "last_checked": "2026-01-14T15:10:07.906820",
       "content": "Rename XAUT Perpetual Contract\nLast update: Jan 13, 2026\nTo enhance your trading experience, OKX will rename XAUTUSDT perpetual to XAUUSDT perpetual and the trading of XAUTUSDT perpetual will be suspended from 8:05 am to 8:25 am on Jan 15, 2026 (UTC) , more details can be found in announcement details .\nWhen renaming: Instruments channel will first push the update data of instId: XAUT-USDT-SWAP , state: expired , then push the update data of instId: XAU-USDT-SWAP , state: live . After renaming: The instId , instFamily , uly in the pushed data will use the new parameter values. OKX will no longer support subscribing to the WebSocket channels for this perpetual using instId: XAUT-USDT-SWAP or instFamily: XAUT-USDT , nor will it support sending HTTP requests via OpenAPI with these parameters. Please use instId: XAU-USDT-SWAP or instFamily: XAU-USDT for related trading operations after the contract is renamed. For the trades and regular snapshot push of positions channels, the old subscriptions will still push data, please resubscribe using the new parameter values after the renaming. For order book channels , old subscriptions will continue to receive data. After the renaming, please first cancel the subscription using the new parameter values, then resubscribe using the new values. For other channels, they will no longer push any data, please resubscribe using the new parameter values after the renaming. instIdCode will remain unchanged.\nThe parameters to be renamed are as follows:\nValue Type instId uly instFamily ctValCcy Before Renaming XAUT-USDT-SWAP XAUT-USDT XAUT-USDT XAUT After Renaming XAU-USDT-SWAP XAU-USDT XAU-USDT XAU"
     }
   }
