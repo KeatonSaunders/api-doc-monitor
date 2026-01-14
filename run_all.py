@@ -24,7 +24,7 @@ from monitors import (
 from monitors.logger_config import setup_logger
 
 
-def run_monitor(monitor_class, monitor_name, logger, **kwargs):
+def run_monitor(monitor_class, monitor_name, logger, save_content=False, **kwargs):
     """
     Run a single monitor and return results.
 
@@ -32,6 +32,7 @@ def run_monitor(monitor_class, monitor_name, logger, **kwargs):
         monitor_class: The monitor class to instantiate
         monitor_name: Human-readable name for logging
         logger: Logger instance for run_all
+        save_content: Whether to save full content for diffs
         **kwargs: Additional arguments to pass to the monitor
 
     Returns:
@@ -43,7 +44,7 @@ def run_monitor(monitor_class, monitor_name, logger, **kwargs):
 
     try:
         monitor = monitor_class(**kwargs)
-        changes = monitor.check_for_changes(save_content=False)
+        changes = monitor.check_for_changes(save_content=save_content)
         monitor.print_summary(changes)
         monitor.send_telegram(changes)
 
@@ -265,7 +266,8 @@ def main():
     results = []
     for config in monitors_config:
         result = run_monitor(
-            config["class"], config["name"], logger, **config["kwargs"]
+            config["class"], config["name"], logger,
+            save_content=args.save_content, **config["kwargs"]
         )
         results.append(result)
 

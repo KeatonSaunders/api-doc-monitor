@@ -1,35 +1,41 @@
 {
-  "timestamp": "2026-01-14T11:40:17.520377",
+  "timestamp": "2026-01-14T12:26:13.474686",
   "sections": {
     "https://blog.bitmex.com/api-change-26-01-2026/": {
       "title": "API Update: Introducing origClOrdID and changing clOrdID in executions",
       "hash": "6dc9f6a463b8f4587da2e5c5c2c7232ed9014982f51a37762bfc7ff5a4269050",
-      "last_checked": "2026-01-14T11:40:17.520377"
+      "last_checked": "2026-01-14T12:26:13.474686",
+      "content": "API Update: Introducing origClOrdID and changing clOrdID in executions\nMon, 12 Jan 2026 16:00:00 GMT\nhttps://blog.bitmex.com/api-change-26-01-2026/\nAt BitMEX, we are committed to continually improving our platform and its infrastructure to support advanced trading capabilities for our users. As part of this ongoing effort, we are announcing an update to our REST and WebSocket APIs. From 26 January 2026, a new field,  origClOrdId , will be added to the BitMEX Execution response.\u00a0 Effective Date and Time:  26 January 2026 at 06:00 - 09:00 UTC\n What is changing? A new field,  origClOrdID , will be added to the Execution response (available via\nAPI,API"
     },
     "https://blog.bitmex.com/api-error-field/": {
       "title": "API Update: Introducing the 'error' field to the Execution Endpoint schema",
       "hash": "c08d6ac1ddd0336c9df3d66a0c129fe80c1b4a64499a6673605b33c99c026576",
-      "last_checked": "2026-01-14T11:40:17.831103"
+      "last_checked": "2026-01-14T12:26:13.789458",
+      "content": "API Update: Introducing the 'error' field to the Execution Endpoint schema\nTue, 06 Jan 2026 16:00:00 GMT\nhttps://blog.bitmex.com/api-error-field/\nAt BitMEX, we are committed to continually improving our platform and its infrastructure to support advanced trading capabilities for our users. As part of this ongoing effort, we are announcing an update to our REST and WebSocket APIs. \n From 5 January 2025, a new field, error, will be added to the BitMEX Execution endpoint.\u00a0 \n Effective Date and Time:  5 January 2025 at 06:00 - 09:00 UTC \n What is changing? A new field,  error , will be added to the response of the Execution table (available v\nAPI,API"
     },
     "https://blog.bitmex.com/api-slippage/": {
       "title": "API Update: Introducing the 'maxSlippagePct' field to the Order and Execution Endpoint",
       "hash": "a5ca138bf4cf0d699aa424cb9b0fb87ac77378ee45aabfa10f7d1c3d4dda3b45",
-      "last_checked": "2026-01-14T11:40:18.133341"
+      "last_checked": "2026-01-14T12:26:14.090427",
+      "content": "API Update: Introducing the 'maxSlippagePct' field to the Order and Execution Endpoint\nTue, 06 Jan 2026 16:00:00 GMT\nhttps://blog.bitmex.com/api-slippage/\nAt BitMEX, we are committed to continually improving our platform and its infrastructure to support advanced trading capabilities for our users. As part of this ongoing effort, we are announcing an update to our REST and WebSocket APIs. \n From 5 January 2025, a new field, maxSlippagePct, will be added to the BitMEX Order and Execution table/endpoint.\u00a0 \n Effective Date and Time:  5 January 2025 at 06:00 - 09:00 UTC \n What is changing? A new field,  maxSlippagePct , will be added to the response o\nAPI,API,Slippage"
     },
     "https://blog.bitmex.com/api-travel-rule/": {
       "title": "BitMEX API Changes for Travel Rule Compliance",
       "hash": "44f21155c1eb4f378c95c7aa93d47b63a470fb75d2435f3fd1cffbfeef20e06c",
-      "last_checked": "2026-01-14T11:40:18.435102"
+      "last_checked": "2026-01-14T12:26:14.392349",
+      "content": "BitMEX API Changes for Travel Rule Compliance\nSun, 11 Jan 2026 16:00:00 GMT\nhttps://blog.bitmex.com/api-travel-rule/\nThe BitMEX withdrawal API has been updated to comply with global Travel Rule regulations. These changes will be rolled out early 2026 and affect all API withdrawals. \nTo help you prepare, find your essential reference detailing the new Travel Rule fields and API endpoints below.\u00a0 \nTo learn more about the Travel Rule and what it means for your trading experience, visit our    and   .  What is changing? 1. Saved Addresses Are Now Required All API withdrawals must now use saved addresses from your\nAPI,API,Travel Rule"
     },
     "https://blog.bitmex.com/site-announcement/SUIUSDT-100x-leverage/": {
       "title": "Now Live: Updated Base Initial Margin and Maintenance Margin for SUIUSDT & SUIUSD",
       "hash": "96cc2b5aee90941b47f9ab790196df26f1271f83ff9d3f32871feac4bc765dc7",
-      "last_checked": "2026-01-14T11:40:18.737222"
+      "last_checked": "2026-01-14T12:26:14.694132",
+      "content": "Now Live: Updated Base Initial Margin and Maintenance Margin for SUIUSDT & SUIUSD\nThu, 08 Jan 2026 08:00:00 GMT\nhttps://blog.bitmex.com/site-announcement/SUIUSDT-100x-leverage/\nOn 8 January 2025 at 08:15 UTC, we reduced the Base Initial Margin and Base Maintenance Margin requirements for SUIUSDT and SUIUSD.  More details can be found on our   .  In the meantime, if you have any questions please contact   .\nAnnouncement Site,SUI,Margin Change"
     },
     "https://blog.bitmex.com/site-announcement/equity-perps/": {
       "title": "Now Live: Win up to 70,000 USDT with Equity Perps on BitMEX",
       "hash": "81c04aaf4a24392e08ff3fa1b42f73a97c54d1ebaae50cde4da807f21bde1c17",
-      "last_checked": "2026-01-14T11:40:19.039181"
+      "last_checked": "2026-01-14T12:26:14.996234",
+      "content": "Now Live: Win up to 70,000 USDT with Equity Perps on BitMEX\nTue, 06 Jan 2026 14:00:00 GMT\nhttps://blog.bitmex.com/site-announcement/equity-perps/\nEquity Perps are now live on BitMEX for users to trade perpetual swaps on the top US stocks and indices with up to 20x leverage.\u00a0 To celebrate the new launch, a 70,000 USDT prize pool is up for grabs. Learn how you can trade to win your share   .\u00a0\n For more details on the new feature and how you can get started, read our   .\u00a0 \nIn the meantime, if you have any questions please contact   .\nAnnouncement Site,Equity,Stocks,Crypto"
     }
   }
 }

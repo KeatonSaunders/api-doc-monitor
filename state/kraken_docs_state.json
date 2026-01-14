@@ -1,10 +1,11 @@
 {
-  "timestamp": "2026-01-14T11:56:33.425952",
+  "timestamp": "2026-01-14T12:39:54.456781",
   "sections": {
     "https://docs.kraken.com/api/docs/change-log": {
       "title": "Kraken API Changelog",
       "hash": "f5bb1e01828a61f75977d5e4f9ef2450c5c8fe487eca588515a99ccd6ca97e54",
-      "last_checked": "2026-01-14T11:56:35.086120"
+      "last_checked": "2026-01-14T12:39:55.155769",
+      "content": "Change Log | Kraken API Center"
     }
   }
 }
