@@ -1,325 +1,325 @@
 {
-  "timestamp": "2026-01-13T15:20:02.846646",
+  "timestamp": "2026-01-14T11:38:45.870817",
   "sections": {
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-01-09": {
       "title": "2025-01-09\u200b",
       "hash": "c66ec157211ae28aa7377eb3bfc1b102ff754ae6a64acbfb9834fce7209347f7",
-      "last_checked": "2026-01-13T15:20:02.982300"
+      "last_checked": "2026-01-14T11:38:46.026914"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-01-28": {
       "title": "2025-01-28\u200b",
       "hash": "494beb3563d03c0e32a351e36b25baff1bb315d6d94c88f76ecc227f8ae79361",
-      "last_checked": "2026-01-13T15:20:03.562097"
+      "last_checked": "2026-01-14T11:38:46.504151"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-02-12": {
       "title": "2025-02-12\u200b",
       "hash": "814b641d170a75af1c65c52e2853e2fbfb07dcef1458d2f9fa0321f1487290c5",
-      "last_checked": "2026-01-13T15:20:04.051525"
+      "last_checked": "2026-01-14T11:38:46.993571"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-03-05": {
       "title": "2025-03-05\u200b",
       "hash": "3f39648546055b62f546aefe6ce7bb7cb1ff90575d611913c351e3bf16fd2269",
-      "last_checked": "2026-01-13T15:20:04.478986"
+      "last_checked": "2026-01-14T11:38:47.439827"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-03-10": {
       "title": "2025-03-10\u200b",
       "hash": "5f5512e201b14c84808686643e6a44ad7900ea493520112c14461d24eddca4c3",
-      "last_checked": "2026-01-13T15:20:04.945519"
+      "last_checked": "2026-01-14T11:38:47.871897"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-03-31": {
       "title": "2025-03-31\u200b",
       "hash": "7606f26bf5a2c8bd54dad02b12e65fdc4ef54fdf9a422cf209b03e6157bda98c",
-      "last_checked": "2026-01-13T15:20:05.392266"
+      "last_checked": "2026-01-14T11:38:48.382793"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-04-03": {
       "title": "2025-04-03\u200b",
       "hash": "199d4e38247889381d5e07261fc053ddd12100c44279d8fbf215783a38c813ab",
-      "last_checked": "2026-01-13T15:20:05.811195"
+      "last_checked": "2026-01-14T11:38:48.922625"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-04-07": {
       "title": "2025-04-07\u200b",
       "hash": "ca04c91b2b183eb9f672bbdd0e46a2f276c40962920c559c82a4735a570bef76",
-      "last_checked": "2026-01-13T15:20:06.310663"
+      "last_checked": "2026-01-14T11:38:49.424329"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-04-08": {
       "title": "2025-04-08\u200b",
       "hash": "73a8f3499735d69c2c887ca883163a408bc618c3d138df279bcd5ddb2cc27bbd",
-      "last_checked": "2026-01-13T15:20:06.845528"
+      "last_checked": "2026-01-14T11:38:49.882486"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-04-21": {
       "title": "2025-04-21\u200b",
       "hash": "1bbb17d16d68a9eb69767c1474eed5ee8e643f6c5831de3b95b26a21c5270faf",
-      "last_checked": "2026-01-13T15:20:07.329360"
+      "last_checked": "2026-01-14T11:38:50.357996"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-04-25": {
       "title": "2025-04-25\u200b",
       "hash": "9a041c703c61b02ebb3497b08712de698e5f971db229a330b0721b15e69b5d5a",
-      "last_checked": "2026-01-13T15:20:07.750143"
+      "last_checked": "2026-01-14T11:38:50.842874"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-04-29": {
       "title": "2025-04-29\u200b",
       "hash": "68ec611a0c7d1dcc50f210c8502e52ed5af3482afc97cfae4b10d01bf392e539",
-      "last_checked": "2026-01-13T15:20:08.207352"
+      "last_checked": "2026-01-14T11:38:51.365283"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-05-22": {
       "title": "2025-05-22\u200b",
       "hash": "c62d6bd1577d6d4813d9e24944a9b9cc29bd6f2da352fb4883ba3908b9acd11b",
-      "last_checked": "2026-01-13T15:20:08.661775"
+      "last_checked": "2026-01-14T11:38:51.876575"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-05-28": {
       "title": "2025-05-28\u200b",
       "hash": "025493a67dcae7f90ff15826262516d9c34d851af67e3f774aab9eeeafd0fa1f",
-      "last_checked": "2026-01-13T15:20:09.092582"
+      "last_checked": "2026-01-14T11:38:52.436541"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-06-04": {
       "title": "2025-06-04\u200b",
       "hash": "f838edc23a9c6d9192cb8edc6fa887ae003a3991631436e9cb6125db08d651b0",
-      "last_checked": "2026-01-13T15:20:09.538248"
+      "last_checked": "2026-01-14T11:38:52.951694"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-07-03": {
       "title": "2025-07-03\u200b",
       "hash": "f0308d3d6bcaa6b80e1c9791b41ba79cc816666b2efe1056a293cd91b4d5b81e",
-      "last_checked": "2026-01-13T15:20:09.990970"
+      "last_checked": "2026-01-14T11:38:53.466275"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-08-07": {
       "title": "2025-08-07\u200b",
       "hash": "97ed46fdd087a8b2faa2b7f14693fc5d9a730a677307f7fffadac5f2f01fa7a7",
-      "last_checked": "2026-01-13T15:20:10.410718"
+      "last_checked": "2026-01-14T11:38:53.907133"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-08-12": {
       "title": "2025-08-12\u200b",
-      "hash": "dbe4151bda00b43e2945c35cfc52a911aab32f6893fe1ade84b6191f548d42b4",
-      "last_checked": "2026-01-13T15:20:10.855789"
+      "hash": "615bdb53054df39cfb5a1af0cd7e6fc0eb13b40736086d83d09c6b36d9aba783",
+      "last_checked": "2026-01-14T11:38:54.354597"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-08-19": {
       "title": "2025-08-19\u200b",
       "hash": "4e73800948537a4fbe4bd35fe140c9b39dd93cd8d1412bfd760ee281dc147121",
-      "last_checked": "2026-01-13T15:20:11.308349"
+      "last_checked": "2026-01-14T11:38:54.769600"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-08-25": {
       "title": "2025-08-25\u200b",
       "hash": "91e714ca80e3b471dea2ade7a1a831b11cd0e97314d9173e4d390f202b9fd820",
-      "last_checked": "2026-01-13T15:20:11.724421"
+      "last_checked": "2026-01-14T11:38:55.201217"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-08-26": {
       "title": "2025-08-26\u200b",
       "hash": "3be6ee78d5e26cd212ebf7437a9fb34a86961069b9ff38e8187e889f700ca843",
-      "last_checked": "2026-01-13T15:20:12.173823"
+      "last_checked": "2026-01-14T11:38:55.675259"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-08-28": {
       "title": "2025-08-28\u200b",
       "hash": "c9dfd1c5ad93ab3bd9615742506f274ee32d8dc5ebe7d4d7c31f4249d4e5ed46",
-      "last_checked": "2026-01-13T15:20:12.626230"
+      "last_checked": "2026-01-14T11:38:56.152125"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-09-12": {
       "title": "2025-09-12\u200b",
       "hash": "d3fc80ebcd84c6f2779d78f9f8c174b1f03033b483d81b1068ed1a5dbf57a622",
-      "last_checked": "2026-01-13T15:20:13.069307"
+      "last_checked": "2026-01-14T11:38:56.654000"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-09-18": {
       "title": "2025-09-18\u200b",
       "hash": "a733eecc3661cd218ffcce9c55a35d0d6203ac3730029defa0dcca397cc1ef17",
-      "last_checked": "2026-01-13T15:20:13.543816"
+      "last_checked": "2026-01-14T11:38:57.080379"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-09-29": {
       "title": "2025-09-29\u200b",
       "hash": "03aafe0f79abb5c90ace9afdd34ef05756299b96777b33feb6892c1e1bb663f5",
-      "last_checked": "2026-01-13T15:20:14.075241"
+      "last_checked": "2026-01-14T11:38:57.517152"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-10-08": {
       "title": "2025-10-08\u200b",
       "hash": "235ab5adea1875c612c821cd03202a9e926c22a485cce86af3d93d422ea063a1",
-      "last_checked": "2026-01-13T15:20:14.557816"
+      "last_checked": "2026-01-14T11:38:57.984592"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-10-21": {
       "title": "2025-10-21\u200b",
       "hash": "40abf005b84c0e90280b4a52d32a09ecd5ae59087f9fba21f86407a40999b92d",
-      "last_checked": "2026-01-13T15:20:15.021676"
+      "last_checked": "2026-01-14T11:38:58.411632"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-10-24": {
       "title": "2025-10-24\u200b",
       "hash": "dea6484ab93ab74a82dd3b17d4fcef7e7259f0239ac8d35e9cb771a7b9638716",
-      "last_checked": "2026-01-13T15:20:15.493935"
+      "last_checked": "2026-01-14T11:38:58.856092"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-10-28": {
       "title": "2025-10-28\u200b",
       "hash": "3eeb9a670a00c6e67cfea4b03c942e12da76b9ac9234e1979c7da04cc22ff81a",
-      "last_checked": "2026-01-13T15:20:16.017913"
+      "last_checked": "2026-01-14T11:38:59.312380"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-11-10": {
       "title": "2025-11-10\u200b",
       "hash": "2ca094d1e32afe283e7493383af74ac14d17c56f565663f939db3e4be2d4cf9f",
-      "last_checked": "2026-01-13T15:20:16.473482"
+      "last_checked": "2026-01-14T11:38:59.910102"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-11-11": {
       "title": "2025-11-11\u200b",
       "hash": "70d62e6183a20ff2a860f86f3d92cec03f6966d626831f5cb73feeb996ba3103",
-      "last_checked": "2026-01-13T15:20:16.955167"
+      "last_checked": "2026-01-14T11:39:00.413423"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-11-12": {
       "title": "2025-11-12\u200b",
       "hash": "bd56407ee85b1768c13669c2ba3d244acf727eb41ea06b705412486812417242",
-      "last_checked": "2026-01-13T15:20:17.480762"
+      "last_checked": "2026-01-14T11:39:00.901825"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-11-14": {
       "title": "2025-11-14\u200b",
       "hash": "c9d3550467edf0e55b65a6a052760a21a848cfe426ff6ef404437b504c22702a",
-      "last_checked": "2026-01-13T15:20:17.933809"
+      "last_checked": "2026-01-14T11:39:01.315269"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-12-02": {
       "title": "2025-12-02\u200b",
       "hash": "d2ef1eaa59a9d9a55f9f835a6cbf3c5d59f700f7c6185ed4c365861699481b60",
-      "last_checked": "2026-01-13T15:20:18.348113"
+      "last_checked": "2026-01-14T11:39:01.784815"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-12-09": {
       "title": "2025-12-09\u200b",
       "hash": "fa52875796830a2c6525c8463a6e45f9761e16f4570e52ce73fd0cb399643a80",
-      "last_checked": "2026-01-13T15:20:18.864256"
+      "last_checked": "2026-01-14T11:39:02.195725"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-12-15": {
       "title": "2025-12-15\u200b",
       "hash": "75b0072b040cb8476609cb82122b4b482d87218db0a188fa551949c414c8d8e8",
-      "last_checked": "2026-01-13T15:20:19.293971"
+      "last_checked": "2026-01-14T11:39:02.678839"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-12-17": {
       "title": "2025-12-17\u200b",
       "hash": "6198bf13fd14406b4c6b5697ca01e22efbbe7112c83f7a85ff8b66e4e266c4a5",
-      "last_checked": "2026-01-13T15:20:19.744167"
+      "last_checked": "2026-01-14T11:39:03.242213"
     },
     "https://developers.binance.com/docs/binance-spot-api-docs#2025-12-18": {
       "title": "2025-12-18\u200b",
       "hash": "8f776e461277b3d28dca0a709b49147653d7cca2e67811021dae09b191a80002",
-      "last_checked": "2026-01-13T15:20:20.224760"
+      "last_checked": "2026-01-14T11:39:03.817859"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-01-06": {
       "title": "2025-01-06\u200b",
       "hash": "044bb77ae1bc83b9e574152bee4fb8bb2f2968f9c3076325de5fc5ef6179aa85",
-      "last_checked": "2026-01-13T15:20:20.687519"
+      "last_checked": "2026-01-14T11:39:04.323797"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-01-13": {
       "title": "2025-01-13\u200b",
       "hash": "f4b3cf43b28543b86d49f53c6d9a97ada8d2eccb3a536f774d99dd31edfb74bd",
-      "last_checked": "2026-01-13T15:20:21.234609"
+      "last_checked": "2026-01-14T11:39:04.962235"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-01-20": {
       "title": "2025-01-20\u200b",
       "hash": "963586bb8ecc29003053f920f4fcc7c9f164451c285a525dfa121d9d5c0065d5",
-      "last_checked": "2026-01-13T15:20:21.681448"
+      "last_checked": "2026-01-14T11:39:05.549994"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-02-20": {
       "title": "2025-02-20\u200b",
       "hash": "6d1100ff6f16e294c6c721db2ad4903bb32de3999eed5cc1353fe1a100dba96d",
-      "last_checked": "2026-01-13T15:20:22.133385"
+      "last_checked": "2026-01-14T11:39:06.187159"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-02-28": {
       "title": "2025-02-28\u200b",
       "hash": "cea747ff357e91b0d26609a97767e9f60b84601ec50e6cdabab7a66d34d71d58",
-      "last_checked": "2026-01-13T15:20:22.631890"
+      "last_checked": "2026-01-14T11:39:06.837802"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-04-15": {
       "title": "2025-04-15\u200b",
       "hash": "7f57ba8d72ea85073f00317be18e47ef4435aa30648c3fcb0636ab677bf1a024",
-      "last_checked": "2026-01-13T15:20:23.095673"
+      "last_checked": "2026-01-14T11:39:07.372697"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-04-23": {
       "title": "2025-04-23\u200b",
       "hash": "2d28df6fc3e91dab19001ab204e6ed0f42ecabff7d78314339ed451789e9a5c1",
-      "last_checked": "2026-01-13T15:20:23.540876"
+      "last_checked": "2026-01-14T11:39:07.984992"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-07-02": {
       "title": "2025-07-02\u200b",
       "hash": "5d1dd1d173e6c2b84a849ea368047b6c4c6946e7d8dc1094b811e617801549a3",
-      "last_checked": "2026-01-13T15:20:24.022529"
+      "last_checked": "2026-01-14T11:39:08.560262"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-07-25": {
       "title": "2025-07-25\u200b",
       "hash": "d14241db8674e9516aba6ada0a22fa59c8bcbdeef450c10b6eb8179f60412b2f",
-      "last_checked": "2026-01-13T15:20:24.434841"
+      "last_checked": "2026-01-14T11:39:09.190130"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-08-11": {
       "title": "2025-08-11\u200b",
       "hash": "510a18033dbb823ce177332f43ade0df8e6d96423347e8da31bd6042ee60179d",
-      "last_checked": "2026-01-13T15:20:24.882986"
+      "last_checked": "2026-01-14T11:39:09.826060"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-10-09": {
       "title": "2025-10-09\u200b",
       "hash": "4155defd2615de673491e20f397dee65637e6a788fab3f6dc723292aeabea132",
-      "last_checked": "2026-01-13T15:20:25.363169"
+      "last_checked": "2026-01-14T11:39:10.401978"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-10-14": {
       "title": "2025-10-14\u200b",
       "hash": "1ee1f6eaa735ad74ad937593166e8e27fe34649eb64f12aa8a159bc97ac07c38",
-      "last_checked": "2026-01-13T15:20:25.862277"
+      "last_checked": "2026-01-14T11:39:10.986984"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-10-20": {
       "title": "2025-10-20\u200b",
       "hash": "7d2ef678c0324578d1c4689a8f9e3fc8cd81e66552f7db0a65a8f2d81cd5e4eb",
-      "last_checked": "2026-01-13T15:20:26.324399"
+      "last_checked": "2026-01-14T11:39:11.599976"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-10-21": {
       "title": "2025-10-21\u200b",
       "hash": "76074c259c8bd303a3f955bb65b941701496f3571dff860c23d999e0e71945a2",
-      "last_checked": "2026-01-13T15:20:26.842464"
+      "last_checked": "2026-01-14T11:39:12.153682"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-11-06": {
       "title": "2025-11-06\u200b",
       "hash": "48bbb9244ab1f77df3bfb52643ac9462f0b99a436b85363411817139179abc30",
-      "last_checked": "2026-01-13T15:20:27.381339"
+      "last_checked": "2026-01-14T11:39:12.754917"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-11-10": {
       "title": "2025-11-10\u200b",
       "hash": "054b91d35f65efafb33ac6bfc2bce5ff9cf8794450fc94a471dcf067a700455f",
-      "last_checked": "2026-01-13T15:20:27.905787"
+      "last_checked": "2026-01-14T11:39:13.270237"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-11-12": {
       "title": "2025-11-12\u200b",
       "hash": "482cfaf2a1ab6eabf6daf285cf941177ace5f3bddc6493110aa10bbca2deac0c",
-      "last_checked": "2026-01-13T15:20:28.362866"
+      "last_checked": "2026-01-14T11:39:13.796812"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-11-18": {
       "title": "2025-11-18\u200b",
       "hash": "152112a1d9c83a4eea0d4da8a4b1afd01667dc5a49f3eac55aef4da0100749e7",
-      "last_checked": "2026-01-13T15:20:28.818492"
+      "last_checked": "2026-01-14T11:39:14.359944"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-11-19": {
       "title": "2025-11-19\u200b",
       "hash": "ae03b9c03227d4d4014f3be37522d994c99a1d567c41100f7852551b9b108c3b",
-      "last_checked": "2026-01-13T15:20:29.362478"
+      "last_checked": "2026-01-14T11:39:14.875416"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-11-25": {
       "title": "2025-11-25\u200b",
       "hash": "0a3dc4e845e1213615d4955a6c625137dd6c52a5e7f1d91d55d6c32bbb94095d",
-      "last_checked": "2026-01-13T15:20:29.832048"
+      "last_checked": "2026-01-14T11:39:15.420708"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-12-09": {
       "title": "2025-12-09\u200b",
       "hash": "94fd490df3e865e260bd708c11612ed38b2889adf785a26c10de5d3ffaa4874a",
-      "last_checked": "2026-01-13T15:20:30.341879"
+      "last_checked": "2026-01-14T11:39:15.994824"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-12-10": {
       "title": "2025-12-10\u200b",
       "hash": "11fb37790a83ff7e57aaa85a8056c898f3339478837964d4390d46b046a24794",
-      "last_checked": "2026-01-13T15:20:30.825351"
+      "last_checked": "2026-01-14T11:39:16.548060"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-12-11": {
       "title": "2025-12-11\u200b",
       "hash": "11d5b5203cc01a90f38dd027d28c220b9d55fae164eb83b68116502dfab148cb",
-      "last_checked": "2026-01-13T15:20:31.282214"
+      "last_checked": "2026-01-14T11:39:17.150397"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2025-12-29": {
       "title": "2025-12-29\u200b",
       "hash": "deb825fe7cd3d25a19a897ebc4e1c2cd48663f4647a8b265485574281642fc12",
-      "last_checked": "2026-01-13T15:20:31.752174"
+      "last_checked": "2026-01-14T11:39:17.736236"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2026-01-07": {
       "title": "2026-01-07\u200b",
       "hash": "23ea0260969436c1781211b4191b82ab4091a8c9b45f5cf81b16fae091428458",
-      "last_checked": "2026-01-13T15:20:32.206978"
+      "last_checked": "2026-01-14T11:39:18.270171"
     },
     "https://developers.binance.com/docs/derivatives/change-log#2026-01-09": {
       "title": "2026-01-09\u200b",
       "hash": "8ba4fc69f6f3a57f5f4ce98fed615b26325367d4a09e9ace8a73f0c100073dde",
-      "last_checked": "2026-01-13T15:20:32.643102"
+      "last_checked": "2026-01-14T11:39:18.972705"
     }
   }
 }
