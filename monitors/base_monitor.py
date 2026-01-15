@@ -51,9 +51,10 @@ class BaseDocMonitor(ABC):
 
     def get_page_hash(self, content: str) -> str:
         """Generate SHA-256 hash of page content with whitespace normalization."""
-        # Normalize whitespace: collapse all whitespace (spaces, tabs, newlines) into single spaces
-        # This prevents false positives from formatting differences
-        normalized = re.sub(r'\s+', ' ', content).strip()
+        # Collapse all whitespace into single spaces
+        normalized = re.sub(r"\s+", " ", content).strip()
+        # Remove spaces around common punctuation
+        normalized = re.sub(r"\s*([{}[\]:,])\s*", r"\1", normalized)
         return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
     def load_previous_state(self) -> Dict:
@@ -238,8 +239,8 @@ class BaseDocMonitor(ABC):
             Escaped text safe for Telegram Markdown
         """
         # Escape underscores and other Markdown characters
-        for char in ['_', '*', '`', '[']:
-            text = text.replace(char, '\\' + char)
+        for char in ["_", "*", "`", "["]:
+            text = text.replace(char, "\\" + char)
         return text
 
     def format_section_title(self, section: Dict) -> str:
@@ -354,7 +355,9 @@ class BaseDocMonitor(ABC):
                 self.logger.info(f"    URL: {section['id']}")
 
         if changes["modified_sections"]:
-            self.logger.info(f"✏️  MODIFIED SECTIONS ({len(changes['modified_sections'])}):")
+            self.logger.info(
+                f"✏️  MODIFIED SECTIONS ({len(changes['modified_sections'])}):"
+            )
             for section in changes["modified_sections"]:
                 formatted_title = self.format_section_title(section)
                 self.logger.info(f"  ~ {formatted_title}")
@@ -363,7 +366,9 @@ class BaseDocMonitor(ABC):
                 self.logger.info(f"    New hash: {section['new_hash'][:16]}...")
 
         if changes["deleted_sections"]:
-            self.logger.info(f"🗑️  DELETED SECTIONS ({len(changes['deleted_sections'])}):")
+            self.logger.info(
+                f"🗑️  DELETED SECTIONS ({len(changes['deleted_sections'])}):"
+            )
             for section in changes["deleted_sections"]:
                 formatted_title = self.format_section_title(section)
                 self.logger.info(f"  - {formatted_title}")
@@ -407,6 +412,7 @@ class BaseDocMonitor(ABC):
             except Exception as e:
                 # Use print here since this is a static method without logger
                 import sys
+
                 print(f"Warning: Could not load config file: {e}", file=sys.stderr)
         return {}
 
