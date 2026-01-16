@@ -22,6 +22,9 @@ class BybitDocMonitor(BaseDocMonitor):
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
         max_pages: int = 500,
+        notify_additions: bool = True,
+        notify_modifications: bool = True,
+        notify_deletions: bool = False,
     ):
         """
         Initialize the Bybit documentation monitor.
@@ -31,12 +34,18 @@ class BybitDocMonitor(BaseDocMonitor):
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
             max_pages: Maximum number of pages to discover
+            notify_additions: Send Telegram notification for new sections
+            notify_modifications: Send Telegram notification for modified sections
+            notify_deletions: Send Telegram notification for deleted sections
         """
         super().__init__(
             exchange_name="Bybit",
             storage_file=storage_file,
             telegram_bot_token=telegram_bot_token,
             telegram_chat_id=telegram_chat_id,
+            notify_additions=notify_additions,
+            notify_modifications=notify_modifications,
+            notify_deletions=notify_deletions,
         )
         self.base_url = "https://bybit-exchange.github.io/docs/v5/intro"
         self.docs_domain = "bybit-exchange.github.io"
@@ -187,12 +196,20 @@ def main():
     # Get Telegram credentials
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(args)
 
+    # Get notification settings
+    notify_additions, notify_modifications, notify_deletions = (
+        BaseDocMonitor.get_notification_settings(args)
+    )
+
     # Create monitor
     monitor = BybitDocMonitor(
         storage_file=args.storage_file,
         telegram_bot_token=telegram_token,
         telegram_chat_id=telegram_chat_id,
         max_pages=args.max_pages,
+        notify_additions=notify_additions,
+        notify_modifications=notify_modifications,
+        notify_deletions=notify_deletions,
     )
 
     # Check for changes

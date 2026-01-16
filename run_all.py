@@ -87,6 +87,45 @@ def main():
         "--no-telegram", action="store_true", help="Disable Telegram notifications"
     )
     parser.add_argument(
+        "--notify-additions",
+        action="store_true",
+        dest="notify_additions",
+        default=None,
+        help="Enable Telegram notifications for new sections (default: enabled)",
+    )
+    parser.add_argument(
+        "--no-notify-additions",
+        action="store_false",
+        dest="notify_additions",
+        help="Disable Telegram notifications for new sections",
+    )
+    parser.add_argument(
+        "--notify-modifications",
+        action="store_true",
+        dest="notify_modifications",
+        default=None,
+        help="Enable Telegram notifications for modified sections (default: enabled)",
+    )
+    parser.add_argument(
+        "--no-notify-modifications",
+        action="store_false",
+        dest="notify_modifications",
+        help="Disable Telegram notifications for modified sections",
+    )
+    parser.add_argument(
+        "--notify-deletions",
+        action="store_true",
+        dest="notify_deletions",
+        default=None,
+        help="Enable Telegram notifications for deleted sections (default: disabled)",
+    )
+    parser.add_argument(
+        "--no-notify-deletions",
+        action="store_false",
+        dest="notify_deletions",
+        help="Disable Telegram notifications for deleted sections",
+    )
+    parser.add_argument(
         "--no-save-content",
         action="store_true",
         help="Don't save full section content (reduces storage)",
@@ -117,17 +156,27 @@ def main():
 
     # Get Telegram credentials
     class DummyArgs:
-        def __init__(self, config, telegram_token, telegram_chat_id, no_telegram):
+        def __init__(self, config, telegram_token, telegram_chat_id, no_telegram,
+                     notify_additions, notify_modifications, notify_deletions):
             self.config = config
             self.telegram_token = telegram_token
             self.telegram_chat_id = telegram_chat_id
             self.no_telegram = no_telegram
+            self.notify_additions = notify_additions
+            self.notify_modifications = notify_modifications
+            self.notify_deletions = notify_deletions
 
     dummy_args = DummyArgs(
-        args.config, args.telegram_token, args.telegram_chat_id, args.no_telegram
+        args.config, args.telegram_token, args.telegram_chat_id, args.no_telegram,
+        args.notify_additions, args.notify_modifications, args.notify_deletions
     )
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(
         dummy_args
+    )
+
+    # Get notification settings
+    notify_additions, notify_modifications, notify_deletions = (
+        BaseDocMonitor.get_notification_settings(dummy_args)
     )
 
     # Determine which exchanges to run
@@ -148,15 +197,21 @@ def main():
     # Monitor configuration
     monitors_config = []
 
+    # Common kwargs for all monitors
+    common_kwargs = {
+        "telegram_bot_token": telegram_token,
+        "telegram_chat_id": telegram_chat_id,
+        "notify_additions": notify_additions,
+        "notify_modifications": notify_modifications,
+        "notify_deletions": notify_deletions,
+    }
+
     if "binance" in exchanges_to_run:
         monitors_config.append(
             {
                 "class": BinanceDocMonitor,
                 "name": "Binance",
-                "kwargs": {
-                    "telegram_bot_token": telegram_token,
-                    "telegram_chat_id": telegram_chat_id,
-                },
+                "kwargs": {**common_kwargs},
             }
         )
 
@@ -165,10 +220,7 @@ def main():
             {
                 "class": BitgetDocMonitor,
                 "name": "Bitget",
-                "kwargs": {
-                    "telegram_bot_token": telegram_token,
-                    "telegram_chat_id": telegram_chat_id,
-                },
+                "kwargs": {**common_kwargs},
             }
         )
 
@@ -177,10 +229,7 @@ def main():
             {
                 "class": BitmexDocMonitor,
                 "name": "BitMEX",
-                "kwargs": {
-                    "telegram_bot_token": telegram_token,
-                    "telegram_chat_id": telegram_chat_id,
-                },
+                "kwargs": {**common_kwargs},
             }
         )
 
@@ -189,10 +238,7 @@ def main():
             {
                 "class": BybitDocMonitor,
                 "name": "Bybit",
-                "kwargs": {
-                    "telegram_bot_token": telegram_token,
-                    "telegram_chat_id": telegram_chat_id,
-                },
+                "kwargs": {**common_kwargs},
             }
         )
 
@@ -201,10 +247,7 @@ def main():
             {
                 "class": CoinbaseDocMonitor,
                 "name": "Coinbase",
-                "kwargs": {
-                    "telegram_bot_token": telegram_token,
-                    "telegram_chat_id": telegram_chat_id,
-                },
+                "kwargs": {**common_kwargs},
             }
         )
 
@@ -213,10 +256,7 @@ def main():
             {
                 "class": DeribitDocMonitor,
                 "name": "Deribit",
-                "kwargs": {
-                    "telegram_bot_token": telegram_token,
-                    "telegram_chat_id": telegram_chat_id,
-                },
+                "kwargs": {**common_kwargs},
             }
         )
 
@@ -225,10 +265,7 @@ def main():
             {
                 "class": HyperliquidDocMonitor,
                 "name": "Hyperliquid",
-                "kwargs": {
-                    "telegram_bot_token": telegram_token,
-                    "telegram_chat_id": telegram_chat_id,
-                },
+                "kwargs": {**common_kwargs},
             }
         )
 
@@ -237,10 +274,7 @@ def main():
             {
                 "class": KrakenDocMonitor,
                 "name": "Kraken",
-                "kwargs": {
-                    "telegram_bot_token": telegram_token,
-                    "telegram_chat_id": telegram_chat_id,
-                },
+                "kwargs": {**common_kwargs},
             }
         )
 
@@ -249,10 +283,7 @@ def main():
             {
                 "class": OKXDocMonitor,
                 "name": "OKX",
-                "kwargs": {
-                    "telegram_bot_token": telegram_token,
-                    "telegram_chat_id": telegram_chat_id,
-                },
+                "kwargs": {**common_kwargs},
             }
         )
 

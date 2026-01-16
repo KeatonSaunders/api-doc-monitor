@@ -21,6 +21,9 @@ class CoinbaseDocMonitor(BaseDocMonitor):
         storage_file: str = "state/coinbase_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
+        notify_additions: bool = True,
+        notify_modifications: bool = True,
+        notify_deletions: bool = False,
     ):
         """
         Initialize the documentation monitor.
@@ -29,12 +32,18 @@ class CoinbaseDocMonitor(BaseDocMonitor):
             storage_file: Path to JSON file storing previous state
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
+            notify_additions: Send Telegram notification for new sections
+            notify_modifications: Send Telegram notification for modified sections
+            notify_deletions: Send Telegram notification for deleted sections
         """
         super().__init__(
             exchange_name="Coinbase",
             storage_file=storage_file,
             telegram_bot_token=telegram_bot_token,
             telegram_chat_id=telegram_chat_id,
+            notify_additions=notify_additions,
+            notify_modifications=notify_modifications,
+            notify_deletions=notify_deletions,
         )
 
         # Monitor multiple Coinbase documentation pages
@@ -167,11 +176,19 @@ def main():
     # Get Telegram credentials using base class helper
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(args)
 
+    # Get notification settings
+    notify_additions, notify_modifications, notify_deletions = (
+        BaseDocMonitor.get_notification_settings(args)
+    )
+
     # Create monitor instance
     monitor = CoinbaseDocMonitor(
         storage_file=args.storage_file,
         telegram_bot_token=telegram_token,
         telegram_chat_id=telegram_chat_id,
+        notify_additions=notify_additions,
+        notify_modifications=notify_modifications,
+        notify_deletions=notify_deletions,
     )
 
     # Check for changes

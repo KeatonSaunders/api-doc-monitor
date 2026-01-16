@@ -27,6 +27,9 @@ class BaseDocMonitor(ABC):
         storage_file: str,
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
+        notify_additions: bool = True,
+        notify_modifications: bool = True,
+        notify_deletions: bool = False,
     ):
         """
         Initialize the documentation monitor.
@@ -36,11 +39,17 @@ class BaseDocMonitor(ABC):
             storage_file: Path to JSON file storing previous state
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
+            notify_additions: Send Telegram notification for new sections (default: True)
+            notify_modifications: Send Telegram notification for modified sections (default: True)
+            notify_deletions: Send Telegram notification for deleted sections (default: False)
         """
         self.exchange_name = exchange_name
         self.storage_file = storage_file
         self.telegram_bot_token = telegram_bot_token
         self.telegram_chat_id = telegram_chat_id
+        self.notify_additions = notify_additions
+        self.notify_modifications = notify_modifications
+        self.notify_deletions = notify_deletions
         self.logger = setup_logger(exchange_name)
         self.session = requests.Session()
         self.session.headers.update(
@@ -263,17 +272,20 @@ class BaseDocMonitor(ABC):
         """
         Send Telegram notification if changes were detected.
 
+        Only sends notifications for change types that are enabled via
+        notify_additions, notify_modifications, and notify_deletions settings.
+
         Args:
             changes: Dictionary with change information
         """
-        total_changes = (
-            len(changes["new_sections"])
-            + len(changes["modified_sections"])
-            + len(changes["deleted_sections"])
-        )
+        # Count only changes we want to notify about
+        notifiable_additions = len(changes["new_sections"]) if self.notify_additions else 0
+        notifiable_modifications = len(changes["modified_sections"]) if self.notify_modifications else 0
+        notifiable_deletions = len(changes["deleted_sections"]) if self.notify_deletions else 0
+        total_notifiable = notifiable_additions + notifiable_modifications + notifiable_deletions
 
         if (
-            total_changes == 0
+            total_notifiable == 0
             or not self.telegram_bot_token
             or not self.telegram_chat_id
         ):
@@ -281,10 +293,10 @@ class BaseDocMonitor(ABC):
 
         # Build message
         message = f"🔔 *{self.exchange_name} API Documentation Changed*\n\n"
-        message += f"📊 Total Changes: *{total_changes}*\n"
+        message += f"📊 Total Changes: *{total_notifiable}*\n"
         message += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M UTC')}\n\n"
 
-        if changes["new_sections"]:
+        if self.notify_additions and changes["new_sections"]:
             message += f"📄 *NEW SECTIONS ({len(changes['new_sections'])})*:\n"
             for section in changes["new_sections"][:10]:  # Limit to 10
                 formatted_title = self.format_section_title(section)
@@ -294,7 +306,7 @@ class BaseDocMonitor(ABC):
                 message += f"  ... and {len(changes['new_sections']) - 10} more\n"
             message += "\n"
 
-        if changes["modified_sections"]:
+        if self.notify_modifications and changes["modified_sections"]:
             message += f"✏️ *MODIFIED SECTIONS ({len(changes['modified_sections'])})*:\n"
             for section in changes["modified_sections"][:10]:  # Limit to 10
                 formatted_title = self.format_section_title(section)
@@ -304,7 +316,7 @@ class BaseDocMonitor(ABC):
                 message += f"  ... and {len(changes['modified_sections']) - 10} more\n"
             message += "\n"
 
-        if changes["deleted_sections"]:
+        if self.notify_deletions and changes["deleted_sections"]:
             message += f"🗑️ *DELETED SECTIONS ({len(changes['deleted_sections'])})*:\n"
             for section in changes["deleted_sections"][:10]:
                 formatted_title = self.format_section_title(section)
@@ -459,6 +471,45 @@ class BaseDocMonitor(ABC):
         parser.add_argument(
             "--no-telegram", action="store_true", help="Disable Telegram notifications"
         )
+        parser.add_argument(
+            "--notify-additions",
+            action="store_true",
+            dest="notify_additions",
+            default=None,
+            help="Enable Telegram notifications for new sections (default: enabled)",
+        )
+        parser.add_argument(
+            "--no-notify-additions",
+            action="store_false",
+            dest="notify_additions",
+            help="Disable Telegram notifications for new sections",
+        )
+        parser.add_argument(
+            "--notify-modifications",
+            action="store_true",
+            dest="notify_modifications",
+            default=None,
+            help="Enable Telegram notifications for modified sections (default: enabled)",
+        )
+        parser.add_argument(
+            "--no-notify-modifications",
+            action="store_false",
+            dest="notify_modifications",
+            help="Disable Telegram notifications for modified sections",
+        )
+        parser.add_argument(
+            "--notify-deletions",
+            action="store_true",
+            dest="notify_deletions",
+            default=None,
+            help="Enable Telegram notifications for deleted sections (default: disabled)",
+        )
+        parser.add_argument(
+            "--no-notify-deletions",
+            action="store_false",
+            dest="notify_deletions",
+            help="Disable Telegram notifications for deleted sections",
+        )
 
         return parser
 
@@ -489,3 +540,49 @@ class BaseDocMonitor(ABC):
             telegram_chat_id = None
 
         return telegram_token, telegram_chat_id
+
+    @staticmethod
+    def get_notification_settings(args):
+        """
+        Get notification settings from arguments and config file.
+
+        Priority: CLI args > config file > defaults
+        Defaults: additions=True, modifications=True, deletions=False
+
+        Args:
+            args: Parsed command-line arguments
+
+        Returns:
+            Tuple of (notify_additions, notify_modifications, notify_deletions)
+        """
+        # Load config file settings if available
+        config_additions = None
+        config_modifications = None
+        config_deletions = None
+
+        if os.path.exists(args.config):
+            config = BaseDocMonitor.load_config_file(args.config)
+            notifications = config.get("notifications", {})
+            config_additions = notifications.get("additions")
+            config_modifications = notifications.get("modifications")
+            config_deletions = notifications.get("deletions")
+
+        # CLI args override config, config overrides defaults
+        # Default: additions=True, modifications=True, deletions=False
+        notify_additions = (
+            args.notify_additions
+            if args.notify_additions is not None
+            else (config_additions if config_additions is not None else True)
+        )
+        notify_modifications = (
+            args.notify_modifications
+            if args.notify_modifications is not None
+            else (config_modifications if config_modifications is not None else True)
+        )
+        notify_deletions = (
+            args.notify_deletions
+            if args.notify_deletions is not None
+            else (config_deletions if config_deletions is not None else False)
+        )
+
+        return notify_additions, notify_modifications, notify_deletions

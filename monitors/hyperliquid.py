@@ -32,6 +32,9 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
         base_url: str = "https://hyperliquid.gitbook.io/hyperliquid-docs",
+        notify_additions: bool = True,
+        notify_modifications: bool = True,
+        notify_deletions: bool = False,
     ):
         """
         Initialize the documentation monitor.
@@ -41,12 +44,18 @@ class HyperliquidDocMonitor(BaseDocMonitor):
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
             base_url: Base URL for the documentation
+            notify_additions: Send Telegram notification for new sections
+            notify_modifications: Send Telegram notification for modified sections
+            notify_deletions: Send Telegram notification for deleted sections
         """
         super().__init__(
             exchange_name="Hyperliquid",
             storage_file=storage_file,
             telegram_bot_token=telegram_bot_token,
             telegram_chat_id=telegram_chat_id,
+            notify_additions=notify_additions,
+            notify_modifications=notify_modifications,
+            notify_deletions=notify_deletions,
         )
 
         self.base_url = base_url
@@ -246,11 +255,19 @@ def main():
     # Get Telegram credentials using base class helper
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(args)
 
+    # Get notification settings
+    notify_additions, notify_modifications, notify_deletions = (
+        BaseDocMonitor.get_notification_settings(args)
+    )
+
     # Create monitor instance
     monitor = HyperliquidDocMonitor(
         storage_file=args.storage_file,
         telegram_bot_token=telegram_token,
         telegram_chat_id=telegram_chat_id,
+        notify_additions=notify_additions,
+        notify_modifications=notify_modifications,
+        notify_deletions=notify_deletions,
     )
 
     # Check for changes

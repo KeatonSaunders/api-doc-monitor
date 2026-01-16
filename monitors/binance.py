@@ -24,6 +24,9 @@ class BinanceDocMonitor(BaseDocMonitor):
         telegram_chat_id: str = None,
         monitor_spot: bool = True,
         monitor_derivatives: bool = True,
+        notify_additions: bool = True,
+        notify_modifications: bool = True,
+        notify_deletions: bool = False,
     ):
         """
         Initialize the documentation monitor.
@@ -34,12 +37,18 @@ class BinanceDocMonitor(BaseDocMonitor):
             telegram_chat_id: Telegram chat ID to send messages to
             monitor_spot: Whether to monitor Spot API docs
             monitor_derivatives: Whether to monitor Derivatives docs
+            notify_additions: Send Telegram notification for new sections
+            notify_modifications: Send Telegram notification for modified sections
+            notify_deletions: Send Telegram notification for deleted sections
         """
         super().__init__(
             exchange_name="Binance",
             storage_file=storage_file,
             telegram_bot_token=telegram_bot_token,
             telegram_chat_id=telegram_chat_id,
+            notify_additions=notify_additions,
+            notify_modifications=notify_modifications,
+            notify_deletions=notify_deletions,
         )
 
         self.urls = {}
@@ -265,6 +274,11 @@ def main():
     # Get Telegram credentials using base class helper
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(args)
 
+    # Get notification settings
+    notify_additions, notify_modifications, notify_deletions = (
+        BaseDocMonitor.get_notification_settings(args)
+    )
+
     # Create monitor instance
     monitor = BinanceDocMonitor(
         storage_file=args.storage_file,
@@ -272,6 +286,9 @@ def main():
         telegram_chat_id=telegram_chat_id,
         monitor_spot=monitor_spot,
         monitor_derivatives=monitor_derivatives,
+        notify_additions=notify_additions,
+        notify_modifications=notify_modifications,
+        notify_deletions=notify_deletions,
     )
 
     # Check for changes
