@@ -8,6 +8,7 @@ by storing page hashes for comparison.
 Automatically sends Telegram notifications when changes are detected.
 """
 
+import re
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -59,6 +60,28 @@ class HyperliquidDocMonitor(BaseDocMonitor):
         )
 
         self.base_url = base_url
+
+        # Pattern to match "Last updated\nX days/weeks/months/years ago" text
+        # This avoids false positives from relative timestamp changes
+        self._last_updated_pattern = re.compile(
+            r"Last updated\n\d+\s+(second|minute|hour|day|week|month|year)s?\s+ago",
+            re.IGNORECASE,
+        )
+
+    def _clean_content_for_hash(self, content: str) -> str:
+        """
+        Clean content by removing dynamic elements that shouldn't trigger change detection.
+
+        Removes "Last updated X days ago" type patterns that change daily without
+        representing actual content changes.
+
+        Args:
+            content: Raw page content
+
+        Returns:
+            Cleaned content for hashing
+        """
+        return self._last_updated_pattern.sub("", content)
 
     def _discover_links_from_page(
         self, url: str, sections: Dict[str, str], visited: set
@@ -197,7 +220,11 @@ class HyperliquidDocMonitor(BaseDocMonitor):
 
             # Get text content
             content = content_area.get_text(separator="\n", strip=True)
-            content_hash = self.get_page_hash(content)
+
+            # Clean content to remove dynamic "Last updated X days ago" text
+            # before hashing to avoid false positives
+            cleaned_content = self._clean_content_for_hash(content)
+            content_hash = self.get_page_hash(cleaned_content)
 
             return content, content_hash
 
