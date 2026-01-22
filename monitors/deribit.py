@@ -33,7 +33,7 @@ class DeribitDocMonitor(BaseDocMonitor):
         telegram_chat_id: str = None,
         max_pages: int = 1000,
         notify_additions: bool = True,
-        notify_modifications: bool = True,
+        notify_modifications: bool = False,
         notify_deletions: bool = False,
     ):
         """
@@ -105,9 +105,7 @@ class DeribitDocMonitor(BaseDocMonitor):
             # Get page title
             title_elem = soup.find("h1")
             title = (
-                title_elem.get_text(strip=True)
-                if title_elem
-                else url.split("/")[-1]
+                title_elem.get_text(strip=True) if title_elem else url.split("/")[-1]
             )
 
             # Add current page if it's a valid doc page
@@ -125,7 +123,11 @@ class DeribitDocMonitor(BaseDocMonitor):
                 href = link.get("href", "")
 
                 # Skip external links, anchors, and empty hrefs
-                if not href or href.startswith("http") and not href.startswith(self.base_url):
+                if (
+                    not href
+                    or href.startswith("http")
+                    and not href.startswith(self.base_url)
+                ):
                     continue
 
                 # Convert to absolute URL
