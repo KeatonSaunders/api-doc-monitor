@@ -156,8 +156,16 @@ def main():
 
     # Get Telegram credentials
     class DummyArgs:
-        def __init__(self, config, telegram_token, telegram_chat_id, no_telegram,
-                     notify_additions, notify_modifications, notify_deletions):
+        def __init__(
+            self,
+            config,
+            telegram_token,
+            telegram_chat_id,
+            no_telegram,
+            notify_additions,
+            notify_modifications,
+            notify_deletions,
+        ):
             self.config = config
             self.telegram_token = telegram_token
             self.telegram_chat_id = telegram_chat_id
@@ -167,8 +175,13 @@ def main():
             self.notify_deletions = notify_deletions
 
     dummy_args = DummyArgs(
-        args.config, args.telegram_token, args.telegram_chat_id, args.no_telegram,
-        args.notify_additions, args.notify_modifications, args.notify_deletions
+        args.config,
+        args.telegram_token,
+        args.telegram_chat_id,
+        args.no_telegram,
+        args.notify_additions,
+        args.notify_modifications,
+        args.notify_deletions,
     )
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(
         dummy_args
@@ -256,7 +269,13 @@ def main():
             {
                 "class": DeribitDocMonitor,
                 "name": "Deribit",
-                "kwargs": {**common_kwargs},
+                "kwargs": {
+                    "telegram_bot_token": telegram_token,
+                    "telegram_chat_id": telegram_chat_id,
+                    "notify_additions": notify_additions,
+                    "notify_modifications": False,
+                    "notify_deletions": notify_deletions,
+                },
             }
         )
 
@@ -297,8 +316,11 @@ def main():
     results = []
     for config in monitors_config:
         result = run_monitor(
-            config["class"], config["name"], logger,
-            save_content=not args.no_save_content, **config["kwargs"]
+            config["class"],
+            config["name"],
+            logger,
+            save_content=not args.no_save_content,
+            **config["kwargs"],
         )
         results.append(result)
 
