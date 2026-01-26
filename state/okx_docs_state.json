@@ -1,22 +1,22 @@
 {
-  "timestamp": "2026-01-23T09:18:46.136294",
+  "timestamp": "2026-01-26T09:18:56.386190",
   "sections": {
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-delist-instid-request-parameter-in-ws-order-operation-channels": {
       "title": "Delist instId request parameter in WS order operation channels",
       "hash": "5653150e12aab3a9dd8ebac189439f875788d418171480f91afd5efb204d87fa",
-      "last_checked": "2026-01-23T09:18:48.019270",
+      "last_checked": "2026-01-26T09:18:58.284046",
       "content": "Delist instId request parameter in WS order operation channels\nLast update: November 20, 2025\nTo reduce the latency of WS order operations, the following order operation channels have added the request parameter instIdCode , and the request parameter instId will be delisted on February 3,2026 .\nWS / Place order WS / Place multiple orders WS / Amend order WS / Amend multiple orders WS / Cancel order WS / Cancel multiple orders\nRequest Parameter Name Type Required Description > instIdCode Integer Conditional Instrument ID code. If both instId and instIdCode are provided, instIdCode takes precedence. > instId String Conditional Instrument ID Will be deprecated on February 2026.\nNote: Users can use the Get instruments interface to map instIdCode to instId ."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-delist-old-attached-stop-profit-and-stop-loss-parameters": {
       "title": "Delist old attached stop profit and stop loss parameters",
       "hash": "490d08efab141470cf44712e69df77b9378261b28c219e718acba1ba7822a948",
-      "last_checked": "2026-01-23T09:18:50.476302",
+      "last_checked": "2026-01-26T09:19:00.595934",
       "content": "Delist old attached stop profit and stop loss parameters\nLast update: November 20, 2025\nIn order to streamline the placement parameters and order information parameters, Open API will delist the old stop-loss and take-profit parameters.\nRelated request parameters will be delisted in mid-October or later (the parameters in the array attachAlgoOrds aren\u2019t affected), no specific time will be further notified. Order channel Get order details Get order list Get order history (last 7 days) Get order history (last 30 days)\nParameter Type Description attachAlgoClOrdId String Client-supplied Algo ID when placing order attaching TP/SL. tpTriggerPx String Take-profit trigger price. tpTriggerPxType String Take-profit trigger price type. last : last price index : index price mark : mark price tpOrdPx String Take-profit order price. slTriggerPx String Stop-loss trigger price. slTriggerPxType String Stop-loss trigger price type. last : last price index : index price mark : mark price slOrdPx String Stop-loss order price."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-manual-borrow-rate-limit-update": {
       "title": "Manual borrow rate limit Update",
       "hash": "a73a32faf57446e292a7cfebd15418cae3e2717ded96b2f487516e98450066ed",
-      "last_checked": "2026-01-23T09:18:52.611387",
+      "last_checked": "2026-01-26T09:19:02.903409",
       "content": "Manual borrow rate limit Update\nLast update: December 9, 2025\nThe rate limit for the following endpoint will be changed from 1 request per 3 second per User ID to 1 request per second per Master Account User ID Manual borrow / repay"
     }
   }
