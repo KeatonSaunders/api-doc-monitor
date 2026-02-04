@@ -1,22 +1,22 @@
 {
-  "timestamp": "2026-02-03T09:17:28.945276",
+  "timestamp": "2026-02-04T09:18:01.774378",
   "sections": {
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-delist-instid-request-parameter-in-ws-order-operation-channels": {
       "title": "Delist instId request parameter in WS order operation channels",
       "hash": "fe772adc1fa6ca696f028763a9d89bee0b33ddcc8931337bb8b13e7986cc76b4",
-      "last_checked": "2026-02-03T09:17:31.742692",
+      "last_checked": "2026-02-04T09:18:04.496109",
       "content": "Delist instId request parameter in WS order operation channels\nLast update: January 29, 2025\nTo reduce latency of WebSocket order operations, the following order operation channels have introduced a new request parameter, instIdCode . In the demo trading environment, the instId request parameter has been delisted. In the production environment, instId will be delisted in phases. After the delisting, any instId value provided will be ignored.\nPhase 1 delisting date: March 5, 2026 . The affected channels include: WS / Place order WS / Place multiple orders Phase 2 delisting date: March 10, 2026 . The affected channels include: WS / Amend order WS / Amend multiple orders WS / Cancel order WS / Cancel multiple orders\nRequest Parameter Name Type Required Description > instIdCode Integer Conditional Instrument ID code. If both instId and instIdCode are provided, instIdCode takes precedence. > instId String Conditional Instrument ID Will be deprecated on March 2026.\nNote: Users can use the Get instruments interface to map instIdCode to instId ."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-delist-old-attached-stop-profit-and-stop-loss-parameters": {
       "title": "Delist old attached stop profit and stop loss parameters",
       "hash": "490d08efab141470cf44712e69df77b9378261b28c219e718acba1ba7822a948",
-      "last_checked": "2026-02-03T09:17:35.252357",
+      "last_checked": "2026-02-04T09:18:06.890271",
       "content": "Delist old attached stop profit and stop loss parameters\nLast update: November 20, 2025\nIn order to streamline the placement parameters and order information parameters, Open API will delist the old stop-loss and take-profit parameters.\nRelated request parameters will be delisted in mid-October or later (the parameters in the array attachAlgoOrds aren\u2019t affected), no specific time will be further notified. Order channel Get order details Get order list Get order history (last 7 days) Get order history (last 30 days)\nParameter Type Description attachAlgoClOrdId String Client-supplied Algo ID when placing order attaching TP/SL. tpTriggerPx String Take-profit trigger price. tpTriggerPxType String Take-profit trigger price type. last : last price index : index price mark : mark price tpOrdPx String Take-profit order price. slTriggerPx String Stop-loss trigger price. slTriggerPxType String Stop-loss trigger price type. last : last price index : index price mark : mark price slOrdPx String Stop-loss order price."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-pre-market-rebase-contract": {
       "title": "Pre-market rebase contract",
       "hash": "8ec06553d43e2c73cc44b500c71f4b508e8a279e7b9dc260ad9a5f52e1976e19",
-      "last_checked": "2026-02-03T09:17:38.650893",
+      "last_checked": "2026-02-04T09:18:09.338158",
       "content": "Pre-market rebase contract\nLast update: January 29, 2026\nPre-market rebase contracts use a preset supply; when actual supply is revealed, user positions and orders are automatically rebased proportionally. Already on demo environment, expected to go live on February 3rd.\nInstruments endpoint/channel\nAdd new value rebase for response parameter state Add new value rebase_contract for response parameter ruleType Get instruments (private) Get instruments (public) Instruments channel\nParameter Type Description state String Instrument status live suspend rebase : can't be traded during rebasing, only applicable to SWAP preopen : e.g. Futures and options contracts rollover from generation to trading start; certain symbols before they go live test : Test pairs, can't be traded ruleType String Trading rule types normal : normal trading pre_market : pre-market trading rebase_contract : pre-market rebase contract"
     }
   }
