@@ -1,0 +1,415 @@
+{
+  "timestamp": "2026-02-24T09:45:03.007859",
+  "sections": {
+    "https://apidocs.lighter.xyz/docs/account-types": {
+      "title": "Account Types",
+      "hash": "5007c001363ab814276184fb7c4229aa5ad2e018895857489f4118c06f7fecb5",
+      "last_checked": "2026-02-24T09:45:03.515617"
+    },
+    "https://apidocs.lighter.xyz/docs/api-keys": {
+      "title": "API keys",
+      "hash": "e646fe389e4d72bcc7cc0b6b91c8662e4a3f57fa2bc62e48e757938c0e000e86",
+      "last_checked": "2026-02-24T09:45:04.224937"
+    },
+    "https://apidocs.lighter.xyz/docs/create-accounts-programmatically": {
+      "title": "Create accounts programmatically",
+      "hash": "4d0e2f4f8d8df598455a59332eda03152ef5e06688b1b3e600c81a3ec2aadbc3",
+      "last_checked": "2026-02-24T09:45:05.529029"
+    },
+    "https://apidocs.lighter.xyz/docs/data-structures-constants-and-errors": {
+      "title": "Data Structures, Constants and Errors",
+      "hash": "c689550637b959a17ebf6b438af6711c3f378836c68b8178370dbd93029b8500",
+      "last_checked": "2026-02-24T09:45:06.221214"
+    },
+    "https://apidocs.lighter.xyz/docs/deposits-transfers-and-withdrawals": {
+      "title": "Deposits, Transfers and Withdrawals",
+      "hash": "6e7764290fc60a6c434bd0212a77ed4c92c25d1ec6f617558d9fe9dc43efdcf6",
+      "last_checked": "2026-02-24T09:45:07.556293"
+    },
+    "https://apidocs.lighter.xyz/docs/get-started": {
+      "title": "Get Started",
+      "hash": "b121d907026c8184caa0d6ea16ebcc43838958dd9f481bda9549d83cd1bd02dc",
+      "last_checked": "2026-02-24T09:45:07.969895"
+    },
+    "https://apidocs.lighter.xyz/docs/manage-public-pools-shares": {
+      "title": "Manage Public Pools",
+      "hash": "5b859b812eae604d2b9e46c98328678b69ad8bda603a0a91a1a7deca20a84184",
+      "last_checked": "2026-02-24T09:45:09.233925"
+    },
+    "https://apidocs.lighter.xyz/docs/multi-signature-wallets": {
+      "title": "Multi-signature and smart wallets",
+      "hash": "2d5b7e61c6d433d8c4102b545d35b260917b7597bdbf4263a08368603a4375ad",
+      "last_checked": "2026-02-24T09:45:10.894516"
+    },
+    "https://apidocs.lighter.xyz/docs/priority-transactions": {
+      "title": "Priority Transactions",
+      "hash": "22a2e5deb2ad94a9b9dbd0b50cc82e252ecc5df5658d5dcd858a37d27b4e84a3",
+      "last_checked": "2026-02-24T09:45:12.179458"
+    },
+    "https://apidocs.lighter.xyz/docs/rate-limits": {
+      "title": "Rate Limits",
+      "hash": "f597e3b3f893ea468847674ddfa5ff3ac24a7c34ff4395f05ce88d34efd36828",
+      "last_checked": "2026-02-24T09:45:13.505730"
+    },
+    "https://apidocs.lighter.xyz/docs/referrals": {
+      "title": "Manage Referrals",
+      "hash": "bcbc7fbbc4fd76f4f848f969c7755962fd7b7456b883fdbd79eab500e56280b3",
+      "last_checked": "2026-02-24T09:45:14.730003"
+    },
+    "https://apidocs.lighter.xyz/docs/repos": {
+      "title": "SDK",
+      "hash": "2bfd3cd2a1b145fca5da95680b1a9fc61c64c8a383dbd147deed82d1903b1f4b",
+      "last_checked": "2026-02-24T09:45:16.032596"
+    },
+    "https://apidocs.lighter.xyz/docs/trading": {
+      "title": "Signing Transactions",
+      "hash": "c32b980e8427a2e4e4d0f247142ed498402b091072766e4fae8080ff2ce8d14d",
+      "last_checked": "2026-02-24T09:45:17.489777"
+    },
+    "https://apidocs.lighter.xyz/docs/volume-quota-program": {
+      "title": "Volume Quota",
+      "hash": "612df7cded935bff2883d5b22d368c9744d64976a414022e529188a520839a5b",
+      "last_checked": "2026-02-24T09:45:18.909355"
+    },
+    "https://apidocs.lighter.xyz/docs/websocket-reference": {
+      "title": "WebSocket",
+      "hash": "55aeee7276cf721317699cddbc05a469673c8129e2c09ee2a0bf090deda35220",
+      "last_checked": "2026-02-24T09:45:20.459424"
+    },
+    "https://apidocs.lighter.xyz/reference/account-1": {
+      "title": "account",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:21.375886"
+    },
+    "https://apidocs.lighter.xyz/reference/accountactiveorders": {
+      "title": "order",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:22.173094"
+    },
+    "https://apidocs.lighter.xyz/reference/accountinactiveorders": {
+      "title": "accountInactiveOrdersget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:22.980577"
+    },
+    "https://apidocs.lighter.xyz/reference/accountlimits": {
+      "title": "accountLimitsget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:23.764095"
+    },
+    "https://apidocs.lighter.xyz/reference/accountmetadata": {
+      "title": "accountMetadataget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:24.480062"
+    },
+    "https://apidocs.lighter.xyz/reference/accountsbyl1address": {
+      "title": "accountsByL1Addressget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:25.197801"
+    },
+    "https://apidocs.lighter.xyz/reference/announcement-1": {
+      "title": "announcement",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:26.354925"
+    },
+    "https://apidocs.lighter.xyz/reference/apikeys": {
+      "title": "api keys",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:27.528171"
+    },
+    "https://apidocs.lighter.xyz/reference/assetdetails": {
+      "title": "assetDetailsget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:28.853860"
+    },
+    "https://apidocs.lighter.xyz/reference/candles": {
+      "title": "candlestick",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:30.010301"
+    },
+    "https://apidocs.lighter.xyz/reference/changeaccounttier": {
+      "title": "changeAccountTierpost",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:31.100748"
+    },
+    "https://apidocs.lighter.xyz/reference/createintentaddress": {
+      "title": "bridge",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:32.176934"
+    },
+    "https://apidocs.lighter.xyz/reference/deposit_history": {
+      "title": "deposit_historyget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:33.380867"
+    },
+    "https://apidocs.lighter.xyz/reference/deposit_latest": {
+      "title": "deposit_latestget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:34.499379"
+    },
+    "https://apidocs.lighter.xyz/reference/deposit_networks": {
+      "title": "deposit_networksget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:35.876528"
+    },
+    "https://apidocs.lighter.xyz/reference/exchangemetrics": {
+      "title": "info",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:37.071491"
+    },
+    "https://apidocs.lighter.xyz/reference/exchangestats": {
+      "title": "exchangeStatsget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:39.268012"
+    },
+    "https://apidocs.lighter.xyz/reference/export": {
+      "title": "exportget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:40.690265"
+    },
+    "https://apidocs.lighter.xyz/reference/fastbridge_info": {
+      "title": "fastbridge_infoget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:42.086259"
+    },
+    "https://apidocs.lighter.xyz/reference/fastwithdraw": {
+      "title": "fastwithdrawpost",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:43.349095"
+    },
+    "https://apidocs.lighter.xyz/reference/fastwithdraw_info": {
+      "title": "fastwithdraw_infoget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:45.127214"
+    },
+    "https://apidocs.lighter.xyz/reference/funding-rates": {
+      "title": "funding-ratesget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:46.167004"
+    },
+    "https://apidocs.lighter.xyz/reference/fundings": {
+      "title": "funding",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:47.328931"
+    },
+    "https://apidocs.lighter.xyz/reference/get_accounts-param-logs": {
+      "title": "account",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:48.111286"
+    },
+    "https://apidocs.lighter.xyz/reference/get_accounts-param-positions": {
+      "title": "positionsget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:48.856063"
+    },
+    "https://apidocs.lighter.xyz/reference/get_batches": {
+      "title": "batches",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:49.861204"
+    },
+    "https://apidocs.lighter.xyz/reference/get_batches-batchid": {
+      "title": "batchIdget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:51.523124"
+    },
+    "https://apidocs.lighter.xyz/reference/get_blocks": {
+      "title": "blocks",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:52.873552"
+    },
+    "https://apidocs.lighter.xyz/reference/get_blocks-blockid": {
+      "title": "blockIdget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:53.911339"
+    },
+    "https://apidocs.lighter.xyz/reference/get_logs-hash": {
+      "title": "logs",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:55.131420"
+    },
+    "https://apidocs.lighter.xyz/reference/get_markets": {
+      "title": "markets",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:56.490764"
+    },
+    "https://apidocs.lighter.xyz/reference/get_markets-symbol-logs": {
+      "title": "logsget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:45:58.910471"
+    },
+    "https://apidocs.lighter.xyz/reference/get_search": {
+      "title": "search",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:00.017180"
+    },
+    "https://apidocs.lighter.xyz/reference/get_stats-tx": {
+      "title": "stats",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:01.212598"
+    },
+    "https://apidocs.lighter.xyz/reference/info-1": {
+      "title": "infoget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:02.117308"
+    },
+    "https://apidocs.lighter.xyz/reference/l1metadata": {
+      "title": "l1Metadataget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:03.382378"
+    },
+    "https://apidocs.lighter.xyz/reference/layer1basicinfo": {
+      "title": "layer1BasicInfoget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:05.427465"
+    },
+    "https://apidocs.lighter.xyz/reference/liquidations": {
+      "title": "liquidationsget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:06.569392"
+    },
+    "https://apidocs.lighter.xyz/reference/nextnonce": {
+      "title": "nextNonceget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:07.709875"
+    },
+    "https://apidocs.lighter.xyz/reference/notification_ack": {
+      "title": "notification",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:08.816264"
+    },
+    "https://apidocs.lighter.xyz/reference/orderbookdetails": {
+      "title": "orderBookDetailsget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:10.016698"
+    },
+    "https://apidocs.lighter.xyz/reference/orderbookorders": {
+      "title": "orderBookOrdersget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:11.147914"
+    },
+    "https://apidocs.lighter.xyz/reference/orderbooks": {
+      "title": "orderBooksget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:12.370635"
+    },
+    "https://apidocs.lighter.xyz/reference/pnl": {
+      "title": "pnlget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:13.101025"
+    },
+    "https://apidocs.lighter.xyz/reference/positionfunding": {
+      "title": "positionFundingget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:13.855359"
+    },
+    "https://apidocs.lighter.xyz/reference/publicpoolsmetadata": {
+      "title": "publicPoolsMetadataget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:14.946397"
+    },
+    "https://apidocs.lighter.xyz/reference/recenttrades": {
+      "title": "recentTradesget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:15.696673"
+    },
+    "https://apidocs.lighter.xyz/reference/referral_create": {
+      "title": "referral",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:16.865898"
+    },
+    "https://apidocs.lighter.xyz/reference/referral_get": {
+      "title": "referral_getget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:17.685949"
+    },
+    "https://apidocs.lighter.xyz/reference/referral_kickback_update": {
+      "title": "referral_kickback_updatepost",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:18.943077"
+    },
+    "https://apidocs.lighter.xyz/reference/referral_points": {
+      "title": "referral_pointsget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:19.689869"
+    },
+    "https://apidocs.lighter.xyz/reference/referral_update": {
+      "title": "referral_updatepost",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:20.866214"
+    },
+    "https://apidocs.lighter.xyz/reference/referral_use": {
+      "title": "referral_usepost",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:22.033783"
+    },
+    "https://apidocs.lighter.xyz/reference/sendtx": {
+      "title": "transaction",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:23.235786"
+    },
+    "https://apidocs.lighter.xyz/reference/sendtxbatch": {
+      "title": "sendTxBatchpost",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:25.003527"
+    },
+    "https://apidocs.lighter.xyz/reference/status": {
+      "title": "root",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:25.460485"
+    },
+    "https://apidocs.lighter.xyz/reference/tokens": {
+      "title": "tokensget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:27.186396"
+    },
+    "https://apidocs.lighter.xyz/reference/tokens_create": {
+      "title": "tokens_createpost",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:28.992336"
+    },
+    "https://apidocs.lighter.xyz/reference/tokens_revoke": {
+      "title": "tokens_revokepost",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:30.132268"
+    },
+    "https://apidocs.lighter.xyz/reference/trades": {
+      "title": "tradesget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:30.997871"
+    },
+    "https://apidocs.lighter.xyz/reference/transfer_history": {
+      "title": "transfer_historyget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:32.052566"
+    },
+    "https://apidocs.lighter.xyz/reference/transferfeeinfo": {
+      "title": "transferFeeInfoget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:33.174293"
+    },
+    "https://apidocs.lighter.xyz/reference/tx": {
+      "title": "txget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:34.401411"
+    },
+    "https://apidocs.lighter.xyz/reference/txfroml1txhash": {
+      "title": "txFromL1TxHashget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:35.577316"
+    },
+    "https://apidocs.lighter.xyz/reference/txs": {
+      "title": "txsget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:36.664163"
+    },
+    "https://apidocs.lighter.xyz/reference/withdraw_history": {
+      "title": "withdraw_historyget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:38.860995"
+    },
+    "https://apidocs.lighter.xyz/reference/withdrawaldelay": {
+      "title": "withdrawalDelayget",
+      "hash": "bb2792ba4264e0b10a00a801571234a617a68703a92f20b6da51af55c2feb4de",
+      "last_checked": "2026-02-24T09:46:40.676695"
+    }
+  }
+}

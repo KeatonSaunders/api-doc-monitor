@@ -18,6 +18,7 @@ from monitors import (
     DeribitDocMonitor,
     HyperliquidDocMonitor,
     KrakenDocMonitor,
+    LighterDocMonitor,
     OKXDocMonitor,
     BaseDocMonitor,
 )
@@ -142,6 +143,7 @@ def main():
             "deribit",
             "hyperliquid",
             "kraken",
+            "lighter",
             "okx",
             "all",
         ],
@@ -204,6 +206,7 @@ def main():
             "deribit",
             "hyperliquid",
             "kraken",
+            "lighter",
             "okx",
         }
 
@@ -293,6 +296,15 @@ def main():
             {
                 "class": KrakenDocMonitor,
                 "name": "Kraken",
+                "kwargs": {**common_kwargs},
+            }
+        )
+
+    if "lighter" in exchanges_to_run:
+        monitors_config.append(
+            {
+                "class": LighterDocMonitor,
+                "name": "Lighter",
                 "kwargs": {**common_kwargs},
             }
         )

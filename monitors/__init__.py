@@ -13,6 +13,7 @@ from .coinbase import CoinbaseDocMonitor
 from .deribit import DeribitDocMonitor
 from .hyperliquid import HyperliquidDocMonitor
 from .kraken import KrakenDocMonitor
+from .lighter import LighterDocMonitor
 from .okx import OKXDocMonitor
 
 __all__ = [
@@ -25,5 +26,6 @@ __all__ = [
     "DeribitDocMonitor",
     "HyperliquidDocMonitor",
     "KrakenDocMonitor",
+    "LighterDocMonitor",
     "OKXDocMonitor",
 ]
