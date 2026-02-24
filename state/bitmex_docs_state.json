@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-02-11T09:01:53.575044",
+  "timestamp": "2026-02-24T09:01:40.338711",
   "sections": {
-    "https://blog.bitmex.com/api-change-03-02-2026/": {
-      "title": "API Update: Introducing the 'pool' field to the order, execution, orderBookL2, orderBook10, quote, quoteBin, trade, tradeBin end points",
-      "hash": "abda288956e484e596b80a10d162babc2310368e1a85cbaac5a62e3616d74d40",
-      "last_checked": "2026-02-11T09:01:53.576042",
-      "content": "API Update: Introducing the 'pool' field to the order, execution, orderBookL2, orderBook10, quote, quoteBin, trade, tradeBin end points\nThu, 29 Jan 2026 06:00:00 GMT\nhttps://blog.bitmex.com/api-change-03-02-2026/\nFrom 3 February 2025, a new field, pool, will be added to the following BitMEX REST and WebSocket API responses. \nAPI"
+    "https://blog.bitmex.com/xbtj26-futures-listing/": {
+      "title": "Now Live: XBTJ26 Futures Contract",
+      "hash": "95d2674687b20ea8aa62235a392ce925aa97222133197d26407940c934b2b46d",
+      "last_checked": "2026-02-24T09:01:40.338711",
+      "content": "Now Live: XBTJ26 Futures Contract\nMon, 23 Feb 2026 08:00:00 GMT\nhttps://blog.bitmex.com/xbtj26-futures-listing/\nAs of 24 Feb 2026 at 04:00 UTC, a new XBT futures contract, underlined and margined in Bitcoin, is now live on BitMEX. The listing will expire on 24 Apr 2026.\nListing"
     }
   }
 }

@@ -24,6 +24,7 @@ class BinanceDocMonitor(BaseDocMonitor):
         telegram_chat_id: str = None,
         monitor_spot: bool = True,
         monitor_derivatives: bool = True,
+        monitor_margin: bool = True,
         notify_additions: bool = True,
         notify_modifications: bool = True,
         notify_deletions: bool = False,
@@ -37,6 +38,7 @@ class BinanceDocMonitor(BaseDocMonitor):
             telegram_chat_id: Telegram chat ID to send messages to
             monitor_spot: Whether to monitor Spot API docs
             monitor_derivatives: Whether to monitor Derivatives docs
+            monitor_margin: Whether to monitor Margin Trading docs
             notify_additions: Send Telegram notification for new sections
             notify_modifications: Send Telegram notification for modified sections
             notify_deletions: Send Telegram notification for deleted sections
@@ -59,6 +61,10 @@ class BinanceDocMonitor(BaseDocMonitor):
         if monitor_derivatives:
             self.urls["derivatives"] = (
                 "https://developers.binance.com/docs/derivatives/change-log"
+            )
+        if monitor_margin:
+            self.urls["margin_trading"] = (
+                "https://developers.binance.com/docs/margin_trading/change-log"
             )
 
         # Get current year and previous year for filtering
@@ -229,7 +235,9 @@ class BinanceDocMonitor(BaseDocMonitor):
         if "spot" in self.urls:
             message += f"  • [Spot API]({self.urls['spot']})\n"
         if "derivatives" in self.urls:
-            message += f"  • [Derivatives]({self.urls['derivatives']})"
+            message += f"  • [Derivatives]({self.urls['derivatives']})\n"
+        if "margin_trading" in self.urls:
+            message += f"  • [Margin Trading]({self.urls['margin_trading']})"
         return message
 
     def get_section_label(self, section_id: str) -> str:
@@ -264,12 +272,20 @@ def main():
         action="store_true",
         help="Monitor only Derivatives documentation",
     )
+    parser.add_argument(
+        "--margin-only",
+        action="store_true",
+        help="Monitor only Margin Trading documentation",
+    )
 
     args = parser.parse_args()
 
     # Determine which APIs to monitor
-    monitor_spot = not args.derivatives_only
-    monitor_derivatives = not args.spot_only
+    # If any --*-only flag is set, only monitor those explicitly enabled
+    only_flags = args.spot_only or args.derivatives_only or args.margin_only
+    monitor_spot = args.spot_only if only_flags else True
+    monitor_derivatives = args.derivatives_only if only_flags else True
+    monitor_margin = args.margin_only if only_flags else True
 
     # Get Telegram credentials using base class helper
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(args)
@@ -286,6 +302,7 @@ def main():
         telegram_chat_id=telegram_chat_id,
         monitor_spot=monitor_spot,
         monitor_derivatives=monitor_derivatives,
+        monitor_margin=monitor_margin,
         notify_additions=notify_additions,
         notify_modifications=notify_modifications,
         notify_deletions=notify_deletions,
