@@ -8,6 +8,7 @@ by storing page hashes for comparison.
 Automatically sends Telegram notifications when changes are detected.
 """
 
+import re
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -62,6 +63,13 @@ class LighterDocMonitor(BaseDocMonitor):
 
         self.monitor_docs = monitor_docs
         self.monitor_reference = monitor_reference
+
+        # Pattern to match "Updated\nX days/weeks/months/years ago" text
+        # This avoids false positives from relative timestamp changes
+        self._updated_pattern = re.compile(
+            r"Updated\n\d+\s+(second|minute|hour|day|week|month|year)s?\s+ago",
+            re.IGNORECASE,
+        )
 
     def _discover_sidebar_links(self, seed_url: str, prefix: str) -> Dict[str, str]:
         """
@@ -178,7 +186,11 @@ class LighterDocMonitor(BaseDocMonitor):
             )
 
             content = main_content.get_text(separator="\n", strip=True)
-            content_hash = self.get_page_hash(content)
+
+            # Clean content to remove dynamic "Updated X days ago" text
+            # before hashing to avoid false positives
+            cleaned_content = self._updated_pattern.sub("", content)
+            content_hash = self.get_page_hash(cleaned_content)
 
             return content, content_hash
 
