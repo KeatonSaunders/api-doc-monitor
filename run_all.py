@@ -22,7 +22,7 @@ from monitors import (
     OKXDocMonitor,
     BaseDocMonitor,
 )
-from monitors.logger_config import setup_logger
+from logger_config import setup_logger
 
 
 def run_monitor(monitor_class, monitor_name, logger, save_content=True, **kwargs):

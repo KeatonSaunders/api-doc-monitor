@@ -33,7 +33,6 @@ scraper/
 │   ├── hyperliquid.py
 │   ├── kraken.py
 │   ├── lighter.py
-│   ├── logger_config.py
 │   └── okx.py
 ├── state/                    # State files (auto-generated)
 │   ├── binance_docs_state.json
@@ -47,6 +46,7 @@ scraper/
 │   ├── lighter_docs_state.json
 │   └── okx_docs_state.json
 ├── config.json               # Telegram configuration
+├── logger_config.py          # Shared logging setup
 ├── requirements.txt
 ├── run_all.py                # Master script to run all monitors
 └── README.md

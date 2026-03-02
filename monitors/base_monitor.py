@@ -15,7 +15,7 @@ from datetime import datetime
 import time
 from typing import Dict, Tuple
 from abc import ABC, abstractmethod
-from .logger_config import setup_logger
+from logger_config import setup_logger
 
 
 class BaseDocMonitor(ABC):
