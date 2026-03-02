@@ -14,6 +14,7 @@ Monitor cryptocurrency exchange API documentation for changes and receive Telegr
 | **Deribit** | Full site | Crawls API reference |
 | **Hyperliquid** | Full site | API, Trading, and HyperCore docs |
 | **Kraken** | Changelog | API changelog |
+| **Lighter** | Full site | Crawls API docs |
 | **OKX** | Changelog | Upcoming changes |
 
 ## Directory Structure
@@ -31,6 +32,7 @@ scraper/
 │   ├── deribit.py
 │   ├── hyperliquid.py
 │   ├── kraken.py
+│   ├── lighter.py
 │   ├── logger_config.py
 │   └── okx.py
 ├── state/                    # State files (auto-generated)
@@ -42,6 +44,7 @@ scraper/
 │   ├── deribit_docs_state.json
 │   ├── hyperliquid_docs_state.json
 │   ├── kraken_docs_state.json
+│   ├── lighter_docs_state.json
 │   └── okx_docs_state.json
 ├── config.json               # Telegram configuration
 ├── requirements.txt
@@ -108,6 +111,7 @@ python -m monitors.coinbase
 python -m monitors.deribit
 python -m monitors.hyperliquid
 python -m monitors.kraken
+python -m monitors.lighter
 python -m monitors.okx
 ```
 
@@ -122,7 +126,7 @@ python -m monitors.okx
 | `--telegram-chat-id` | Chat ID (overrides config) |
 | `--no-telegram` | Disable Telegram notifications |
 | `--no-save-content` | Don't save page content (reduces storage) |
-| `--exchanges` | Which exchanges to run: `binance`, `bitget`, `bitmex`, `bybit`, `coinbase`, `deribit`, `hyperliquid`, `kraken`, `okx`, or `all` |
+| `--exchanges` | Which exchanges to run: `binance`, `bitget`, `bitmex`, `bybit`, `coinbase`, `deribit`, `hyperliquid`, `kraken`, `lighter`, `okx`, or `all` |
 
 #### Individual Monitors
 
