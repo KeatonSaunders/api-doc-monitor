@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-03-03T09:01:52.661478",
+  "timestamp": "2026-03-04T09:01:51.969371",
   "sections": {
     "https://blog.bitmex.com/expanded-multichain-support/": {
       "title": "Now Live: Expanded Multi-Chain Support and HYPE on BitMEX Spot",
       "hash": "9a8547ee3dba9e114e71a90215fea6dd3261bfa68a78f9874c38b9d88e823b1b",
-      "last_checked": "2026-03-03T09:01:52.661478",
+      "last_checked": "2026-03-04T09:01:51.970787",
       "content": "Now Live: Expanded Multi-Chain Support and HYPE on BitMEX Spot\nWed, 25 Feb 2026 16:00:00 GMT\nhttps://blog.bitmex.com/expanded-multichain-support/\nBitMEX expands multi-chain support for Optimism, Arbitrum and Base. Deposit $HYPE via Hyperliquid L1, trade, and convert natively with zero gas fees on BitMEX Spot.\nLaunch"
     },
     "https://blog.bitmex.com/xbtj26-futures-listing/": {
       "title": "Now Live: XBTJ26 Futures Contract",
       "hash": "95d2674687b20ea8aa62235a392ce925aa97222133197d26407940c934b2b46d",
-      "last_checked": "2026-03-03T09:01:52.973500",
+      "last_checked": "2026-03-04T09:01:52.273191",
       "content": "Now Live: XBTJ26 Futures Contract\nMon, 23 Feb 2026 08:00:00 GMT\nhttps://blog.bitmex.com/xbtj26-futures-listing/\nAs of 24 Feb 2026 at 04:00 UTC, a new XBT futures contract, underlined and margined in Bitcoin, is now live on BitMEX. The listing will expire on 24 Apr 2026.\nListing"
     }
   }
