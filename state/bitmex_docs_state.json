@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-03-20T09:01:45.330107",
+  "timestamp": "2026-03-23T09:01:52.358734",
   "sections": {
     "https://blog.bitmex.com/instrumentID-asset-ID/": {
       "title": "API Update: Introducing the 'instrumentID' and 'assetID' Fields to the Instrument and Wallet Assets Endpoints",
       "hash": "71a4f988031dd3006d1ea0fd74de34b97bb71804ecb28b84d2dc554205e4eb0a",
-      "last_checked": "2026-03-20T09:01:45.330107",
+      "last_checked": "2026-03-23T09:01:52.359730",
       "content": "API Update: Introducing the 'instrumentID' and 'assetID' Fields to the Instrument and Wallet Assets Endpoints\nWed, 11 Mar 2026 16:00:00 GMT\nhttps://blog.bitmex.com/instrumentID-asset-ID/\nFrom 2 Mar 2026, new fields, instrumentID and assetID, will be added to the BitMEX Instruments and Wallet Assets endpoints respectively.\n\nAPI"
     },
     "https://blog.bitmex.com/xag-xaut/": {
       "title": "Now Live: Trade Silver (XAG) and Gold (XAUt) Perpetual Swaps on BitMEX ",
       "hash": "f50bf22c74117ad8af2087f37d6b713aa10e63bfd7b1da82f9fe0787002ff9bf",
-      "last_checked": "2026-03-20T09:01:45.637289",
+      "last_checked": "2026-03-23T09:01:52.660715",
       "content": "Now Live: Trade Silver (XAG) and Gold (XAUt) Perpetual Swaps on BitMEX \nWed, 11 Mar 2026 12:00:00 GMT\nhttps://blog.bitmex.com/xag-xaut/\nBitMEX expands its commodity offerings with the listing of the Silver (XAG) Perpetual Swap. Traders can participate in the Gold VS Silver Campagin, featuring a 30,000 USDT prize pool.\n\nListing"
     }
   }
