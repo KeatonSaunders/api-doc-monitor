@@ -1,28 +1,22 @@
 {
-  "timestamp": "2026-03-23T09:19:42.492319",
+  "timestamp": "2026-03-26T10:25:20.619500",
   "sections": {
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-delist-instid-request-parameter-in-ws-order-operation-channels": {
       "title": "Delist instId request parameter in WS order operation channels",
       "hash": "d0ba26ae9fa452702c8840f3c8010c5006e0a3a597626d8eed93a56ec172264b",
-      "last_checked": "2026-03-23T09:19:45.480617",
+      "last_checked": "2026-03-26T10:25:23.725163",
       "content": "Delist instId request parameter in WS order operation channels\nLast update: January 29, 2025\nTo reduce latency of WebSocket order operations, the following order operation channels have introduced a new request parameter, instIdCode . In the demo trading environment, the instId request parameter has been delisted. In the production environment, instId will be delisted in phases. After the delisting, any instId value provided will be ignored.\nPhase 1 delisting date: March 26, 2026 . The affected channels include: WS / Place order WS / Place multiple orders Phase 2 delisting date: March 31, 2026 . The affected channels include: WS / Amend order WS / Amend multiple orders WS / Cancel order WS / Cancel multiple orders\nRequest Parameter Name Type Required Description > instIdCode Integer Conditional Instrument ID code. If both instId and instIdCode are provided, instIdCode takes precedence. > instId String Conditional Instrument ID Will be deprecated on March 2026.\nNote: Users can use the Get instruments interface to map instIdCode to instId ."
-    },
-    "https://www.okx.com/docs-v5/log_en#upcoming-changes-delist-old-attached-stop-profit-and-stop-loss-parameters": {
-      "title": "Delist old attached stop profit and stop loss parameters",
-      "hash": "490d08efab141470cf44712e69df77b9378261b28c219e718acba1ba7822a948",
-      "last_checked": "2026-03-23T09:19:48.746675",
-      "content": "Delist old attached stop profit and stop loss parameters\nLast update: November 20, 2025\nIn order to streamline the placement parameters and order information parameters, Open API will delist the old stop-loss and take-profit parameters.\nRelated request parameters will be delisted in mid-October or later (the parameters in the array attachAlgoOrds aren\u2019t affected), no specific time will be further notified. Order channel Get order details Get order list Get order history (last 7 days) Get order history (last 30 days)\nParameter Type Description attachAlgoClOrdId String Client-supplied Algo ID when placing order attaching TP/SL. tpTriggerPx String Take-profit trigger price. tpTriggerPxType String Take-profit trigger price type. last : last price index : index price mark : mark price tpOrdPx String Take-profit order price. slTriggerPx String Stop-loss trigger price. slTriggerPxType String Stop-loss trigger price type. last : last price index : index price mark : mark price slOrdPx String Stop-loss order price."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-new-instcategory-enum-values-and-reclassification-of-existing-instruments": {
       "title": "NewinstCategoryenum values and reclassification of existing instruments",
       "hash": "57f962558d28fc62b5a787545a89e647b96295fe4455074ff18b2b5ae3ff253d",
-      "last_checked": "2026-03-23T09:19:51.697431",
+      "last_checked": "2026-03-26T10:25:26.874850",
       "content": "NewinstCategoryenum values and reclassification of existing instruments\nLast update: March 18, 2026\nNew enum values are being added to the instCategory response field to provide more granular asset categorization. This change is expected to go live on March 24, 2026 .\nInstruments endpoint/channel\nAdded new enum values for instCategory Get instruments (private) Get instruments (public) Instruments channel\nParameter Type Description instCategory String The asset category of the instrument's base asset (the first segment of the instrument ID). For example, for BTC-USDT-SWAP , the instCategory represents the asset category of BTC . 1 : Crypto 3 : Stocks 4 : Commodities 5 : Forex 6 : Bonds \"\" : Not available\nBreaking change\nThe following instruments currently return instCategory = 1 (Crypto). After this change goes live, their instCategory will be changed to 4 (Commodities):\nXAU-USDT-SWAP XAG-USDT-SWAP XPD-USDT-SWAP XPT-USDT-SWAP XCU-USDT-SWAP NG-USDT-SWAP CL-USDT-SWAP\nIf your application logic depends on the instCategory value for these instruments, please update accordingly before the go-live date."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-updated-the-calculation-window-for-delivery-price-exercise-price-and-settlement-price-from-1-hour-to-30-minutes-prior-to-expiration": {
       "title": "Updated the calculation window for Delivery Price, Exercise Price, and Settlement Price from 1 hour to 30 minutes prior to expiration.",
       "hash": "032f1641a9f347523ef61fb5d5c53054c17a31f1eb50cb1a189f25df9ac3c9b0",
-      "last_checked": "2026-03-23T09:19:54.680040",
+      "last_checked": "2026-03-26T10:25:30.073561",
       "content": "Updated the calculation window for Delivery Price, Exercise Price, and Settlement Price from 1 hour to 30 minutes prior to expiration.\nLast update: March 10, 2026 This update is expected to go live on March 18, 2026 .\nThe estimated price is calculated as the average of the index prices during the last 30 minutes prior to expiration. The system records one price point every 200 milliseconds, and the final price is determined by averaging all recorded price points within this time window.\nGET / Get estimated delivery/exercise price WS / Estimated delivery/exercise/settlement price channel"
     }
   }

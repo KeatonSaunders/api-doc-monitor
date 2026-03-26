@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-03-23T09:01:52.358734",
+  "timestamp": "2026-03-26T10:07:33.046355",
   "sections": {
-    "https://blog.bitmex.com/instrumentID-asset-ID/": {
-      "title": "API Update: Introducing the 'instrumentID' and 'assetID' Fields to the Instrument and Wallet Assets Endpoints",
-      "hash": "71a4f988031dd3006d1ea0fd74de34b97bb71804ecb28b84d2dc554205e4eb0a",
-      "last_checked": "2026-03-23T09:01:52.359730",
-      "content": "API Update: Introducing the 'instrumentID' and 'assetID' Fields to the Instrument and Wallet Assets Endpoints\nWed, 11 Mar 2026 16:00:00 GMT\nhttps://blog.bitmex.com/instrumentID-asset-ID/\nFrom 2 Mar 2026, new fields, instrumentID and assetID, will be added to the BitMEX Instruments and Wallet Assets endpoints respectively.\n\nAPI"
+    "https://blog.bitmex.com/wtiusdt/": {
+      "title": "Now Live: Trade Oil - WTIUSDT Perpetual Swaps Listing With Up to 25x Leverage ",
+      "hash": "50e2a027fb5c049afd1989cb9c4ec4d47f1acf756e03a4a100b272d1237e697a",
+      "last_checked": "2026-03-26T10:07:33.046355",
+      "content": "Now Live: Trade Oil - WTIUSDT Perpetual Swaps Listing With Up to 25x Leverage \nSun, 22 Mar 2026 16:00:00 GMT\nhttps://blog.bitmex.com/wtiusdt/\nAs of 24 March 2026 at 04:00 UTC, BitMEX users are now able to long or short $WTI via a new perpetual swap listing - WTIUSDT.\n\nListing"
     },
-    "https://blog.bitmex.com/xag-xaut/": {
-      "title": "Now Live: Trade Silver (XAG) and Gold (XAUt) Perpetual Swaps on BitMEX ",
-      "hash": "f50bf22c74117ad8af2087f37d6b713aa10e63bfd7b1da82f9fe0787002ff9bf",
-      "last_checked": "2026-03-23T09:01:52.660715",
-      "content": "Now Live: Trade Silver (XAG) and Gold (XAUt) Perpetual Swaps on BitMEX \nWed, 11 Mar 2026 12:00:00 GMT\nhttps://blog.bitmex.com/xag-xaut/\nBitMEX expands its commodity offerings with the listing of the Silver (XAG) Perpetual Swap. Traders can participate in the Gold VS Silver Campagin, featuring a 30,000 USDT prize pool.\n\nListing"
+    "https://blog.bitmex.com/xbtk26-monthly-listing/": {
+      "title": "Now Live: XBTK26 Futures Listing",
+      "hash": "d3291bef320192ce9a90101b4ba961b7185b73bfa1859217402166446cf12312",
+      "last_checked": "2026-03-26T10:07:33.347224",
+      "content": "Now Live: XBTK26 Futures Listing\nTue, 24 Mar 2026 04:00:00 GMT\nhttps://blog.bitmex.com/xbtk26-monthly-listing/\nAs of 04:00 UTC 24 Mar 2026, the XBTK26 Futures Contract is available to trade on BitMEX.\nListing"
     }
   }
 }
