@@ -1,16 +1,10 @@
 {
-  "timestamp": "2026-04-10T09:57:56.255138",
+  "timestamp": "2026-04-14T09:02:01.633494",
   "sections": {
-    "https://blog.bitmex.com/api-change-30-03-26/": {
-      "title": "API Update: Deprecation of 'limit' Field in WebSocket Connection Response",
-      "hash": "4b0144e6bd92b409404147e54b3bbf716d86a7524d66b6f53697e66430c6fc9c",
-      "last_checked": "2026-04-10T09:57:56.255138",
-      "content": "API Update: Deprecation of 'limit' Field in WebSocket Connection Response\nSun, 29 Mar 2026 16:00:00 GMT\nhttps://blog.bitmex.com/api-change-30-03-26/\nOn 30 March 2026 at 06:00 - 09:00 UTC, the updated WebSocket API will deprecate the limit field currently sent in the WSRequestLimit response upon successful WebSocket connection.\n\nAPI"
-    },
     "https://blog.bitmex.com/brentusdt/": {
       "title": "Now Live: BRENTUSDT Perpetual Swap Listing With Up to 25x Leverage ",
       "hash": "c554d91d2a5760784e9ae574c4fa411f1d734685afc28fba5b8945f54fe3c5d3",
-      "last_checked": "2026-04-10T09:57:56.557470",
+      "last_checked": "2026-04-14T09:02:01.633494",
       "content": "Now Live: BRENTUSDT Perpetual Swap Listing With Up to 25x Leverage \nMon, 30 Mar 2026 16:00:00 GMT\nhttps://blog.bitmex.com/brentusdt/\nAs of 1 April 2026 at 12:00 UTC, BitMEX users are able to long or short Brent crude oil via a new perpetual swap listing - BRENTUSDT.\n\nListing"
     }
   }
