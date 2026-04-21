@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-04-17T09:22:55.849834",
+  "timestamp": "2026-04-21T09:21:41.957008",
   "sections": {
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-reclassification-of-instcategory-for-commodity-instruments": {
       "title": "Reclassification ofinstCategoryfor commodity instruments",
       "hash": "2b5bb8fd3ac98df7ff7df7784e25d353127b1b90ca729736c9e7b22d9c036fa9",
-      "last_checked": "2026-04-17T09:22:58.517973",
+      "last_checked": "2026-04-21T09:21:44.799099",
       "content": "Reclassification ofinstCategoryfor commodity instruments\nLast update: April 13, 2026\nThe instCategory value for certain instruments will be reclassified. This change is expected to go live on April 21, 2026 .\nBreaking change\nThe following instruments currently return instCategory = 1 (Crypto). After this change goes live, their instCategory will be changed to 4 (Commodities):\nXAU-USDT-SWAP XAG-USDT-SWAP XPD-USDT-SWAP XPT-USDT-SWAP XCU-USDT-SWAP NG-USDT-SWAP CL-USDT-SWAP BZ-USDT-SWAP\nAffected endpoints:\nGet instruments (private) Get instruments (public) Instruments channel\nIf your application logic depends on the instCategory value for these instruments, please update accordingly before the go-live date."
     }
   }

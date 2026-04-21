@@ -1,22 +1,22 @@
 {
-  "timestamp": "2026-04-17T09:02:31.334665",
+  "timestamp": "2026-04-21T09:02:13.892865",
   "sections": {
     "https://blog.bitmex.com/natgasusdt/": {
       "title": "Now Live: NATGASUSDT Perpetual Swap Listing with up to 20x Leverage ",
       "hash": "6054d028d9fc7a8f8acfaa40055792b27c5a498e91b417e840fc0fa08359b48d",
-      "last_checked": "2026-04-17T09:02:31.334665",
+      "last_checked": "2026-04-21T09:02:13.893862",
       "content": "Now Live: NATGASUSDT Perpetual Swap Listing with up to 20x Leverage \nWed, 15 Apr 2026 16:00:00 GMT\nhttps://blog.bitmex.com/natgasusdt/\nAs of 16 April 2026 at 12:00 UTC, BitMEX users is now able to long or short Natural Gas via a new perpetual swap listing - NATGASUSDT.\n\nListing"
     },
     "https://blog.bitmex.com/xaut_usdt/": {
       "title": "Now Live: XAUt/USDT Spot Listing",
       "hash": "2657732c39c1ac62549a6b0f010d616b8ecb54a083a1b072d883ca013829fcba",
-      "last_checked": "2026-04-17T09:02:31.637580",
+      "last_checked": "2026-04-21T09:02:14.194962",
       "content": "Now Live: XAUt/USDT Spot Listing\nMon, 13 Apr 2026 16:00:00 GMT\nhttps://blog.bitmex.com/xaut_usdt/\nStarting 14 April 2026 at 04:00 UTC, XAUt (Tether Gold) will be available on BitMEX via XAUt_USDT (spot) for users to deposit and trade the XAUt token.\n\nListing"
     },
     "https://blog.bitmex.com/xptusdt/": {
       "title": "Now Live: XPTUSDT Perpetual Swap Listing with up to 20x Leverage ",
       "hash": "cfe01790eb0d3cdce226bda7294ec4c250670fed168dfd3bdcd96289a7919c9f",
-      "last_checked": "2026-04-17T09:02:31.939686",
+      "last_checked": "2026-04-21T09:02:14.496185",
       "content": "Now Live: XPTUSDT Perpetual Swap Listing with up to 20x Leverage \nTue, 14 Apr 2026 16:00:00 GMT\nhttps://blog.bitmex.com/xptusdt/\nAs of 16 April 2026 at 12:00 UTC, BitMEX users is now able to long or short Platinum via a new perpetual swap listing - XPTUSDT.\nListing"
     }
   }
