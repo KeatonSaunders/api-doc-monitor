@@ -1,59 +1,35 @@
 {
-  "timestamp": "2026-04-24T09:02:07.339276",
+  "timestamp": "2026-05-13T09:02:18.977846",
   "sections": {
-    "https://www.bitmex.com/blog/ewy-coming-soon": {
-      "title": "Now Live: EWYUSDT Perpetual Swap Listings With Up to 20x Leverage ",
-      "hash": "244b4ae5a60c268b9cddedffa35a1c1d8d26360e1051762cd870e4078f8d3a09",
-      "last_checked": "2026-04-24T09:02:07.339848",
-      "content": "Now Live: EWYUSDT Perpetual Swap Listings With Up to 20x Leverage \nThu, 23 Apr 2026 04:00:00 GMT\nhttps://www.bitmex.com/blog/ewy-coming-soon\nAs of 12:00 UTC on 23 April 2026 , a new perp listing for the iShares MSCI South Korea ET \u2013 EWYUSDT - is now available to trade on BitMEX, with up to 20x leverage. The listing began trading here today at 12:00 UTC. The full contract specs can be found here . Your chance to get exposure to Korean stocks, using crypto as collateral with 24/7 exposure. You can also read our blog for further information. In the meantime, if you have any questions please contact Support .\nSite Announcements"
+    "https://www.bitmex.com/blog/api-update-introducing-the-pool-field-to-ws-subscription-response": {
+      "title": "API Update: Introducing the 'pool' field to the ws subscription response",
+      "hash": "7cbc0cf2a575e01b6d55d2b7814e4fe92b95015f3563287489e85b2f5ea4abb4",
+      "last_checked": "2026-05-13T09:02:18.979195",
+      "content": "API Update: Introducing the 'pool' field to the ws subscription response\nTue, 12 May 2026 00:00:00 GMT\nhttps://www.bitmex.com/blog/api-update-introducing-the-pool-field-to-ws-subscription-response\nBitMEX is adding a new 'pool' field to WebSocket API subscription responses for order book, quote, and trade feeds, effective 19 May 2026.\nAPI"
     },
-    "https://www.bitmex.com/blog/ewyusdt": {
-      "title": "Now Live: EWYUSDT Perpetual Swap Listing with up to 20x Leverage ",
-      "hash": "3110ff5fe3a45f467ddf002579b8db7dd6150f6dd53359376abf10f989ba5f72",
-      "last_checked": "2026-04-24T09:02:07.640663",
-      "content": "Now Live: EWYUSDT Perpetual Swap Listing with up to 20x Leverage \nThu, 23 Apr 2026 04:00:00 GMT\nhttps://www.bitmex.com/blog/ewyusdt\nAs of 23 April 2026 at 12:00 UTC, BitMEX users can long or short the iShares MSCI South Korea ETF via a new perpetual swap listing - EWYUSDT.\n\nListing"
+    "https://www.bitmex.com/blog/fx-perps": {
+      "title": "Now Live: Trade FX Perpetual Swaps 24/7 with Crypto ",
+      "hash": "c8eec61dc7f86197a312a36779c8f80dcbc82a1b538881baf0bf1614516d2ea6",
+      "last_checked": "2026-05-13T09:02:19.281382",
+      "content": "Now Live: Trade FX Perpetual Swaps 24/7 with Crypto \nTue, 28 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/fx-perps\n6 new FX Perps now live. Trade EUR/USD, USD/JPY, GBP/USD, and more with crypto. Trade up to 100x leverage, 24/7 trading on BitMEX\nListing"
     },
-    "https://www.bitmex.com/blog/natgasusdt": {
-      "title": "Now Live: NATGASUSDT Perpetual Swap Listing with up to 20x Leverage ",
-      "hash": "96f2f59537183b946456034a52eb3b44dbfcaa369061aa1bdcfc3d3afaf4f678",
-      "last_checked": "2026-04-24T09:02:07.943486",
-      "content": "Now Live: NATGASUSDT Perpetual Swap Listing with up to 20x Leverage \nWed, 15 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/natgasusdt\nAs of 16 April 2026 at 12:00 UTC, BitMEX users is now able to long or short Natural Gas via a new perpetual swap listing - NATGASUSDT.\n\nListing"
+    "https://www.bitmex.com/blog/fx-perps-now-live-1": {
+      "title": "Now Live: Trade FX Perps and Win from $50,000",
+      "hash": "e3738f36d5aabb4d546818a27c180a47c8afe9b040ef0f23fc88d8d6031ddbe1",
+      "last_checked": "2026-05-13T09:02:19.582308",
+      "content": "Now Live: Trade FX Perps and Win from $50,000\nTue, 28 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/fx-perps-now-live-1\n6 FX Perps are live on BitMEX You can now trade EUR/USD , USD/JPY , GBP/USD , AUD/USD , USD/CHF , and USD/CAD with up to 100x leverage \u2013 24/7 with crypto. Trade the new FX Perps and win from the $50,000 prize pool. Learn how you can trade to win your share here . For full details on the new contracts and how to get started, read our blog . In the meantime, if you have any questions please contact Support .\nSite Announcements"
     },
-    "https://www.bitmex.com/blog/natgatusdt-now-live": {
-      "title": "Now Live: NATGASUSDT Perpetual Swap Listings With Up to 20x Leverage ",
-      "hash": "b3c43eb286055a6ef3a5354a3c76af48ec783cd7e821648a532d7424a4c456a6",
-      "last_checked": "2026-04-24T09:02:08.245046",
-      "content": "Now Live: NATGASUSDT Perpetual Swap Listings With Up to 20x Leverage \nWed, 15 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/natgatusdt-now-live\nAs of 12:00 UTC on 16 April 2026 , a new perp listing for Natural Gas \u2013 NATGASUSDT - is now available to trade on BitMEX, with up to 20x leverage. The listing began trading here today at 12:00 UTC. The full contract specs can be found here . Your chance to get exposure to Natural Gas, using crypto as collateral with 24/7 exposure. You can also read our blog for further information. In the meantime, if you have any questions please contact Support .\nSite Announcements"
+    "https://www.bitmex.com/blog/offramp-sell-crypto-mercuryo": {
+      "title": "Now Live: Sell Crypto on BitMEX with Mercuryo",
+      "hash": "eea67d6a437a5492e51bc98af26985c4d09d398956aa433f1555a6a4fc9179d0",
+      "last_checked": "2026-05-13T09:02:19.883447",
+      "content": "Now Live: Sell Crypto on BitMEX with Mercuryo\nTue, 28 Apr 2026 15:00:00 GMT\nhttps://www.bitmex.com/blog/offramp-sell-crypto-mercuryo\nSell Bitcoin, Ethereum, USDT and more for cash on BitMEX via Mercuryo. Withdraw to your bank or credit card in minutes.\nLaunch"
     },
-    "https://www.bitmex.com/blog/tradfi-perps-earn-50k": {
-      "title": "Now Live: Trade TraFi Perps and Share a 50k Prize Pool",
-      "hash": "574b0f0d39d0b16719a5894d65567412c81f7b7d4fe291735eb17baa86bba058",
-      "last_checked": "2026-04-24T09:02:08.546975",
-      "content": "Now Live: Trade TraFi Perps and Share a 50k Prize Pool\nWed, 15 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/tradfi-perps-earn-50k\nStart trading commodities, FX and equities anytime, anywhere. New TradFi traders can claim an immediate $5 credit for their first trade, while all users can scale five volume tiers to unlock up to $500 and earn extra rewards for sharing weekend trades on X. Learn how to win your share here . In the meantime, if you have any questions please contact Support .\nSite Announcements"
-    },
-    "https://www.bitmex.com/blog/trading-circuit-now-live": {
-      "title": "Now Live: Trading Circuit, Earn Your Share from the 100k Prize Pool ",
-      "hash": "2b2613108d5a0e432ac8272ba2430ad15af7f596d1c36ca72fe7fbfbb5d5aa63",
-      "last_checked": "2026-04-24T09:02:08.848771",
-      "content": "Now Live: Trading Circuit, Earn Your Share from the 100k Prize Pool \nTue, 21 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/trading-circuit-now-live\nThe Trading Circuit is now on. Trade to unlock higher tier rewards, race to the weekly leaderboards and earn a free TradingView subscription throughout the 3 week sprint. Learn how to win your share here here . In the meantime, if you have any questions please contact Support .\nSite Announcements"
-    },
-    "https://www.bitmex.com/blog/updated-fees-equity-perps": {
-      "title": "Updates to Fees for Equity Perpetual Contracts",
-      "hash": "a4360a426ce7ef42a592fe9754f9f0fa56b447888082123fbb8762eb84a8b3b9",
-      "last_checked": "2026-04-24T09:02:09.150253",
-      "content": "Updates to Fees for Equity Perpetual Contracts\nWed, 15 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/updated-fees-equity-perps\nEffective 21 April at 00:00 UTC, the fees for all Equity Perpetual contracts will be updated to a standard base fee of 5 bps (0.05%). Both Maker and Taker fees will be set at 0.05% and discounts will be applied based on your fee tier. All changes will remain in effect until further notice. Below is a list of all affected contracts. If you have any questions please contact Support .\nSite Announcements"
-    },
-    "https://www.bitmex.com/blog/xptusdt": {
-      "title": "Now Live: XPTUSDT Perpetual Swap Listing with up to 20x Leverage ",
-      "hash": "f2625d925a65a849943e2432d1cc25dcc6156afe62ab0e7a7f4d6128c84ddae5",
-      "last_checked": "2026-04-24T09:02:09.451844",
-      "content": "Now Live: XPTUSDT Perpetual Swap Listing with up to 20x Leverage \nTue, 14 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/xptusdt\nAs of 16 April 2026 at 12:00 UTC, BitMEX users is now able to long or short Platinum via a new perpetual swap listing - XPTUSDT.\nListing"
-    },
-    "https://www.bitmex.com/blog/xptusdt-now-live": {
-      "title": "Now Live: XPTUSDT Perpetual Swap Listings With Up to 20x Leverage ",
-      "hash": "8c35f316008ee302a666ee6936146d94aaae8d9eb17a0a8512b433a097ef5ba8",
-      "last_checked": "2026-04-24T09:02:09.753414",
-      "content": "Now Live: XPTUSDT Perpetual Swap Listings With Up to 20x Leverage \nWed, 15 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/xptusdt-now-live\nAs of 12:00 UTC on 16 April 2026 , a new perp listing for Platinum \u2013 XPTUSDT - is now available to trade on BitMEX, with up to x leverage. The listing began trading here today at 12:00 UTC. The full contract specs can be found here . Your chance to get exposure to XPT, using crypto as collateral with 24/7 exposure. You can also read our blog for further information. In the meantime, if you have any questions please contact Support .\nSite Announcements"
+    "https://www.bitmex.com/blog/switch-mode-now-live": {
+      "title": "Now Live: Switch Position Modes Without Closing Trades",
+      "hash": "08a3cab5c8c92a018ca1a408951297b6aa184c96a6f46388d2ff0bf4729fa4b1",
+      "last_checked": "2026-05-13T09:02:20.184725",
+      "content": "Now Live: Switch Position Modes Without Closing Trades\nWed, 06 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/switch-mode-now-live\nYou can now change between hedge mode and one-way mode on any supported contract without closing your open positions. No slippage, No Fees. Switch Mode is available on Web, Mobile, and via the BitMEX API. For full details on the new feature and how to get started, read our FAQs . In the meantime, if you have any questions please contact Support .\nSite Announcements"
     }
   }
 }
