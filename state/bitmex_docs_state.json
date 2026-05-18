@@ -1,34 +1,40 @@
 {
-  "timestamp": "2026-05-13T09:02:18.977846",
+  "timestamp": "2026-05-15T12:16:10.769598",
   "sections": {
     "https://www.bitmex.com/blog/api-update-introducing-the-pool-field-to-ws-subscription-response": {
       "title": "API Update: Introducing the 'pool' field to the ws subscription response",
       "hash": "7cbc0cf2a575e01b6d55d2b7814e4fe92b95015f3563287489e85b2f5ea4abb4",
-      "last_checked": "2026-05-13T09:02:18.979195",
+      "last_checked": "2026-05-15T12:16:10.769598",
       "content": "API Update: Introducing the 'pool' field to the ws subscription response\nTue, 12 May 2026 00:00:00 GMT\nhttps://www.bitmex.com/blog/api-update-introducing-the-pool-field-to-ws-subscription-response\nBitMEX is adding a new 'pool' field to WebSocket API subscription responses for order book, quote, and trade feeds, effective 19 May 2026.\nAPI"
     },
-    "https://www.bitmex.com/blog/fx-perps": {
-      "title": "Now Live: Trade FX Perpetual Swaps 24/7 with Crypto ",
-      "hash": "c8eec61dc7f86197a312a36779c8f80dcbc82a1b538881baf0bf1614516d2ea6",
-      "last_checked": "2026-05-13T09:02:19.281382",
-      "content": "Now Live: Trade FX Perpetual Swaps 24/7 with Crypto \nTue, 28 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/fx-perps\n6 new FX Perps now live. Trade EUR/USD, USD/JPY, GBP/USD, and more with crypto. Trade up to 100x leverage, 24/7 trading on BitMEX\nListing"
+    "https://www.bitmex.com/blog/copy-and-conquer-now-live": {
+      "title": "Now Live: Copy and Conquer, Rewards for Leaders and Copiers",
+      "hash": "f138c07412dc250306419701b71fcc5fe533098862bf792c0e7222ed0bc4e401",
+      "last_checked": "2026-05-15T12:16:11.074665",
+      "content": "Now Live: Copy and Conquer, Rewards for Leaders and Copiers\nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/copy-and-conquer-now-live\nCopy and Conquer is live. New copiers get $50 in loss protection, with new lead traders earning up to 50% profit share. All users can unlock six reward tiers for up to $150 in credits. Learn how to win your share here . In the meantime, if you have any questions please contact Support .\nSite Announcements"
     },
-    "https://www.bitmex.com/blog/fx-perps-now-live-1": {
-      "title": "Now Live: Trade FX Perps and Win from $50,000",
-      "hash": "e3738f36d5aabb4d546818a27c180a47c8afe9b040ef0f23fc88d8d6031ddbe1",
-      "last_checked": "2026-05-13T09:02:19.582308",
-      "content": "Now Live: Trade FX Perps and Win from $50,000\nTue, 28 Apr 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/fx-perps-now-live-1\n6 FX Perps are live on BitMEX You can now trade EUR/USD , USD/JPY , GBP/USD , AUD/USD , USD/CHF , and USD/CAD with up to 100x leverage \u2013 24/7 with crypto. Trade the new FX Perps and win from the $50,000 prize pool. Learn how you can trade to win your share here . For full details on the new contracts and how to get started, read our blog . In the meantime, if you have any questions please contact Support .\nSite Announcements"
+    "https://www.bitmex.com/blog/fx-perps-now-live": {
+      "title": "Win from $50,000: 6 FX Perpetuals Now Live",
+      "hash": "7a3fa3ef5050180e1e1c9276b4ccc73a29efb96558f9a28acccd98c51faf028e",
+      "last_checked": "2026-05-15T12:16:11.378212",
+      "content": "Win from $50,000: 6 FX Perpetuals Now Live\nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/fx-perps-now-live\nTrade perpetual swaps on EUR/USD , USD/JPY , GBP/USD , AUD/USD , USD/CHF , and USD/CAD with up to 100x leverage using crypto as collateral. Peer-to-Peer. No weekend closures. The $50,000 prize pool is now live for all FX Perps contracts. Learn how you can trade to win your share here . For full details on the new contracts and how to get started, read our blog . If you have any questions please contact Support .\nSite Announcements"
     },
-    "https://www.bitmex.com/blog/offramp-sell-crypto-mercuryo": {
-      "title": "Now Live: Sell Crypto on BitMEX with Mercuryo",
-      "hash": "eea67d6a437a5492e51bc98af26985c4d09d398956aa433f1555a6a4fc9179d0",
-      "last_checked": "2026-05-13T09:02:19.883447",
-      "content": "Now Live: Sell Crypto on BitMEX with Mercuryo\nTue, 28 Apr 2026 15:00:00 GMT\nhttps://www.bitmex.com/blog/offramp-sell-crypto-mercuryo\nSell Bitcoin, Ethereum, USDT and more for cash on BitMEX via Mercuryo. Withdraw to your bank or credit card in minutes.\nLaunch"
+    "https://www.bitmex.com/blog/maker-rebate-14-05-now-live": {
+      "title": "Now Live: Updates to Fees for Selected Derivatives Contracts",
+      "hash": "ec076f06e94df1cde6c393b9b61578ac4db17150ab10c7079086217a42fc07cf",
+      "last_checked": "2026-05-15T12:16:11.681632",
+      "content": "Now Live: Updates to Fees for Selected Derivatives Contracts\nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/maker-rebate-14-05-now-live\nAs of 14 May at 07:00 UTC, the fees for the below derivatives contracts will be updated to a standard base fee of 5 bps (0.05%). Both Maker and Taker fees will be set at 0.05% and discounts will be applied based on your fee tier. Thank you to all traders who participated during the promotional maker rebate period.\nSite Announcements"
+    },
+    "https://www.bitmex.com/blog/maker-rebates-14-05-2026": {
+      "title": "Now Live: Maker Rebates on Selected Derivatives Contracts ",
+      "hash": "aee1156fdee67e16cdebacf15c6589dd32e6ed3e43a4989b8795dc59197945d8",
+      "last_checked": "2026-05-15T12:16:11.984255",
+      "content": "Now Live: Maker Rebates on Selected Derivatives Contracts \nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/maker-rebates-14-05-2026\nNow Live: Maker Rebates on Selected Derivatives Contracts \n\nListing"
     },
     "https://www.bitmex.com/blog/switch-mode-now-live": {
       "title": "Now Live: Switch Position Modes Without Closing Trades",
       "hash": "08a3cab5c8c92a018ca1a408951297b6aa184c96a6f46388d2ff0bf4729fa4b1",
-      "last_checked": "2026-05-13T09:02:20.184725",
+      "last_checked": "2026-05-15T12:16:12.287516",
       "content": "Now Live: Switch Position Modes Without Closing Trades\nWed, 06 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/switch-mode-now-live\nYou can now change between hedge mode and one-way mode on any supported contract without closing your open positions. No slippage, No Fees. Switch Mode is available on Web, Mobile, and via the BitMEX API. For full details on the new feature and how to get started, read our FAQs . In the meantime, if you have any questions please contact Support .\nSite Announcements"
     }
   }
